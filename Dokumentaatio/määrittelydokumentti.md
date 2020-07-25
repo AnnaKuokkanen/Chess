@@ -21,4 +21,5 @@ Ohjelma saa syötteenä vastapuolen siirtämän nappulan tyypin, siirron lähtö
 ## Lähteet 
 
 [freeCodeCamp](https://www.freecodecamp.org/news/simple-chess-ai-step-by-step-1d55a9266977/)
+
 [Minimax](https://en.wikipedia.org/wiki/Minimax)
