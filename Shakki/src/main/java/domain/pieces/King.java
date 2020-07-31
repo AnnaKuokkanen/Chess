@@ -9,8 +9,8 @@ public class King extends Piece {
     private Tile location;
     private boolean black;
     
-    public King(boolean onBoard, Tile location, boolean black) {
-        super(onBoard, location, black);
+    public King(boolean black) {
+        super(new Tile(0, 4), black);
     }
     
     public ArrayList<Tile> getPossibleMoves() {

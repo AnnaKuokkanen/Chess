@@ -7,8 +7,8 @@ public class Queen extends Piece {
     private Tile location;
     private boolean black;
     
-    public Queen(boolean onBoard, Tile location, boolean black) {
-        super(onBoard, location, black);
+    public Queen(boolean black) {
+        super(new Tile(0, 3), black);
     }
     
     public ArrayList<Tile> getPossibleMoves() {

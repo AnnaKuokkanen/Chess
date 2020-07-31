@@ -8,8 +8,8 @@ public class Piece {
     private Tile location;
     private boolean black;
     
-    public Piece(boolean onBoard, Tile location, boolean black) {
-        this.onBoard = onBoard;
+    public Piece(Tile location, boolean black) {
+        this.onBoard = true;
         this.location = location;
         this.black = black;
     }
