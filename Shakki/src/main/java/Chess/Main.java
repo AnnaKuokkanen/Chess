@@ -5,6 +5,6 @@ import gui.Table;
 public class Main {
 
     public static void main(String[] args) {
-        new Table();
+        Table table = new Table(1000, 1000);
     }
 }
