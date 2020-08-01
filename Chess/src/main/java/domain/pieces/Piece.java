@@ -1,41 +1,41 @@
 package domain.pieces;
 
 import domain.board.Tile;
+import chess.model.*;
 import java.util.*;
 
 public class Piece {
     private boolean onBoard;
     private Tile location;
-    private boolean black;
+    private Side side;
     
-    public Piece(Tile location, boolean black) {
+    public Piece(Side side) {
         this.onBoard = true;
-        this.location = location;
-        this.black = black;
+        this.side = side;
     }
 
     public Tile getLocation() {
         return location;
     }
     
+    public void setLocation(int x, int y) {
+        this.location = new Tile(x, y);
+    }
+    
     public boolean onBoard() {
         return onBoard;
     }
     
-    public void getRemoved() {
+    public void remove() {
         onBoard = false;
     }
     
-    public boolean isBlack() {
-        return black;
+    public Side getSide() {
+        return side;
     }
     
     public void move(int x, int y) {
         location.setX(x);
         location.setY(y);
-    }
-    
-    public void chooseMove(ArrayList<Tile> tiles) {
-        //this should choose the best move using minimax
     }
 }

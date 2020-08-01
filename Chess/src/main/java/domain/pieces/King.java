@@ -1,5 +1,6 @@
 package domain.pieces;
 
+import chess.model.Side;
 import domain.pieces.Piece;
 import domain.board.Tile;
 import java.util.*;
@@ -7,10 +8,10 @@ import java.util.*;
 public class King extends Piece {
     private boolean onBoard;
     private Tile location;
-    private boolean black;
+    private Side side;
     
-    public King(boolean black) {
-        super(new Tile(0, 4), black);
+    public King(Side side) {
+        super(side);
     }
     
     public ArrayList<Tile> getPossibleMoves() {
