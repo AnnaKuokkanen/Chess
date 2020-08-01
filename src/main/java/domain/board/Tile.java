@@ -8,11 +8,12 @@ public class Tile {
     private int y;
     private Piece piece;
     private String id;
+    private TileNameConverter converter = new TileNameConverter();
     
     public Tile(int x, int y) {
         this.x = x;
         this.y = y;
-        
+        this.id = converter.convert(x, y);
     }
     
     public int getX() {
@@ -31,7 +32,10 @@ public class Tile {
     }
     
     public Piece getPiece() {
-        //this should be programmed to inform of type of piece
         return piece;
+    }
+    
+    public void setPiece(Piece piece) {
+        this.piece = piece;
     }
 }
