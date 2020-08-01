@@ -7,10 +7,12 @@ public class Tile {
     private int x;
     private int y;
     private Piece piece;
+    private String id;
     
     public Tile(int x, int y) {
         this.x = x;
         this.y = y;
+        
     }
     
     public int getX() {
