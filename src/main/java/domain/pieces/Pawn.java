@@ -1,7 +1,7 @@
 package domain.pieces;
 
 import chess.model.Side;
-import domain.board.Tile;
+import domain.board.*;
 import java.util.ArrayList;
 
 public class Pawn extends Piece {
@@ -12,15 +12,26 @@ public class Pawn extends Piece {
     public Pawn(Side side) {
         super(side, "pawn");
     }
-    
-    public ArrayList<Tile> getPossibleMoves() {
+    /**
+     * pawn can move straight forward or capture diagonally
+     * @param board for current game situation
+     * @return list of tiles where pawn can legally move
+     */
+    public ArrayList<Tile> getPossibleMoves(Board board) {
         ArrayList<Tile> moves = new ArrayList<>();
+        Tile[][] tiles = board.getBoard();
         
-        int x = getLocation().getX();
-        int y = getLocation().getY();
+        int x = this.getLocation().getX();
+        int y = this.getLocation().getY();
         
-        if(x<7) {
-            moves.add(new Tile(x + 1, y));
+        if (y < 7 && tiles[x][y + 1] == null) {
+            moves.add(tiles[x][y + 1]);
+        }
+        if(tiles[x - 1][y + 1] != null && tiles[x - 1][y + 1].getPiece().getSide() != this.side) {
+            moves.add(tiles[x - 1][y + 1]);
+        }
+        if(tiles[x + 1][y + 1] != null && tiles[x + 1][y + 1].getPiece().getSide() != this.side) {
+            moves.add(tiles[x + 1][y + 1]);
         }
         
         return moves;
