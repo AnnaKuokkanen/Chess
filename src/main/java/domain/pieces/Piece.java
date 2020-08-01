@@ -44,4 +44,32 @@ public class Piece {
         location.setX(x);
         location.setY(y);
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) {
+            return true;
+        }
+        if (o instanceof Piece) {  
+            Piece piece = (Piece) o;  
+            if(piece.getSide() != this.side) {
+                return false;
+            }
+            if((piece.getLocation().getX() == this.location.getX()) && (piece.getLocation().getY() == this.location.getY())) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + (this.onBoard ? 1 : 0);
+        hash = 29 * hash + Objects.hashCode(this.location);
+        hash = 29 * hash + Objects.hashCode(this.side);
+        return hash;
+    }
 }
