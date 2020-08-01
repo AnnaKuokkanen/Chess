@@ -9,7 +9,7 @@ public class Queen extends Piece {
     private Side side;
     
     public Queen(Side side) {
-        super(side);
+        super(side, "queen");
     }
     
     public ArrayList<Tile> getPossibleMoves() {
@@ -22,5 +22,12 @@ public class Queen extends Piece {
             }
         }
         return moves;
+    }
+    public int getValue() {
+        int value = 90;
+        if(side == side.BLACK) {
+            value = value * (-1);
+        }
+        return value;
     }
 }

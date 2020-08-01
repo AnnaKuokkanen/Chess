@@ -8,10 +8,12 @@ public class Piece {
     private boolean onBoard;
     private Tile location;
     private Side side;
+    private String type;
     
-    public Piece(Side side) {
+    public Piece(Side side, String type) {
         this.onBoard = true;
         this.side = side;
+        this.type = type;
     }
 
     public Tile getLocation() {
@@ -32,6 +34,10 @@ public class Piece {
     
     public Side getSide() {
         return side;
+    }
+    
+    public String getType() {
+        return this.type;
     }
     
     public void move(int x, int y) {

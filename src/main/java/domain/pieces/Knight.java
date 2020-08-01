@@ -1,14 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain.pieces;
 
-/**
- *
- * @author kuokanna
- */
-public class Knight {
+import chess.model.Side;
+import domain.board.Tile;
+import java.util.ArrayList;
+
+public class Knight extends Piece {
+    private boolean onBoard;
+    private Tile location;
+    private Side side;
     
+    public Knight(Side side) {
+        super(side, "knight");
+    } 
+    
+    public ArrayList<Tile> getPossibleMoves() {
+        ArrayList<Tile> tiles = new ArrayList<>();
+        
+        return tiles;
+    }
+    
+    public int getValue() {
+        int value = 30;
+        if(side == side.BLACK) {
+            value = value * (-1);
+        }
+        return value;
+    } 
 }

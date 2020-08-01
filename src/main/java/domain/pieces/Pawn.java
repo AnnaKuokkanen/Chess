@@ -10,7 +10,7 @@ public class Pawn extends Piece {
     private Side side;
     
     public Pawn(Side side) {
-        super(side);
+        super(side, "pawn");
     }
     
     public ArrayList<Tile> getPossibleMoves() {
@@ -19,8 +19,18 @@ public class Pawn extends Piece {
         int x = getLocation().getX();
         int y = getLocation().getY();
         
-        moves.add(new Tile(x + 1, y));
+        if(x<7) {
+            moves.add(new Tile(x + 1, y));
+        }
         
         return moves;
+    }
+    
+    public int getValue() {
+        int value = 10;
+        if(side == side.BLACK) {
+            value = value * (-1);
+        }
+        return value;
     }
 }
