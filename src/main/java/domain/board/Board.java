@@ -51,4 +51,8 @@ public class Board {
             tiles[i][6].setPiece(new Pawn(white));
         }
     }
+    
+    public Tile[][] getBoard() {
+        return this.tiles;
+    }
 }
