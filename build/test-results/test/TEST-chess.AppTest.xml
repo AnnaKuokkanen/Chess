@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="chess.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-08-01T09:43:40" hostname="lx8-fuxi076" time="0.0">
-  <properties/>
-  <testcase name="testsWork" classname="chess.AppTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="chess.model.ProfileTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-08-01T09:43:44" hostname="lx8-fuxi076" time="0.004">
-  <properties/>
-  <testcase name="profileIdReadCorrectly" classname="chess.model.ProfileTest" time="0.001"/>
-  <testcase name="profileUsernameReadCorrectly" classname="chess.model.ProfileTest" time="0.001"/>
-  <testcase name="profileCanParseJson" classname="chess.model.ProfileTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
