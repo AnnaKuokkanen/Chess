@@ -38,4 +38,32 @@ public class Tile {
     public void setPiece(Piece piece) {
         this.piece = piece;
     }
+    
+    public boolean free() {
+        return piece == null;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o instanceof Tile) {
+            Tile tile = (Tile) o;
+            if(this.x == tile.getX() && this.y == tile.getY()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + this.x;
+        hash = 97 * hash + this.y;
+        return hash;
+    }
 }
