@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.17">
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/App.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/bot/ChessBot.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/bot/MyBot.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/bot/TestBot.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/connection/HTTPIO.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/connection/HTTPIOFactory.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/connection/HTTPStream.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/connection/HTTPStreamFactory.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/connection/LichessAPI.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/connection/XBoardHandler.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/engine/GameState.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/model/Event.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/model/EventType.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/model/Profile.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/chess/model/Side.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/datastructureproject/PerformanceTest.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/domain/board/Board.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/domain/board/Tile.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/domain/board/TileNameConverter.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/domain/pieces/Bishop.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/domain/pieces/King.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/domain/pieces/Knight.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/domain/pieces/Pawn.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/domain/pieces/Piece.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/domain/pieces/Queen.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/domain/pieces/Rook.java">
+</file>
+<file name="/home/kuokanna/Chess/Chess/src/main/java/logging/Logger.java">
+</file>
+</checkstyle>

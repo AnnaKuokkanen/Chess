@@ -1,0 +1,67 @@
+e2e4
+c7c5
+f2f4
+d7d6
+g1f3
+b8c6
+f1c4
+g8f6
+d2d3
+g7g6
+e1g1
+f8g7
+ "e2e4
+ ";2020-08-01T12:43:40.190784[32m MESSAGE: [0mMoves: [e2e4]
+ "A2020-08-01T12:43:40.201943[32m MESSAGE: [0mBot made move: d7d5
+ "A2020-08-01T12:43:40.202351[32m MESSAGE: [0mMoves: [e2e4, d7d5]
+ "G2020-08-01T12:43:40.202676[32m MESSAGE: [0mMoves: [e2e4, d7d5, e4d5]
+ "A2020-08-01T12:43:40.203007[32m MESSAGE: [0mBot made move: c7c5
+ "M2020-08-01T12:43:40.203370[32m MESSAGE: [0mMoves: [e2e4, d7d5, e4d5, c7c5]
+ "S2020-08-01T12:43:40.203688[32m MESSAGE: [0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3]
+ "A2020-08-01T12:43:40.204107[32m MESSAGE: [0mBot made move: b7b5
+ "Y2020-08-01T12:43:40.204563[32m MESSAGE: [0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5]
+ "_2020-08-01T12:43:40.205046[32m MESSAGE: [0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5, f1b5]
+ "A2020-08-01T12:43:40.205461[32m MESSAGE: [0mBot made move: d8d7
+ "e2020-08-01T12:43:40.205848[32m MESSAGE: [0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5, f1b5, d8d7]
+ "k2020-08-01T12:43:40.206280[32m MESSAGE: [0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5, f1b5, d8d7, b5d7]
+ "A2020-08-01T12:43:40.206581[32m MESSAGE: [0mBot made move: e8d7
+ "q2020-08-01T12:43:40.206947[32m MESSAGE: [0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5, f1b5, d8d7, b5d7, e8d7]
+ "w2020-08-01T12:43:40.207327[32m MESSAGE: [0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5, f1b5, d8d7, b5d7, e8d7, g1f3]
+ "O2020-08-01T12:43:40.207585[32m MESSAGE: [0mBot made move: No more testmoves!
+ $e2e4
+ %200
+ -e2e4
+ .e2e4
+ .;2020-08-01T12:43:40.245797[32m MESSAGE: [0mMoves: [e2e4]
+ .A2020-08-01T12:43:40.245985[32m MESSAGE: [0mBot made move: d7d5
+ .A2020-08-01T12:43:40.246323[32m MESSAGE: [0mMoves: [e2e4, d7d5]
+10Pfeature done=0 sigint=0 sigterm=0 reuse=0 usermove=1 myname="tira-chess" done=1
+10
+12Pfeature done=0 sigint=0 sigterm=0 reuse=0 usermove=1 myname="tira-chess" done=1
+12
+12
+move g2g3
+12
+13Pfeature done=0 sigint=0 sigterm=0 reuse=0 usermove=1 myname="tira-chess" done=1
+13
+14Pfeature done=0 sigint=0 sigterm=0 reuse=0 usermove=1 myname="tira-chess" done=1
+14
+15Pfeature done=0 sigint=0 sigterm=0 reuse=0 usermove=1 myname="tira-chess" done=1
+15
+16Pfeature done=0 sigint=0 sigterm=0 reuse=0 usermove=1 myname="tira-chess" done=1
+16
+16
+move g7g5
+16
+17Pfeature done=0 sigint=0 sigterm=0 reuse=0 usermove=1 myname="tira-chess" done=1
+17
+18Pfeature done=0 sigint=0 sigterm=0 reuse=0 usermove=1 myname="tira-chess" done=1
+18
+18
+move g1h3
+18
+19Pfeature done=0 sigint=0 sigterm=0 reuse=0 usermove=1 myname="tira-chess" done=1
+19
+19
+move a2a3
+19

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="chess.connection.LichessApiTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2020-08-01T09:43:40" hostname="lx8-fuxi076" time="0.12">
+  <properties/>
+  <testcase name="makeMoveMakesPostRequest" classname="chess.connection.LichessApiTest" time="0.054"/>
+  <testcase name="acceptChallengeMakesPostRequest" classname="chess.connection.LichessApiTest" time="0.005"/>
+  <testcase name="playGameLegalMoves" classname="chess.connection.LichessApiTest" time="0.019"/>
+  <testcase name="declineChallengeMakesPostRequest" classname="chess.connection.LichessApiTest" time="0.001"/>
+  <testcase name="playingStopsIfBotReturnsNull" classname="chess.connection.LichessApiTest" time="0.006"/>
+  <testcase name="apiAcceptsChallenge" classname="chess.connection.LichessApiTest" time="0.001"/>
+  <testcase name="lichessBeginEventLoopLogsAnErrorOnHTTPErrorCode" classname="chess.connection.LichessApiTest" time="0.005"/>
+  <testcase name="getNextMoveReturnsValidMove2" classname="chess.connection.LichessApiTest" time="0.001"/>
+  <testcase name="getProfileMakesGetRequest" classname="chess.connection.LichessApiTest" time="0.001"/>
+  <testcase name="beginEventLoopMakesGetRequest" classname="chess.connection.LichessApiTest" time="0.001"/>
+  <testcase name="getNextMoveReturnsNoMoveIfMissingLine" classname="chess.connection.LichessApiTest" time="0.001"/>
+  <testcase name="getNextMoveReturnsValidMove" classname="chess.connection.LichessApiTest" time="0.015"/>
+  <testcase name="lichessOpenGameLogsAnErrorOnHTTPErrorCode" classname="chess.connection.LichessApiTest" time="0.002"/>
+  <testcase name="lichessAPIProceedsFromBeginEventLoopToPlayGame" classname="chess.connection.LichessApiTest" time="0.002"/>
+  <testcase name="correctErrorMessageWhenTryingToMakeMoveTooQuick" classname="chess.connection.LichessApiTest" time="0.001"/>
+  <testcase name="lichessGetAccountLogsAnErrorOnHTTPErrorCode" classname="chess.connection.LichessApiTest" time="0.002"/>
+  <system-out><![CDATA[e2e4
+2020-08-01T12:43:40.190784?[32m MESSAGE: ?[0mMoves: [e2e4]
+2020-08-01T12:43:40.201943?[32m MESSAGE: ?[0mBot made move: d7d5
+2020-08-01T12:43:40.202351?[32m MESSAGE: ?[0mMoves: [e2e4, d7d5]
+2020-08-01T12:43:40.202676?[32m MESSAGE: ?[0mMoves: [e2e4, d7d5, e4d5]
+2020-08-01T12:43:40.203007?[32m MESSAGE: ?[0mBot made move: c7c5
+2020-08-01T12:43:40.203370?[32m MESSAGE: ?[0mMoves: [e2e4, d7d5, e4d5, c7c5]
+2020-08-01T12:43:40.203688?[32m MESSAGE: ?[0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3]
+2020-08-01T12:43:40.204107?[32m MESSAGE: ?[0mBot made move: b7b5
+2020-08-01T12:43:40.204563?[32m MESSAGE: ?[0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5]
+2020-08-01T12:43:40.205046?[32m MESSAGE: ?[0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5, f1b5]
+2020-08-01T12:43:40.205461?[32m MESSAGE: ?[0mBot made move: d8d7
+2020-08-01T12:43:40.205848?[32m MESSAGE: ?[0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5, f1b5, d8d7]
+2020-08-01T12:43:40.206280?[32m MESSAGE: ?[0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5, f1b5, d8d7, b5d7]
+2020-08-01T12:43:40.206581?[32m MESSAGE: ?[0mBot made move: e8d7
+2020-08-01T12:43:40.206947?[32m MESSAGE: ?[0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5, f1b5, d8d7, b5d7, e8d7]
+2020-08-01T12:43:40.207327?[32m MESSAGE: ?[0mMoves: [e2e4, d7d5, e4d5, c7c5, b1c3, b7b5, f1b5, d8d7, b5d7, e8d7, g1f3]
+2020-08-01T12:43:40.207585?[32m MESSAGE: ?[0mBot made move: No more testmoves!
+e2e4
+200
+e2e4
+e2e4
+2020-08-01T12:43:40.245797?[32m MESSAGE: ?[0mMoves: [e2e4]
+2020-08-01T12:43:40.245985?[32m MESSAGE: ?[0mBot made move: d7d5
+2020-08-01T12:43:40.246323?[32m MESSAGE: ?[0mMoves: [e2e4, d7d5]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

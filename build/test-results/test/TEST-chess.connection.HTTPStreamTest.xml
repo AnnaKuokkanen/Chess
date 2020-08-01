@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="chess.connection.HTTPStreamTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-08-01T09:43:40" hostname="lx8-fuxi076" time="4.253">
+  <properties/>
+  <testcase name="httpStreamGETSendsHeaders" classname="chess.connection.HTTPStreamTest" time="1.394"/>
+  <testcase name="httpStreamPOSTSuccessful" classname="chess.connection.HTTPStreamTest" time="0.605"/>
+  <testcase name="httpStreamFunctionsAsAnIterator" classname="chess.connection.HTTPStreamTest" time="0.202"/>
+  <testcase name="httpStreamGetIteratorReturnsSelf" classname="chess.connection.HTTPStreamTest" time="0.616"/>
+  <testcase name="httpStreamPOSTSendsHeaders" classname="chess.connection.HTTPStreamTest" time="0.202"/>
+  <testcase name="httpStreamGETReturnsContent" classname="chess.connection.HTTPStreamTest" time="0.611"/>
+  <testcase name="httpStreamGETSuccessful" classname="chess.connection.HTTPStreamTest" time="0.617"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
