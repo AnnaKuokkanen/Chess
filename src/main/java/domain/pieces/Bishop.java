@@ -2,6 +2,7 @@ package domain.pieces;
 
 import chess.model.Side;
 import domain.board.*;
+import domain.rules.Rules;
 import java.util.ArrayList;
 
 public class Bishop extends Piece {
@@ -25,57 +26,10 @@ public class Bishop extends Piece {
         int x = this.getLocation().getX();
         int y = this.getLocation().getY();
         
-        int i = 1;
-        while (x + i < 8 && y + i < 8) {
-            if (tiles[x + i][y + i] != null && tiles[x + i][y + i].getPiece().getSide() == this.side) {
-                break;
-            } else if (tiles[x + i][y + i] != null && tiles[x + i][y + i].getPiece().getSide() != this.side) {
-                moves.add(tiles[x + i][y + i]);
-                break;
-            } else {
-                moves.add(tiles[x + i][y + i]);
-            }
-            i++;
-        }
-        
-        i = 1;
-        while (x - i >= 0 && y + i < 8) {
-            if (tiles[x - i][y + i] != null && tiles[x - i][y + i].getPiece().getSide() == this.side) {
-                break;
-            } else if (tiles[x - i][y + i] != null && tiles[x - i][y + i].getPiece().getSide() != this.side) {
-                moves.add(tiles[x - i][y + i]);
-                break;
-            } else {
-                moves.add(tiles[x - i][y + i]);
-            }
-            i++;
-        }
-        
-        i = 1;
-        while (x + i < 8 && y - i >= 0) {
-            if (tiles[x + i][y - i] != null && tiles[x + i][y - i].getPiece().getSide() == this.side) {
-                break;
-            } else if (tiles[x + i][y - i] != null && tiles[x + i][y - i].getPiece().getSide() != this.side) {
-                moves.add(tiles[x + i][y - i]);
-                break;
-            } else {
-                moves.add(tiles[x + i][y - i]);
-            }
-            i++;
-        }
-        
-        i = 1;
-        while (x - i >= 0 && y - i >= 0) {
-            if (tiles[x - i][y - i] != null && tiles[x - i][y - i].getPiece().getSide() == this.side) {
-                break;
-            } else if (tiles[x - i][y - i] != null && tiles[x - i][y - i].getPiece().getSide() != this.side) {
-                moves.add(tiles[x - i][y - i]);
-                break;
-            } else {
-                moves.add(tiles[x - i][y - i]);
-            }
-            i++;
-        }
+        Rules rules = new Rules(x, y, tiles);
+        for (Tile tile : rules.moveDiagonally()) {
+            moves.add(tile);
+        } 
         
         return moves;
     }

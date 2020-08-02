@@ -1,6 +1,7 @@
 package domain.pieces;
 import chess.model.Side;
 import domain.board.*;
+import domain.rules.Rules;
 import java.util.*;
 
 public class Queen extends Piece {
@@ -24,7 +25,16 @@ public class Queen extends Piece {
         int x = this.getLocation().getX();
         int y = this.getLocation().getY();
         
+        Rules rules = new Rules(x, y, tiles);
         
+        for (Tile tile : rules.moveDiagonally()) {
+            moves.add(tile);
+        }
+        rules.setMoves(new ArrayList<>());
+        
+        for (Tile tile : rules.moveHorizontallyAndVertically()) {
+            moves.add(tile);
+        }
         
         return moves;
     }
