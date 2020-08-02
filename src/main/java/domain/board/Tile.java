@@ -50,11 +50,7 @@ public class Tile {
         }
         if (o instanceof Tile) {
             Tile tile = (Tile) o;
-            if(this.x == tile.getX() && this.y == tile.getY()) {
-                return true;
-            } else {
-                return false;
-            }
+            return this.x == tile.getX() && this.y == tile.getY();
         }
         return false;
     }
