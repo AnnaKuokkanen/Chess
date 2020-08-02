@@ -14,9 +14,9 @@ public class Knight extends Piece {
     } 
     
     /**
-     * knight can move and capture two tiles but cannot jump over same side pieces
+     * knight can move and capture two tiles up/down/right/left and one tile u/d/r/l
      * @param board for current game situation
-     * @return list of tiles where bishop can legally move
+     * @return list of tiles where knight can legally move
      */
     public ArrayList<Tile> getPossibleMoves(Board board) {
         ArrayList<Tile> moves = new ArrayList<>();
@@ -55,7 +55,7 @@ public class Knight extends Piece {
     
     public int getValue() {
         int value = 30;
-        if(side == side.BLACK) {
+        if (side == side.BLACK) {
             value = value * (-1);
         }
         return value;

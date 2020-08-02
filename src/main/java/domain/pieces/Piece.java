@@ -47,19 +47,16 @@ public class Piece {
     
     @Override
     public boolean equals(Object o) {
-        if(this == o) {
+        if (this == o) {
             return true;
         }
         if (o instanceof Piece) {  
             Piece piece = (Piece) o;  
-            if(piece.getSide() != this.side) {
+            if (piece.getSide() != this.side) {
                 return false;
             }
-            if((piece.getLocation().getX() == this.location.getX()) && (piece.getLocation().getY() == this.location.getY())) {
-                return true;
-            } else {
-                return false;
-            }
+            return (piece.getLocation().getX() == this.location.getX()) 
+                    && (piece.getLocation().getY() == this.location.getY());
         }
         return false;
     }

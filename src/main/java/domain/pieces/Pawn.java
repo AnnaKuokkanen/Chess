@@ -14,6 +14,7 @@ public class Pawn extends Piece {
     }
     /**
      * pawn can move straight forward or capture diagonally
+     * on first move pawn can move two tiles forward
      * @param board for current game situation
      * @return list of tiles where pawn can legally move
      */
@@ -27,10 +28,10 @@ public class Pawn extends Piece {
         if (y < 7 && tiles[x][y + 1] == null) {
             moves.add(tiles[x][y + 1]);
         }
-        if(tiles[x - 1][y + 1] != null && tiles[x - 1][y + 1].getPiece().getSide() != this.side) {
+        if (tiles[x - 1][y + 1] != null && tiles[x - 1][y + 1].getPiece().getSide() != this.side) {
             moves.add(tiles[x - 1][y + 1]);
         }
-        if(tiles[x + 1][y + 1] != null && tiles[x + 1][y + 1].getPiece().getSide() != this.side) {
+        if (tiles[x + 1][y + 1] != null && tiles[x + 1][y + 1].getPiece().getSide() != this.side) {
             moves.add(tiles[x + 1][y + 1]);
         }
         
@@ -39,7 +40,7 @@ public class Pawn extends Piece {
     
     public int getValue() {
         int value = 10;
-        if(side == side.BLACK) {
+        if (side == side.BLACK) {
             value = value * (-1);
         }
         return value;

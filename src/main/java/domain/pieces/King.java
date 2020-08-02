@@ -25,16 +25,16 @@ public class King extends Piece {
         int x = this.getLocation().getX();
         int y = this.getLocation().getY();
         
-        if(tiles[x + 1][y] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
+        if (tiles[x + 1][y] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
             moves.add(tiles[x + 1][y]);
         }
-        if(tiles[x][y + 1] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
+        if (tiles[x][y + 1] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
             moves.add(tiles[x][y + 1]);
         }
-        if(tiles[x][y - 1] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
+        if (tiles[x][y - 1] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
             moves.add(tiles[x][y - 1]);
         }
-        if(tiles[x - 1][y] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
+        if (tiles[x - 1][y] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
             moves.add(tiles[x - 1][y]);
         }
         
@@ -43,7 +43,7 @@ public class King extends Piece {
     
     public int getValue() {
         int value = 900;
-        if(side == side.BLACK) {
+        if (side == side.BLACK) {
             value = value * (-1);
         }
         return value;
