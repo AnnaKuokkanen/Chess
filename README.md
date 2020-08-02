@@ -1,7 +1,7 @@
 # Shakki
 
 Helsingn yliopiston aineopintojen harjoitustyö: [tietorakenteet ja algoritmit](https://tiralabra.github.io/loppukesa_2020/index).
-Tämä projekti käyttää Helsingin yliopston ohjelmistotuotantoprojektina toteutettua [proejktipohjaa](https://tiralabra.github.io/loppukesa_2020/index).
+Tämä projekti käyttää Helsingin yliopston ohjelmistotuotantoprojektina toteutettua [projektipohjaa](https://tiralabra.github.io/loppukesa_2020/index).
 
 [Määrittelydokumentti](https://github.com/AnnaKuokkanen/Shakki/blob/master/Dokumentaatio/m%C3%A4%C3%A4rittelydokumentti.md)
 
