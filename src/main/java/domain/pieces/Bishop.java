@@ -11,7 +11,7 @@ public class Bishop extends Piece {
     private Side side;
     
     public Bishop(Side side) {
-        super(side, "bishop");
+        super(side, PieceName.BISHOP);
     }
     
     /**

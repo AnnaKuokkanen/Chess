@@ -8,9 +8,9 @@ public class Piece {
     private boolean onBoard;
     private Tile location;
     private Side side;
-    private String type;
+    private PieceName type;
     
-    public Piece(Side side, String type) {
+    public Piece(Side side, PieceName type) {
         this.onBoard = true;
         this.side = side;
         this.type = type;
@@ -36,7 +36,7 @@ public class Piece {
         return side;
     }
     
-    public String getType() {
+    public PieceName getType() {
         return this.type;
     }
     

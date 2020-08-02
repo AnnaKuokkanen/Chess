@@ -11,7 +11,7 @@ public class Rook extends Piece {
     private Side side;
     
     public Rook(Side side) {
-        super(side, "rook");
+        super(side, PieceName.ROOK);
     }
     
     /**

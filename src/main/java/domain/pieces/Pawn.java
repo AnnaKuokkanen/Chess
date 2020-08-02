@@ -10,7 +10,7 @@ public class Pawn extends Piece {
     private Side side;
     
     public Pawn(Side side) {
-        super(side, "pawn");
+        super(side, PieceName.PAWN);
     }
     /**
      * pawn can move straight forward or capture diagonally

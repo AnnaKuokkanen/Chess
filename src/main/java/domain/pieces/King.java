@@ -10,7 +10,7 @@ public class King extends Piece {
     private Side side;
     
     public King(Side side) {
-        super(side, "king");
+        super(side, PieceName.KING);
     }
     
     /**
