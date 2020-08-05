@@ -19,12 +19,14 @@ public class TileNameConverter {
     /**
      *
      * @return location in textual form, like "a1" for tile in location (0,0)
+     * @param x depicts column 
+     * @param y depicts row 
      */
     public String convert(int x, int y) {
         String tile = "";
         
-        tile.concat(letters[x]);
-        tile.concat(Integer.toString(y + 1));
+        tile += letters[x];
+        tile += Integer.toString(y + 1);
         
         return tile;
     } 

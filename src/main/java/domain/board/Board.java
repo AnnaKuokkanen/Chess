@@ -55,4 +55,8 @@ public class Board {
     public Tile[][] getBoard() {
         return this.tiles;
     }
+    
+    public void getPossibleMoves() {
+        
+    }
 }
