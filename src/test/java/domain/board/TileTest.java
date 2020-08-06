@@ -1,5 +1,8 @@
 package domain.board;
 
+import chess.model.Side;
+import domain.pieces.Queen;
+import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -24,5 +27,18 @@ public class TileTest {
     @Test
     public void areNamesConvertedCorrectly() {        
         assertEquals(converter.convert(0, 0), "a1");
+    }
+    
+    @Test
+    public void isPieceSetCorrectly() {
+        Queen q = new Queen(Side.BLACK);
+        tile.setPiece(q);
+        assertEquals(tile.getPiece(), q);
+        assertTrue(q.getLocation().equals(tile));
+    }
+    
+    @After
+    public void tearDown() {
+    
     }
 }
