@@ -17,8 +17,8 @@ public class Board {
      * method that sets up board consisting of tiles
      */
     public void setupBoard() {
-        for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 7; j++) {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
                 this.tiles[i][j] = new Tile(i, j);
             }
         }

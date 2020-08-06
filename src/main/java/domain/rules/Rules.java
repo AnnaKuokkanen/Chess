@@ -23,11 +23,13 @@ public class Rules {
     public ArrayList<Tile> moveHorizontallyAndVertically() {
         int i = 1;
         while (x + i < 8) {
-            if (tiles[x + i][y] != null && tiles[x + i][y].getPiece().getSide() == tiles[x][y].getPiece().getSide()) {
-                break;
-            } else if (tiles[x + i][y] != null && tiles[x + i][y].getPiece().getSide() != tiles[x][y].getPiece().getSide()) {
-                moves.add(tiles[x + i][y]);
-                break;
+            if (tiles[x + i][y].getPiece() != null) {
+                if (tiles[x + i][y].getPiece().getSide() == tiles[x][y].getPiece().getSide()) {
+                    break;
+                } else if (tiles[x + i][y].getPiece().getSide() != tiles[x][y].getPiece().getSide()) {
+                    moves.add(tiles[x + i][y]);
+                    break;
+                }
             } else {
                 moves.add(tiles[x + i][y]);
             }
@@ -36,11 +38,13 @@ public class Rules {
         
         i = 1;
         while (x - i >= 0) {
-            if (tiles[x - i][y] != null && tiles[x - i][y].getPiece().getSide() == tiles[x][y].getPiece().getSide()) {
-                break;
-            } else if (tiles[x - i][y] != null && tiles[x - i][y].getPiece().getSide() != tiles[x][y].getPiece().getSide()) {
-                moves.add(tiles[x - i][y]);
-                break;
+            if (tiles[x - i][y].getPiece() != null) {
+                if(tiles[x - i][y].getPiece().getSide() == tiles[x][y].getPiece().getSide()) {
+                    break;
+                } else if (tiles[x - i][y].getPiece().getSide() != tiles[x][y].getPiece().getSide()) {
+                    moves.add(tiles[x - i][y]);
+                    break;
+                }
             } else {
                 moves.add(tiles[x - i][y]);
             }
@@ -49,11 +53,13 @@ public class Rules {
         
         i = 1;
         while (y + i < 8) {
-            if (tiles[x][y + i] != null && tiles[x][y + i].getPiece().getSide() == tiles[x][y].getPiece().getSide()) {
-                break;
-            } else if (tiles[x][y + i] != null && tiles[x][y + i].getPiece().getSide() != tiles[x][y].getPiece().getSide()) {
-                moves.add(tiles[x][y + i]);
-                break;
+            if (tiles[x][y + i].getPiece() != null) {
+                if(tiles[x][y + i].getPiece().getSide() == tiles[x][y].getPiece().getSide()) {
+                    break;
+                } else if (tiles[x][y + i].getPiece().getSide() != tiles[x][y].getPiece().getSide()) {
+                    moves.add(tiles[x][y + i]);
+                    break;
+                } 
             } else {
                 moves.add(tiles[x][y + i]);
             }
@@ -62,11 +68,13 @@ public class Rules {
         
         i = 1;
         while (y - i >= 0) {
-            if (tiles[x][y - i] != null && tiles[x][y - i].getPiece().getSide() == tiles[x][y].getPiece().getSide()) {
-                break;
-            } else if (tiles[x][y - i] != null && tiles[x][y - i].getPiece().getSide() != tiles[x][y].getPiece().getSide()) {
-                moves.add(tiles[x][y - i]);
-                break;
+            if (tiles[x][y - i].getPiece() != null) {
+                if (tiles[x][y - i].getPiece().getSide() == tiles[x][y].getPiece().getSide()) {
+                    break;
+                } else if (tiles[x][y - i].getPiece().getSide() != tiles[x][y].getPiece().getSide()) {
+                    moves.add(tiles[x][y - i]);
+                    break;
+                }
             } else {
                 moves.add(tiles[x][y - i]);
             }
