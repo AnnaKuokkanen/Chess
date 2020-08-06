@@ -30,6 +30,11 @@ public class TileTest {
     }
     
     @Test
+    public void isNullPieceReturnedCorrectly() {
+        assertTrue(this.tile.getPiece() == null);
+    }
+    
+    @Test
     public void isPieceSetCorrectly() {
         Queen q = new Queen(Side.BLACK);
         tile.setPiece(q);
