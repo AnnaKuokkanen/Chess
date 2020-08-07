@@ -1,5 +1,8 @@
 package domain.board;
 
+import chess.model.Side;
+import domain.pieces.*;
+import domain.pieces.PieceName;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -27,6 +30,15 @@ public class BoardTest {
                 Tile t = new Tile(i, j);
                 assertEquals(board.getBoard()[i][j], t);
             }
+        }
+    }
+    
+    @Test
+    public void piecesAreSet() {
+        for (int i = 0; i < 8; i++) {
+            PieceName name = PieceName.PAWN;
+            assertTrue(this.board.getBoard()[i][1].getPiece().getType() == name);
+            assertTrue(this.board.getBoard()[i][6].getPiece().getType() == name);
         }
     }
     

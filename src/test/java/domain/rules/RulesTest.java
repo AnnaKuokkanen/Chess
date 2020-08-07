@@ -37,11 +37,21 @@ public class RulesTest {
     }
     
     @Test
-    public void doesPieceMoveHorizontally() {
+    public void doesPieceMoveHorizontallyWhenTilesAreFree() {
         ArrayList<Tile> list = this.rook.getPossibleMoves(board);
         assertFalse(list == null);
         assertTrue(list.contains(new Tile(0, 1)));
         assertTrue(list.contains(new Tile(2, 1)));
+    }
+    
+    @Test
+    public void doesPieceMoveHorizontallyWhenThereIsOpponentPiece() {
+    
+    }
+    
+    @Test
+    public void doesPieceNotMoveHorizontallyWhenThereIsOwnPiece() {
+    
     }
     
 //    @Test
