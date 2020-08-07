@@ -16,6 +16,7 @@ public class BoardTest {
     public void setupBoard() {
         this.board = new Board();
         this.board.setupBoard();
+        this.board.setupPieces();
     }
     
     @Test
