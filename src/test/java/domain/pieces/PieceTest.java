@@ -17,6 +17,19 @@ public class PieceTest {
     }
     
     @Test
+    public void doesPieceReturnRightSide() {
+        Piece black = new Piece(Side.BLACK, PieceName.PAWN);
+        Piece white = new Piece(Side.WHITE, PieceName.PAWN);
+        assertTrue(black.getSide() == Side.BLACK);
+        assertTrue(white.getSide() == Side.WHITE);
+    }
+    
+    @Test
+    public void doesPieceReturnRightType() {
+        assertTrue(this.piece.getType().equals(PieceName.KING));
+    }
+    
+    @Test
     public void isLocationCorrect() {
         Tile tile = new Tile(1, 1);
         assertTrue(this.piece.getLocation().equals(tile));
@@ -43,5 +56,12 @@ public class PieceTest {
     public void doesPieceMoveCorrectly() {
         piece.move(2, 1);
         assertTrue(piece.getLocation().equals(new Tile(2, 1)));
+    }
+    
+    @Test
+    public void isPieceRemoved() {
+        assertTrue(this.piece.onBoard());
+        this.piece.remove();
+        assertFalse(this.piece.onBoard());
     }
 }

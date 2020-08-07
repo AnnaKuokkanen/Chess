@@ -1,7 +1,5 @@
 package domain.board;
 
-import chess.model.Side;
-import domain.pieces.*;
 import domain.pieces.PieceName;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
@@ -29,7 +27,7 @@ public class BoardTest {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Tile t = new Tile(i, j);
-                assertEquals(board.getBoard()[i][j], t);
+                assertEquals(t, board.getBoard()[i][j]);
             }
         }
     }
