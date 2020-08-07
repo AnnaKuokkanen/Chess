@@ -37,10 +37,35 @@ public class BoardTest {
     @Test
     public void piecesAreSet() {
         for (int i = 0; i < 8; i++) {
-            PieceName name = PieceName.PAWN;
-            assertTrue(this.board.getBoard()[i][1].getPiece().getType() == name);
-            assertTrue(this.board.getBoard()[i][6].getPiece().getType() == name);
+            PieceName pawn = PieceName.PAWN;
+            assertTrue(this.board.getBoard()[i][1].getPiece().getType() == pawn);
+            assertTrue(this.board.getBoard()[i][6].getPiece().getType() == pawn);
         }
+        PieceName rook = PieceName.ROOK;
+        assertTrue(this.board.getBoard()[0][0].getPiece().getType() == rook);
+        assertTrue(this.board.getBoard()[0][7].getPiece().getType() == rook);
+        assertTrue(this.board.getBoard()[7][0].getPiece().getType() == rook);
+        assertTrue(this.board.getBoard()[7][7].getPiece().getType() == rook);
+        
+        PieceName knight = PieceName.KNIGHT;
+        assertTrue(this.board.getBoard()[1][0].getPiece().getType() == knight);
+        assertTrue(this.board.getBoard()[6][0].getPiece().getType() == knight);
+        assertTrue(this.board.getBoard()[1][7].getPiece().getType() == knight);
+        assertTrue(this.board.getBoard()[6][7].getPiece().getType() == knight);
+        
+        PieceName bishop = PieceName.BISHOP;      
+        assertTrue(this.board.getBoard()[2][0].getPiece().getType() == bishop);
+        assertTrue(this.board.getBoard()[5][0].getPiece().getType() == bishop);
+        assertTrue(this.board.getBoard()[2][7].getPiece().getType() == bishop);
+        assertTrue(this.board.getBoard()[5][7].getPiece().getType() == bishop);
+        
+        PieceName queen = PieceName.QUEEN;  
+        assertTrue(this.board.getBoard()[3][0].getPiece().getType() == queen);
+        assertTrue(this.board.getBoard()[3][7].getPiece().getType() == queen);
+        
+        PieceName king = PieceName.KING;
+        assertTrue(this.board.getBoard()[4][0].getPiece().getType() == king);
+        assertTrue(this.board.getBoard()[4][7].getPiece().getType() == king);
     }
     
     @After
