@@ -11,6 +11,9 @@ public class Pawn extends Piece {
     
     public Pawn(Side side) {
         super(side, PieceName.PAWN);
+        this.side = side;
+        this.location = super.getLocation();
+        this.onBoard = super.onBoard();
     }
     /**
      * pawn can move straight forward or capture diagonally
@@ -25,13 +28,13 @@ public class Pawn extends Piece {
         int x = this.getLocation().getX();
         int y = this.getLocation().getY();
         
-        if (y < 7 && tiles[x][y + 1] == null) {
+        if (y < 8 && tiles[x][y + 1].getPiece() == null) {
             moves.add(tiles[x][y + 1]);
         }
-        if (tiles[x - 1][y + 1] != null && tiles[x - 1][y + 1].getPiece().getSide() != this.side) {
+        if (tiles[x - 1][y + 1].getPiece() != null && tiles[x - 1][y + 1].getPiece().getSide() != this.side) {
             moves.add(tiles[x - 1][y + 1]);
         }
-        if (tiles[x + 1][y + 1] != null && tiles[x + 1][y + 1].getPiece().getSide() != this.side) {
+        if (tiles[x + 1][y + 1].getPiece() != null && tiles[x + 1][y + 1].getPiece().getSide() != this.side) {
             moves.add(tiles[x + 1][y + 1]);
         }
         
