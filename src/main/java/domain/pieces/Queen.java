@@ -11,6 +11,9 @@ public class Queen extends Piece {
     
     public Queen(Side side) {
         super(side, PieceName.QUEEN);
+        this.side = side;
+        this.location = super.getLocation();
+        this.onBoard = super.onBoard();
     }
     
     /**
