@@ -7,8 +7,8 @@ import java.util.*;
 public class Piece {
     private boolean onBoard;
     private Tile location;
-    private Side side;
-    private PieceName type;
+    private final Side side;
+    private final PieceName type;
     
     public Piece(Side side, PieceName type) {
         this.onBoard = true;

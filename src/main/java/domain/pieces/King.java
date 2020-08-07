@@ -11,6 +11,9 @@ public class King extends Piece {
     
     public King(Side side) {
         super(side, PieceName.KING);
+        this.side = side;
+        this.location = super.getLocation();
+        this.onBoard = super.onBoard();
     }
     
     /**
@@ -25,17 +28,29 @@ public class King extends Piece {
         int x = this.getLocation().getX();
         int y = this.getLocation().getY();
         
-        if (tiles[x + 1][y] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
+        if (tiles[x + 1][y].getPiece() == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
             moves.add(tiles[x + 1][y]);
         }
-        if (tiles[x][y + 1] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
+        if (tiles[x][y + 1].getPiece() == null || tiles[x][y + 1].getPiece().getSide() != this.side) {
             moves.add(tiles[x][y + 1]);
         }
-        if (tiles[x][y - 1] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
+        if (tiles[x][y - 1].getPiece() == null || tiles[x][y - 1].getPiece().getSide() != this.side) {
             moves.add(tiles[x][y - 1]);
         }
-        if (tiles[x - 1][y] == null || tiles[x + 1][y].getPiece().getSide() != this.side) {
+        if (tiles[x - 1][y].getPiece() == null || tiles[x - 1][y].getPiece().getSide() != this.side) {
             moves.add(tiles[x - 1][y]);
+        }
+        if (tiles[x + 1][y + 1].getPiece() == null || tiles[x + 1][y + 1].getPiece().getSide() != this.side) {
+            moves.add(tiles[x + 1][y + 1]);
+        }
+        if (tiles[x + 1][y - 1].getPiece() == null || tiles[x + 1][y - 1].getPiece().getSide() != this.side) {
+            moves.add(tiles[x + 1][y - 1]);
+        }
+        if (tiles[x - 1][y + 1].getPiece() == null || tiles[x - 1][y + 1].getPiece().getSide() != this.side) {
+            moves.add(tiles[x - 1][y + 1]);
+        }
+        if (tiles[x - 1][y - 1].getPiece() == null || tiles[x - 1][y - 1].getPiece().getSide() != this.side) {
+            moves.add(tiles[x - 1][y  -1]);
         }
         
         return moves;
@@ -43,7 +58,7 @@ public class King extends Piece {
     
     public int getValue() {
         int value = 900;
-        if (side == side.BLACK) {
+        if (side == Side.BLACK) {
             value = value * (-1);
         }
         return value;
