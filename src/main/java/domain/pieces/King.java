@@ -50,7 +50,7 @@ public class King extends Piece {
             moves.add(tiles[x - 1][y + 1]);
         }
         if (tiles[x - 1][y - 1].getPiece() == null || tiles[x - 1][y - 1].getPiece().getSide() != this.side) {
-            moves.add(tiles[x - 1][y  -1]);
+            moves.add(tiles[x - 1][y - 1]);
         }
         
         return moves;
