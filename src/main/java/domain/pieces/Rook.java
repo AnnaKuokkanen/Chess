@@ -12,6 +12,9 @@ public class Rook extends Piece {
     
     public Rook(Side side) {
         super(side, PieceName.ROOK);
+        this.side = side;
+        this.location = super.getLocation();
+        this.onBoard = super.onBoard();
     }
     
     /**
