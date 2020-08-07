@@ -12,6 +12,9 @@ public class Bishop extends Piece {
     
     public Bishop(Side side) {
         super(side, PieceName.BISHOP);
+        this.side = side;
+        this.location = super.getLocation();
+        this.onBoard = super.onBoard();
     }
     
     /**
