@@ -11,6 +11,9 @@ public class Knight extends Piece {
     
     public Knight(Side side) {
         super(side, PieceName.KNIGHT);
+        this.side = side;
+        this.location = super.getLocation();
+        this.onBoard = super.onBoard();
     } 
     
     /**
