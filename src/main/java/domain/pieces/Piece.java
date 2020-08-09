@@ -1,10 +1,10 @@
 package domain.pieces;
 
-import domain.board.Tile;
+import domain.board.*;
 import chess.model.*;
 import java.util.*;
 
-public class Piece {
+public abstract class Piece {
     private boolean onBoard;
     private Tile location;
     private final Side side;
@@ -44,6 +44,8 @@ public class Piece {
         location.setX(x);
         location.setY(y);
     }
+    
+    public abstract ArrayList<Tile> getPossibleMoves(Board board);
     
     @Override
     public boolean equals(Object o) {

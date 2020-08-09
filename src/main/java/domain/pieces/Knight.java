@@ -21,6 +21,7 @@ public class Knight extends Piece {
      * @param board for current game situation
      * @return list of tiles where knight can legally move
      */
+    @Override
     public ArrayList<Tile> getPossibleMoves(Board board) {
         ArrayList<Tile> moves = new ArrayList<>();
         Tile[][] tiles = board.getBoard();
@@ -28,28 +29,28 @@ public class Knight extends Piece {
         int x = this.getLocation().getX();
         int y = this.getLocation().getY();
         
-        if (tiles[x + 2][y + 1].getPiece() == null || tiles[x + 2][y + 1].getPiece().getSide() != this.side) {
+        if (x + 2 < 8 && y + 1 < 8 && (tiles[x + 2][y + 1].getPiece() == null || tiles[x + 2][y + 1].getPiece().getSide() != this.side)) {
             moves.add(tiles[x + 2][y + 1]);
         }
-        if (tiles[x + 2][y - 1].getPiece() == null || tiles[x + 2][y - 1].getPiece().getSide() != this.side) {
+        if (x + 2 < 8 && y - 1 >= 0 && (tiles[x + 2][y - 1].getPiece() == null || tiles[x + 2][y - 1].getPiece().getSide() != this.side)) {
             moves.add(tiles[x + 2][y - 1]);
         }
-        if (tiles[x - 2][y + 1].getPiece() == null || tiles[x - 2][y + 1].getPiece().getSide() != this.side) {
+        if (x - 2 >= 0 && y + 1 < 8 && (tiles[x - 2][y + 1].getPiece() == null || tiles[x - 2][y + 1].getPiece().getSide() != this.side)) {
             moves.add(tiles[x - 2][y + 1]);
         }
-        if (tiles[x - 2][y - 1].getPiece() == null || tiles[x - 2][y - 1].getPiece().getSide() != this.side) {
+        if (x - 2 >= 0 && y -1 >= 0 && (tiles[x - 2][y - 1].getPiece() == null || tiles[x - 2][y - 1].getPiece().getSide() != this.side)) {
             moves.add(tiles[x - 2][y - 1]);
         }
-        if (tiles[x + 1][y + 2].getPiece() == null || tiles[x + 1][y + 2].getPiece().getSide() != this.side) {
+        if (x + 1 < 8 && y + 2 < 8 && (tiles[x + 1][y + 2].getPiece() == null || tiles[x + 1][y + 2].getPiece().getSide() != this.side)) {
             moves.add(tiles[x + 1][y + 2]);
         }
-        if (tiles[x + 1][y - 2].getPiece() == null || tiles[x + 1][y - 2].getPiece().getSide() != this.side) {
+        if (x + 1 < 8 && y - 2 >= 0 && (tiles[x + 1][y - 2].getPiece() == null || tiles[x + 1][y - 2].getPiece().getSide() != this.side)) {
             moves.add(tiles[x + 1][y - 2]);
         }
-        if (tiles[x - 1][y + 2].getPiece() == null || tiles[x - 1][y + 2].getPiece().getSide() != this.side) {
+        if (x - 1 >= 0 && y + 2 < 8 && (tiles[x - 1][y + 2].getPiece() == null || tiles[x - 1][y + 2].getPiece().getSide() != this.side)) {
             moves.add(tiles[x - 1][y + 2]);
         }
-        if (tiles[x - 1][y - 2].getPiece() == null || tiles[x - 1][y - 2].getPiece().getSide() != this.side) {
+        if (x - 1 >= 0 && y - 2 >= 0 && (tiles[x - 1][y - 2].getPiece() == null || tiles[x - 1][y - 2].getPiece().getSide() != this.side)) {
             moves.add(tiles[x - 1][y - 2]);
         }
         

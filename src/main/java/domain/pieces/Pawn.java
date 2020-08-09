@@ -21,6 +21,7 @@ public class Pawn extends Piece {
      * @param board for current game situation
      * @return list of tiles where pawn can legally move
      */
+    @Override
     public ArrayList<Tile> getPossibleMoves(Board board) {
         ArrayList<Tile> moves = new ArrayList<>();
         Tile[][] tiles = board.getBoard();
@@ -31,10 +32,10 @@ public class Pawn extends Piece {
         if (y < 8 && tiles[x][y + 1].getPiece() == null) {
             moves.add(tiles[x][y + 1]);
         }
-        if (tiles[x - 1][y + 1].getPiece() != null && tiles[x - 1][y + 1].getPiece().getSide() != this.side) {
+        if (x - 1 >= 0 && y + 1 < 8 && tiles[x - 1][y + 1].getPiece() != null && tiles[x - 1][y + 1].getPiece().getSide() != this.side) {
             moves.add(tiles[x - 1][y + 1]);
         }
-        if (tiles[x + 1][y + 1].getPiece() != null && tiles[x + 1][y + 1].getPiece().getSide() != this.side) {
+        if (x + 1 < 8 && y + 1 < 8 && tiles[x + 1][y + 1].getPiece() != null && tiles[x + 1][y + 1].getPiece().getSide() != this.side) {
             moves.add(tiles[x + 1][y + 1]);
         }
         

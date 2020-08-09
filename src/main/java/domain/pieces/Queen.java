@@ -21,6 +21,7 @@ public class Queen extends Piece {
      * @param board for current game situation
      * @return list of tiles where queen can legally move
      */
+    @Override
     public ArrayList<Tile> getPossibleMoves(Board board) {
         ArrayList<Tile> moves = new ArrayList<>();
         Tile[][] tiles = board.getBoard();
