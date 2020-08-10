@@ -1,6 +1,8 @@
 package domain.board;
 
+import chess.model.Side;
 import domain.pieces.PieceName;
+import java.util.ArrayList;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -64,6 +66,14 @@ public class BoardTest {
         PieceName king = PieceName.KING;
         assertTrue(this.board.getBoard()[4][0].getPiece().getType() == king);
         assertTrue(this.board.getBoard()[4][7].getPiece().getType() == king);
+    }
+    
+    @Test
+    public void areRightMovesReturnedForAllPiecesOnBoard() {
+        ArrayList<String> blackMoves = this.board.getPossibleMoves(Side.BLACK);
+        ArrayList<String> whiteMoves = this.board.getPossibleMoves(Side.WHITE);
+        assertEquals(12, blackMoves.size());
+        assertEquals(12, whiteMoves.size());
     }
     
     @After

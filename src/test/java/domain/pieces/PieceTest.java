@@ -12,14 +12,14 @@ public class PieceTest {
     
     @Before
     public void setUp() {
-        this.piece = new Piece(Side.WHITE, PieceName.KING); 
+        this.piece = new King(Side.WHITE); 
         this.piece.setLocation(1, 1);
     }
     
     @Test
     public void doesPieceReturnRightSide() {
-        Piece black = new Piece(Side.BLACK, PieceName.PAWN);
-        Piece white = new Piece(Side.WHITE, PieceName.PAWN);
+        Piece black = new Pawn(Side.BLACK);
+        Piece white = new Pawn(Side.WHITE);
         assertTrue(black.getSide() == Side.BLACK);
         assertTrue(white.getSide() == Side.WHITE);
     }
