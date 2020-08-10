@@ -10,3 +10,5 @@ Tämä projekti käyttää Helsingin yliopston ohjelmistotuotantoprojektina tote
 [2. viikon raportti](https://github.com/AnnaKuokkanen/Shakki/blob/master/Dokumentaatio/viikkoraportti2.md)
 
 [3. viikon raportti](https://github.com/AnnaKuokkanen/Shakki/blob/master/Dokumentaatio/viikkoraportti3.md)
+
+[4. viikon raportti](https://github.com/AnnaKuokkanen/Shakki/blob/master/Dokumentaatio/viikkoraportti4.md)
