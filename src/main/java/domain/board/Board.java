@@ -2,15 +2,18 @@ package domain.board;
 
 import chess.model.Side;
 import domain.pieces.*;
+import java.util.ArrayList;
 
 public class Board {
     
     private Tile[][] tiles;
+    private TileNameConverter converter;
     private Side black = Side.BLACK;
     private Side white = Side.WHITE;
     
     public Board() {
         this.tiles = new Tile[8][8];
+        this.converter = new TileNameConverter();
     }
     
     /**
@@ -52,11 +55,34 @@ public class Board {
         }
     }
     
+    /**
+     * @return current board situation
+     */
     public Tile[][] getBoard() {
         return this.tiles;
     }
     
-    public void getPossibleMoves() {
+    /**
+     * @return all possible moves in current game situation parsed to String
+     */
+    public ArrayList<String> getPossibleMoves(Side side) {
+        ArrayList<String> moves = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (this.tiles[i][j].getPiece() != null && tiles[i][j].getPiece().onBoard() && tiles[i][j].getPiece().getSide() == side) {
+                    String name = converter.convert(i, j);
+                    for (Tile tile : tiles[i][j].getPiece().getPossibleMoves(this)) {
+                        name += converter.convert(tile.getX(), tile.getY());
+                        moves.add(name);
+                        name = converter.convert(i, j);
+                    }
+                }
+            }
+        }
+        return moves;
+    }
+    
+    public void addParsedMoves(Tile tile, ArrayList<String> moves) {
         
     }
 }
