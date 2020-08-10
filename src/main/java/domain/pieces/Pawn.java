@@ -29,14 +29,26 @@ public class Pawn extends Piece {
         int x = this.getLocation().getX();
         int y = this.getLocation().getY();
         
-        if (y < 8 && tiles[x][y + 1].getPiece() == null) {
-            moves.add(tiles[x][y + 1]);
-        }
-        if (x - 1 >= 0 && y + 1 < 8 && tiles[x - 1][y + 1].getPiece() != null && tiles[x - 1][y + 1].getPiece().getSide() != this.side) {
-            moves.add(tiles[x - 1][y + 1]);
-        }
-        if (x + 1 < 8 && y + 1 < 8 && tiles[x + 1][y + 1].getPiece() != null && tiles[x + 1][y + 1].getPiece().getSide() != this.side) {
-            moves.add(tiles[x + 1][y + 1]);
+        if (this.side == Side.BLACK) {
+            if (y + 1 < 8 && tiles[x][y + 1].getPiece() == null) {
+                moves.add(tiles[x][y + 1]);
+            }
+            if (x - 1 >= 0 && y + 1 < 8 && tiles[x - 1][y + 1].getPiece() != null && tiles[x - 1][y + 1].getPiece().getSide() != this.side) {
+                moves.add(tiles[x - 1][y + 1]);
+            }
+            if (x + 1 < 8 && y + 1 < 8 && tiles[x + 1][y + 1].getPiece() != null && tiles[x + 1][y + 1].getPiece().getSide() != this.side) {
+                moves.add(tiles[x + 1][y + 1]);
+            }
+        } else if (this.side == Side.WHITE) {
+            if (y -1 >= 0 && tiles[x][y - 1].getPiece() == null) {
+                moves.add(tiles[x][y - 1]);
+            }
+            if (x - 1 >= 0 && y - 1 >= 0 && tiles[x - 1][y - 1].getPiece() != null && tiles[x - 1][y - 1].getPiece().getSide() != this.side) {
+                moves.add(tiles[x - 1][y - 1]);
+            }
+            if (x + 1 < 8 && y -1 >= 0 && tiles[x + 1][y - 1].getPiece() != null && tiles[x + 1][y - 1].getPiece().getSide() != this.side) {
+                moves.add(tiles[x + 1][y - 1]);
+            }
         }
         
         return moves;
