@@ -26,7 +26,7 @@ public class TileTest {
     
     @Test
     public void areNamesConvertedCorrectly() {        
-        assertEquals("a1", converter.convert(0, 0));
+        assertEquals("a8", converter.convert(0, 0));
     }
     
     @Test
