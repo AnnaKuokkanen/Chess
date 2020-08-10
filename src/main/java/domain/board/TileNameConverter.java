@@ -26,7 +26,7 @@ public class TileNameConverter {
         String tile = "";
         
         tile += letters[x];
-        tile += Integer.toString(y + 1);
+        tile += Integer.toString(8 - y);
         
         return tile;
     } 
