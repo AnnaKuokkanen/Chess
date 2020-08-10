@@ -1,6 +1,7 @@
 package chess.bot;
 
 import chess.engine.GameState;
+import chess.model.Side;
 import domain.board.Board;
 import domain.board.Tile;
 import java.util.ArrayList;
@@ -14,11 +15,13 @@ public class MyBot implements ChessBot {
     
     public MyBot() {
         this.board = new Board();
+        this.board.setupBoard();
+        this.board.setupPieces();
     }
     
     @Override
     public String nextMove(GameState gamestate) {
-        //return this.board.getPossibleMoves().get(0);
-        return "e7e5";
+        return this.board.getPossibleMoves(Side.BLACK).get(0);
+        //return "a7a5";
     }
 }
