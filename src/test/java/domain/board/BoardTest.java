@@ -3,6 +3,7 @@ package domain.board;
 import chess.model.Side;
 import domain.pieces.PieceName;
 import java.util.ArrayList;
+import java.util.HashMap;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -70,10 +71,16 @@ public class BoardTest {
     
     @Test
     public void areRightMovesReturnedForAllPiecesOnBoard() {
-        ArrayList<String> blackMoves = this.board.getPossibleMoves(Side.BLACK);
-        ArrayList<String> whiteMoves = this.board.getPossibleMoves(Side.WHITE);
-        assertEquals(12, blackMoves.size());
-        assertEquals(12, whiteMoves.size());
+        HashMap<Tile, ArrayList<Tile>> blackMoves = this.board.getPossibleMoves(Side.BLACK);
+        HashMap<Tile, ArrayList<Tile>> whiteMoves = this.board.getPossibleMoves(Side.WHITE);
+        for(int i = 0; i < 8; i++) {
+            assertTrue(blackMoves.get(new Tile(i, 1)).size() == 1);
+            assertTrue(whiteMoves.get(new Tile(i, 6)).size() == 1);
+        }
+        assertTrue(blackMoves.get(new Tile(1, 0)).size() == 2);
+        assertTrue(blackMoves.get(new Tile(6, 0)).size() == 2);
+        assertTrue(whiteMoves.get(new Tile(1, 7)).size() == 2);
+        assertTrue(whiteMoves.get(new Tile(6, 7)).size() == 2);
     }
     
     @After

@@ -3,17 +3,17 @@ package domain.board;
 import chess.model.Side;
 import domain.pieces.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Board {
     
     private Tile[][] tiles;
-    private TileNameConverter converter;
     private Side black = Side.BLACK;
     private Side white = Side.WHITE;
+    private HashMap<Tile, ArrayList<Tile>> moves;
     
     public Board() {
         this.tiles = new Tile[8][8];
-        this.converter = new TileNameConverter();
     }
     
     /**
@@ -65,24 +65,20 @@ public class Board {
     /**
      * @return all possible moves in current game situation parsed to String
      */
-    public ArrayList<String> getPossibleMoves(Side side) {
-        ArrayList<String> moves = new ArrayList<>();
+    public HashMap<Tile, ArrayList<Tile>> getPossibleMoves(Side side) {
+        this.moves = new HashMap<>();
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
+                this.moves.put(tiles[i][j], new ArrayList<>());
                 if (this.tiles[i][j].getPiece() != null && tiles[i][j].getPiece().onBoard() && tiles[i][j].getPiece().getSide() == side) {
-                    String name = converter.convert(i, j);
+                    ArrayList<Tile> list = this.moves.get(tiles[i][j]);
                     for (Tile tile : tiles[i][j].getPiece().getPossibleMoves(this)) {
-                        name += converter.convert(tile.getX(), tile.getY());
-                        moves.add(name);
-                        name = converter.convert(i, j);
+                        list.add(tile);
                     }
+                    moves.put(tiles[i][j], list);
                 }
             }
         }
         return moves;
-    }
-    
-    public void addParsedMoves(Tile tile, ArrayList<String> moves) {
-        
     }
 }
