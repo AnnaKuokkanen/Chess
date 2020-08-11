@@ -1,5 +1,7 @@
 package domain.board;
 
+import chess.bot.MyBot;
+import chess.engine.GameState;
 import chess.model.Side;
 import domain.pieces.PieceName;
 import java.util.ArrayList;
@@ -82,6 +84,26 @@ public class BoardTest {
         assertTrue(whiteMoves.get(new Tile(1, 7)).size() == 2);
         assertTrue(whiteMoves.get(new Tile(6, 7)).size() == 2);
     }
+    
+    @Test
+    public void areValidMovesReturned() {
+        HashMap<Tile, ArrayList<Tile>> blackMoves = this.board.getPossibleMoves(Side.BLACK);
+        
+        TileNameConverter converter = new TileNameConverter();
+        Tile start = this.board.getBoard()[0][1];
+        Tile finish = blackMoves.get(start).get(0);
+        
+        String move = converter.convert(start.getX(), start.getY());
+        move += converter.convert(finish.getX(), finish.getY());
+        
+        assertEquals("a7a6", move);
+    }
+    
+//    @Test   
+//    public void whatDoesMyBotDo() {
+//        MyBot bot = new MyBot();
+//        assertEquals("a7a6", bot.nextMove(new GameState()));
+//    }
     
     @After
     public void tearDown() {
