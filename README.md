@@ -1,4 +1,4 @@
-# Shakki [![codecov](https://codecov.io/gh/AnnaKuokkanen/Shakki/branch/master/graph/badge.svg)](https://codecov.io/gh/AnnaKuokkanen/Shakki)
+# Shakki [![codecov](https://codecov.io/gh/AnnaKuokkanen/Shakki/branch/master/graph/badge.svg)](https://codecov.io/gh/AnnaKuokkanen/Shakki) [![Build Status](https://travis-ci.org/AnnaKuokkanen/Shakki.svg?branch=master)](https://travis-ci.org/AnnaKuokkanen/Shakki)
 
 Helsingn yliopiston aineopintojen harjoitustyö: [tietorakenteet ja algoritmit](https://tiralabra.github.io/loppukesa_2020/index).
 Tämä projekti käyttää Helsingin yliopston ohjelmistotuotantoprojektina toteutettua [projektipohjaa](https://github.com/TiraLabra/chess).
