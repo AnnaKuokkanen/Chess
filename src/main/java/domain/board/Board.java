@@ -70,12 +70,14 @@ public class Board {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 this.moves.put(tiles[i][j], new ArrayList<>());
-                if (this.tiles[i][j].getPiece() != null && tiles[i][j].getPiece().onBoard() && tiles[i][j].getPiece().getSide() == side) {
-                    ArrayList<Tile> list = this.moves.get(tiles[i][j]);
-                    for (Tile tile : tiles[i][j].getPiece().getPossibleMoves(this)) {
-                        list.add(tile);
+                if (!this.tiles[i][j].free()) {
+                    if (tiles[i][j].getPiece().onBoard() && tiles[i][j].getPiece().getSide() == side) { 
+                        ArrayList<Tile> list = this.moves.get(tiles[i][j]);
+                        for (Tile tile : tiles[i][j].getPiece().getPossibleMoves(this)) {
+                            list.add(tile);
+                        }
+                        moves.put(tiles[i][j], list);
                     }
-                    moves.put(tiles[i][j], list);
                 }
             }
         }

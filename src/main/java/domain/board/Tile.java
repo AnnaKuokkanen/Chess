@@ -37,7 +37,7 @@ public class Tile {
     
     public void setPiece(Piece piece) {
         this.piece = piece;
-        if(piece != null) {
+        if (piece != null) {
             this.piece.setLocation(this.x, this.y);
         }
     }
