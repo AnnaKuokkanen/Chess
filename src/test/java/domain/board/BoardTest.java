@@ -98,13 +98,6 @@ public class BoardTest {
         
         assertEquals("a7a6", move);
     }
-    
-//    @Test   
-//    public void whatDoesMyBotDo() {
-//        MyBot bot = new MyBot();
-//        assertEquals("a7a6", bot.nextMove(new GameState()));
-//    }
-    
     @After
     public void tearDown() {
     
