@@ -30,28 +30,38 @@ public class Pawn extends Piece {
         int y = this.getLocation().getY();
         
         if (this.side == Side.BLACK) {
-            if (y + 1 < 8 && tiles[x][y + 1].getPiece() == null) {
+            if (y + 1 < 8 && tiles[x][y + 1].free()) {
                 moves.add(tiles[x][y + 1]);
             }
-            if (x - 1 >= 0 && y + 1 < 8 && tiles[x - 1][y + 1].getPiece() != null && tiles[x - 1][y + 1].getPiece().getSide() != this.side) {
+            if (x - 1 >= 0 && y + 1 < 8 && !tiles[x - 1][y + 1].free() && differentSide(tiles[x - 1][y + 1])) {
                 moves.add(tiles[x - 1][y + 1]);
             }
-            if (x + 1 < 8 && y + 1 < 8 && tiles[x + 1][y + 1].getPiece() != null && tiles[x + 1][y + 1].getPiece().getSide() != this.side) {
+            if (x + 1 < 8 && y + 1 < 8 && !tiles[x + 1][y + 1].free() && differentSide(tiles[x + 1][y + 1])) {
                 moves.add(tiles[x + 1][y + 1]);
             }
         } else if (this.side == Side.WHITE) {
-            if (y -1 >= 0 && tiles[x][y - 1].getPiece() == null) {
+            if (y - 1 >= 0 && tiles[x][y - 1].free()) {
                 moves.add(tiles[x][y - 1]);
             }
-            if (x - 1 >= 0 && y - 1 >= 0 && tiles[x - 1][y - 1].getPiece() != null && tiles[x - 1][y - 1].getPiece().getSide() != this.side) {
+            if (x - 1 >= 0 && y - 1 >= 0 && !tiles[x - 1][y - 1].free() && differentSide(tiles[x - 1][y - 1])) {
                 moves.add(tiles[x - 1][y - 1]);
             }
-            if (x + 1 < 8 && y -1 >= 0 && tiles[x + 1][y - 1].getPiece() != null && tiles[x + 1][y - 1].getPiece().getSide() != this.side) {
+            if (x + 1 < 8 && y - 1 >= 0 && !tiles[x + 1][y - 1].free() && differentSide(tiles[x + 1][y - 1])) {
                 moves.add(tiles[x + 1][y - 1]);
             }
         }
         
         return moves;
+    }
+    
+    /**
+     * method that checks if piece on some
+     * tile is the same side as this piece
+     * @param tile is the tile we are checking
+     * @return boolean value of comparison 
+     */
+    public boolean differentSide(Tile tile) {
+        return tile.getPiece().getSide() != this.side;
     }
     
     public int getValue() {

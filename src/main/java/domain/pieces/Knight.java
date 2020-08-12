@@ -29,32 +29,42 @@ public class Knight extends Piece {
         int x = this.getLocation().getX();
         int y = this.getLocation().getY();
         
-        if (x + 2 < 8 && y + 1 < 8 && (tiles[x + 2][y + 1].getPiece() == null || tiles[x + 2][y + 1].getPiece().getSide() != this.side)) {
+        if (x + 2 < 8 && y + 1 < 8 && (tiles[x + 2][y + 1].free() || differentSide(tiles[x + 2][y + 1]))) {
             moves.add(tiles[x + 2][y + 1]);
         }
-        if (x + 2 < 8 && y - 1 >= 0 && (tiles[x + 2][y - 1].getPiece() == null || tiles[x + 2][y - 1].getPiece().getSide() != this.side)) {
+        if (x + 2 < 8 && y - 1 >= 0 && (tiles[x + 2][y - 1].free() || differentSide(tiles[x + 2][y - 1]))) {
             moves.add(tiles[x + 2][y - 1]);
         }
-        if (x - 2 >= 0 && y + 1 < 8 && (tiles[x - 2][y + 1].getPiece() == null || tiles[x - 2][y + 1].getPiece().getSide() != this.side)) {
+        if (x - 2 >= 0 && y + 1 < 8 && (tiles[x - 2][y + 1].free() || differentSide(tiles[x - 2][y + 1]))) {
             moves.add(tiles[x - 2][y + 1]);
         }
-        if (x - 2 >= 0 && y -1 >= 0 && (tiles[x - 2][y - 1].getPiece() == null || tiles[x - 2][y - 1].getPiece().getSide() != this.side)) {
+        if (x - 2 >= 0 && y - 1 >= 0 && (tiles[x - 2][y - 1].free() || differentSide(tiles[x - 2][y - 1]))) {
             moves.add(tiles[x - 2][y - 1]);
         }
-        if (x + 1 < 8 && y + 2 < 8 && (tiles[x + 1][y + 2].getPiece() == null || tiles[x + 1][y + 2].getPiece().getSide() != this.side)) {
+        if (x + 1 < 8 && y + 2 < 8 && (tiles[x + 1][y + 2].free() || differentSide(tiles[x + 1][y + 2]))) {
             moves.add(tiles[x + 1][y + 2]);
         }
-        if (x + 1 < 8 && y - 2 >= 0 && (tiles[x + 1][y - 2].getPiece() == null || tiles[x + 1][y - 2].getPiece().getSide() != this.side)) {
+        if (x + 1 < 8 && y - 2 >= 0 && (tiles[x + 1][y - 2].free() || differentSide(tiles[x + 1][y - 2]))) {
             moves.add(tiles[x + 1][y - 2]);
         }
-        if (x - 1 >= 0 && y + 2 < 8 && (tiles[x - 1][y + 2].getPiece() == null || tiles[x - 1][y + 2].getPiece().getSide() != this.side)) {
+        if (x - 1 >= 0 && y + 2 < 8 && (tiles[x - 1][y + 2].free() || differentSide(tiles[x - 1][y + 2]))) {
             moves.add(tiles[x - 1][y + 2]);
         }
-        if (x - 1 >= 0 && y - 2 >= 0 && (tiles[x - 1][y - 2].getPiece() == null || tiles[x - 1][y - 2].getPiece().getSide() != this.side)) {
+        if (x - 1 >= 0 && y - 2 >= 0 && (tiles[x - 1][y - 2].free() || differentSide(tiles[x - 1][y - 2]))) {
             moves.add(tiles[x - 1][y - 2]);
         }
         
         return moves;
+    }
+    
+    /**
+     * method that checks if piece on some
+     * tile is the same side as this piece
+     * @param tile is the tile we are checking
+     * @return boolean value of comparison 
+     */
+    public boolean differentSide(Tile tile) {
+        return tile.getPiece().getSide() != this.side;
     }
     
     public int getValue() {
