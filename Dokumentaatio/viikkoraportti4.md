@@ -4,5 +4,8 @@
 vääriä siirtoja
 * lisäksi täytyy säätää toiminnallisuutta, joka liikuttaa nappuloita: sen jälkeen kun jokin nappula on poistettu pelistä
 ja samalla ruudulla on vastapuolen nappula, botti pyrkii edelleen liikuttamaan kyseisessä ruudussa olevaa nappulaa
+* ollut hieman ongelmia saada pelitilannetta päivitettyä sen jälkeen, kun jokin botin nappuloista on eliminoitu
+* botti yrittää tämän jälkeen silti siirtää nappulaa
 
-Käytettyjä tunteja: 7
+
+Käytettyjä tunteja: 13
