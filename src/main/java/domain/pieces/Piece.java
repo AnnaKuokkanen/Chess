@@ -41,8 +41,8 @@ public abstract class Piece {
     }
     
     public void move(int x, int y) {
-        location.setX(x);
-        location.setY(y);
+        this.location.setPiece(null);
+        location = new Tile(x, y);
     }
     
     public abstract ArrayList<Tile> getPossibleMoves(Board board);
