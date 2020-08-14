@@ -13,6 +13,7 @@ public class MyBot implements ChessBot {
     private final Board board;
     private HashMap<Tile, ArrayList<Tile>> moves;
     private final TileNameConverter converter;
+    private GameState gamestate; 
     
     public MyBot() {
         this.board = new Board();
@@ -24,10 +25,22 @@ public class MyBot implements ChessBot {
     
     @Override
     public String nextMove(GameState gamestate) {
-        String opponentMove = gamestate.getLatestMove();
-        
-        
+        this.gamestate = gamestate;
+        if (gamestate.getMoveCount() > 0) { 
+            String opponentMove = gamestate.getLatestMove();
+            //this array symbolizes opponent move's start and finish tiles
+            Tile[] opponentTiles = converter.convertToTile(opponentMove);
+
+            if (opponentTiles[1].getPiece() != null) {
+                opponentTiles[1].getPiece().remove();
+            }
+
+            opponentTiles[1].setPiece(opponentTiles[0].getPiece());
+            opponentTiles[0].setPiece(null);
+        }
+                
         this.moves = new HashMap<>();
+        
         return search();
     }
     
