@@ -22,7 +22,7 @@ public class TileNameConverter {
      * @param x depicts column 
      * @param y depicts row 
      */
-    public String convert(int x, int y) {
+    public String convertToString(int x, int y) {
         String tile = "";
         
         tile += letters[x];
@@ -30,4 +30,28 @@ public class TileNameConverter {
         
         return tile;
     } 
+    
+    /**
+     * @return array which contains two tiles:
+     * array[0] = start
+     * array[1] = finish
+     * this method enables changing opponents moves to Tile values
+     * @param move depicts move in textual form 
+     */
+    public Tile[] convertToTile(String move) {
+        Tile[] tiles = new Tile[2];
+        char[] moves = move.toCharArray();
+        
+        
+        for (int i = 0; i < 8; i++) {
+            if (String.valueOf(moves[0]).equals(letters[i])) {
+                tiles[0] = new Tile(i, Character.getNumericValue(moves[1]) - 1);
+            }
+            if (String.valueOf(moves[2]).equals(letters[i])) {
+                tiles[1] = new Tile(i, Character.getNumericValue(moves[3]) - 1);
+            }
+        } 
+        
+        return tiles;
+    }
 }

@@ -25,8 +25,20 @@ public class TileTest {
     }
     
     @Test
-    public void areNamesConvertedCorrectly() {        
-        assertEquals("a8", converter.convert(0, 0));
+    public void areNamesConvertedToStringCorrectly() {        
+        assertEquals("a8", converter.convertToString(0, 0));
+    }
+    
+    @Test
+    public void areMovesConvertedToTilesCorrectly() {
+        String move = "b4b7";
+        Tile[] tiles = converter.convertToTile(move);
+        assertEquals(1, tiles[0].getX());
+        assertEquals(3, tiles[0].getY());
+        assertEquals(new Tile(1, 3), tiles[0]);
+        assertEquals(1, tiles[1].getX());
+        assertEquals(6, tiles[1].getY());
+        assertEquals(new Tile(1, 6), tiles[1]);
     }
     
     @Test

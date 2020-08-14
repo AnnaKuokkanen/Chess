@@ -93,11 +93,20 @@ public class BoardTest {
         Tile start = this.board.getBoard()[0][1];
         Tile finish = blackMoves.get(start).get(0);
         
-        String move = converter.convert(start.getX(), start.getY());
-        move += converter.convert(finish.getX(), finish.getY());
+        String move = converter.convertToString(start.getX(), start.getY());
+        move += converter.convertToString(finish.getX(), finish.getY());
         
         assertEquals("a7a6", move);
     }
+    
+    @Test
+    public void testForMyBot() {
+        MyBot bot = new MyBot();
+        assertEquals("a7a6", bot.nextMove(new GameState()));
+        assertEquals("a8a7", bot.nextMove(new GameState()));
+        assertEquals("a7a8", bot.nextMove(new GameState()));
+    }
+    
     @After
     public void tearDown() {
     

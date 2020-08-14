@@ -13,7 +13,7 @@ public class Tile {
     public Tile(int x, int y) {
         this.x = x;
         this.y = y;
-        this.id = converter.convert(x, y);
+        this.id = converter.convertToString(x, y);
     }
     
     public int getX() {
