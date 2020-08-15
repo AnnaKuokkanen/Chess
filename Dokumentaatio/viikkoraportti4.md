@@ -1,11 +1,13 @@
-* huomattu Pawn-luokassa oleva virhe: eri puolen sotilaat liikkuvat yhteen suuntaan, virhe korjattu
-* sovellus vaiheessa, missä voidaan alkaa kehittämään omia tietorakenteita ja algoritmia
-* ainoa tärkeä puuttuva osa on kuninkaan shakkitilanteen tarkistaminen: botti tekee tässä
-vääriä siirtoja
-* lisäksi täytyy säätää toiminnallisuutta, joka liikuttaa nappuloita: sen jälkeen kun jokin nappula on poistettu pelistä
-ja samalla ruudulla on vastapuolen nappula, botti pyrkii edelleen liikuttamaan kyseisessä ruudussa olevaa nappulaa
-* ollut hieman ongelmia saada pelitilannetta päivitettyä sen jälkeen, kun jokin botin nappuloista on eliminoitu
-* botti yrittää tämän jälkeen silti siirtää nappulaa
+Tällä viikolla huomasin, että Pawn-luokassa oli virhe, sillä nappulan väriä ei otettu huomioon, joten eri puolen nappulat
+liikkuivat samaan suuntaan. Virhe on nyt korjattu. Lisäksi tällä viikolla olen toteuttanut botin liikkumismetodin, joka
+palautti aluksi ensimmäisen löydetyn mahdollisen siirron. Huomasin botin toiminnassa virheitä.
 
+Ongelmia: botti ei jostain syystä vaikuta päivittävän pelitilannetta oikein ja yrittää liikuttaa nappuloita, jotka eivät
+ole laudalla, vaikka mielestäni pidän huolta siitä, että päivitän liikutettavan nappulan uuden sijainnin, vanhan 
+sijainnin nappulan arvoksi null, uuden ruudun nappulan arvoksi liikutettavan nappulan, sekä tarvittaessa poistan ruudussa jo
+olleen nappulan laudalta.
 
-Käytettyjä tunteja: 13
+Kun olen ratkaissut tämän ongelman, täytyy vielä toteuttaa kuninkaan tilanteen tarkistaminen, jotta botti ei tee vääriä 
+siirtoja, kun kuningas on uhattuna.
+
+Käytettyjä tunteja: 15
