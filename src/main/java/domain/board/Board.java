@@ -71,7 +71,7 @@ public class Board {
             for (int j = 0; j < 8; j++) {
                 this.moves.put(tiles[i][j], new ArrayList<>());
                 if (!this.tiles[i][j].free()) {
-                    if (tiles[i][j].getPiece().onBoard() && tiles[i][j].getPiece().getSide() == side) { 
+                    if (tiles[i][j].getPiece().getSide() == side) { 
                         ArrayList<Tile> list = this.moves.get(tiles[i][j]);
                         for (Tile tile : tiles[i][j].getPiece().getPossibleMoves(this)) {
                             list.add(tile);

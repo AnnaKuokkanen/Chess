@@ -29,6 +29,7 @@ public abstract class Piece {
     }
     
     public void remove() {
+        this.location.setPiece(null);
         onBoard = false;
     }
     

@@ -24,7 +24,7 @@ public class RandomChoice {
         for (Tile tile : this.moves.keySet()) { 
             if (this.moves.get(tile).size() > 0) {
                 Tile start = tile;
-                Tile finish = moves.get(start).get(moves.get(start).size() - 1);
+                Tile finish = moves.get(start).get(0);
 
                 move += converter.convertToString(start.getX(), start.getY());
                 move += converter.convertToString(finish.getX(), finish.getY());
