@@ -1,3 +1,5 @@
+## 4. viikko
+
 Tällä viikolla huomasin, että Pawn-luokassa oli virhe, sillä nappulan väriä ei otettu huomioon, joten eri puolen nappulat
 liikkuivat samaan suuntaan. Virhe on nyt korjattu. Lisäksi tällä viikolla olen toteuttanut botin liikkumismetodin, joka
 palautti aluksi ensimmäisen löydetyn mahdollisen siirron. Huomasin botin toiminnassa virheitä.
