@@ -23,7 +23,6 @@ public class Board {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 this.tiles[i][j] = new Tile(i, j);
-                this.tiles[i][j].setPiece(null);
             }
         }
     }
