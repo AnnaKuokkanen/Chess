@@ -76,7 +76,7 @@ public class Board {
                         for (Tile tile : tiles[i][j].getPiece().getPossibleMoves(this)) {
                             list.add(tile);
                         }
-                        moves.put(tiles[i][j], list);
+                        moves.replace(tiles[i][j], list);
                     }
                 }
             }
