@@ -2,6 +2,7 @@ package chess.bot;
 
 import chess.engine.GameState;
 import chess.model.Side;
+import datastructureproject.RandomChoice;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
@@ -10,13 +11,11 @@ import java.util.HashMap;
 
 public class MyBot implements ChessBot {
     
-    private final Board board = new Board();
-    private HashMap<Tile, ArrayList<Tile>> moves;
-    private final TileNameConverter converter = new TileNameConverter();
+    private RandomChoice choice;
+    TileNameConverter converter = new TileNameConverter();
     
     public MyBot() {
-        this.board.setupBoard();
-        this.board.setupPieces();
+        this.choice = new RandomChoice();
     }
     
     @Override
@@ -33,34 +32,7 @@ public class MyBot implements ChessBot {
             opponentTiles[1].setPiece(opponentTiles[0].getPiece());
             opponentTiles[0].setPiece(null);
         }
-                
-        this.moves = new HashMap<>();
         
-        return search();
-    }
-    
-    public String search() {
-        this.moves = this.board.getPossibleMoves(Side.BLACK);
-        String move = "";
-        
-        for (Tile tile : this.moves.keySet()) { 
-            if (this.moves.get(tile).size() > 0) {
-                Tile start = tile;
-                Tile finish = moves.get(start).get(moves.get(start).size() - 1);
-
-                move += converter.convertToString(start.getX(), start.getY());
-                move += converter.convertToString(finish.getX(), finish.getY());
-
-                if (finish.getPiece() != null) {
-                    finish.getPiece().remove();
-                }
-
-                finish.setPiece(start.getPiece());
-                start.setPiece(null);
-                break;
-            }
-        }
-            
-        return move;
+        return choice.chooseMove();
     }
 }
