@@ -10,22 +10,17 @@ import java.util.HashMap;
 
 public class MyBot implements ChessBot {
     
-    private final Board board;
+    private final Board board = new Board();
     private HashMap<Tile, ArrayList<Tile>> moves;
-    private final TileNameConverter converter;
-    private GameState gamestate; 
+    private final TileNameConverter converter = new TileNameConverter();
     
     public MyBot() {
-        this.board = new Board();
         this.board.setupBoard();
         this.board.setupPieces();
-        
-        this.converter = new TileNameConverter();
     }
     
     @Override
     public String nextMove(GameState gamestate) {
-        this.gamestate = gamestate;
         if (gamestate.getMoveCount() > 0) { 
             String opponentMove = gamestate.getLatestMove();
             //this array symbolizes opponent move's start and finish tiles

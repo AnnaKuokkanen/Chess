@@ -7,8 +7,8 @@ public class Tile {
     private int x;
     private int y;
     private Piece piece;
-    private String id;
-    private TileNameConverter converter = new TileNameConverter();
+    private final String id;
+    private final TileNameConverter converter = new TileNameConverter();
     
     public Tile(int x, int y) {
         this.x = x;
@@ -19,8 +19,13 @@ public class Tile {
     public int getX() {
         return x;
     }
+    
     public int getY() {
         return y;
+    }
+    
+    public String getId() {
+        return id;
     }
     
     public void setX(int x) {

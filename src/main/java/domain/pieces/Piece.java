@@ -39,10 +39,10 @@ public abstract class Piece {
     public PieceName getType() {
         return this.type;
     }
-    
+    // useless method that should be removed
     public void move(int x, int y) {
         this.location.setPiece(null);
-        location = new Tile(x, y);
+        setLocation(x, y);
     }
     
     public abstract ArrayList<Tile> getPossibleMoves(Board board);

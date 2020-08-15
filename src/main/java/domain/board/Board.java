@@ -7,9 +7,9 @@ import java.util.HashMap;
 
 public class Board {
     
-    private Tile[][] tiles;
-    private Side black = Side.BLACK;
-    private Side white = Side.WHITE;
+    private final Tile[][] tiles;
+    private final Side black = Side.BLACK;
+    private final Side white = Side.WHITE;
     private HashMap<Tile, ArrayList<Tile>> moves;
     
     public Board() {
@@ -23,6 +23,7 @@ public class Board {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 this.tiles[i][j] = new Tile(i, j);
+                this.tiles[i][j].setPiece(null);
             }
         }
     }
