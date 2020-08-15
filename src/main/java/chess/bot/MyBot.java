@@ -29,7 +29,7 @@ public class MyBot implements ChessBot {
             if (opponentTiles[1].getPiece() != null) {
                 opponentTiles[1].getPiece().remove();
             }
-
+            
             opponentTiles[1].setPiece(opponentTiles[0].getPiece());
             opponentTiles[0].setPiece(null);
         }
@@ -43,31 +43,24 @@ public class MyBot implements ChessBot {
         this.moves = this.board.getPossibleMoves(Side.BLACK);
         String move = "";
         
-        boolean found = false;
-        
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (!board.getBoard()[i][j].free() && board.getBoard()[i][j].getPiece().getSide() == Side.BLACK && !moves.get(board.getBoard()[i][j]).isEmpty()) {
-                    Tile start = board.getBoard()[i][j];
-                    Tile finish = moves.get(start).get(moves.get(start).size() - 1);
+        for (Tile tile : this.moves.keySet()) { 
+            if (this.moves.get(tile).size() > 0) {
+                Tile start = tile;
+                Tile finish = moves.get(start).get(moves.get(start).size() - 1);
 
-                    move += converter.convertToString(start.getX(), start.getY());
-                    move += converter.convertToString(finish.getX(), finish.getY());
-                    
-                    if (finish.getPiece() != null) {
-                        finish.getPiece().remove();
-                    }
-                    
-                    finish.setPiece(start.getPiece());
-                    start.setPiece(null);
-                    found = true;
-                    break;
+                move += converter.convertToString(start.getX(), start.getY());
+                move += converter.convertToString(finish.getX(), finish.getY());
+
+                if (finish.getPiece() != null) {
+                    finish.getPiece().remove();
                 }
-            }
-            if (found) { 
+
+                finish.setPiece(start.getPiece());
+                start.setPiece(null);
                 break;
             }
         }
+            
         return move;
     }
 }
