@@ -1,37 +1,40 @@
 package chess.bot;
 
 import chess.engine.GameState;
-import chess.model.Side;
 import datastructureproject.RandomChoice;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MyBot implements ChessBot {
     
     private RandomChoice choice;
     TileNameConverter converter = new TileNameConverter();
+    private final Board board = new Board();
     
     public MyBot() {
-        this.choice = new RandomChoice();
+        this.board.setupBoard();
+        this.board.setupPieces();
     }
     
     @Override
-    public String nextMove(GameState gamestate) {
+    public String nextMove(GameState gamestate) {       
         if (gamestate.getMoveCount() > 0) { 
             String opponentMove = gamestate.getLatestMove();
-            //this array symbolizes opponent move's start and finish tiles
+            
             Tile[] opponentTiles = converter.convertToTile(opponentMove);
+            Tile start = opponentTiles[0];
+            Tile finish = opponentTiles[1];
 
-            if (opponentTiles[1].getPiece() != null) {
-                opponentTiles[1].getPiece().remove();
+            if (board.getBoard()[finish.getX()][finish.getY()].getPiece() != null) {
+                board.getBoard()[finish.getX()][finish.getY()].getPiece().remove();
             }
             
-            opponentTiles[1].setPiece(opponentTiles[0].getPiece());
-            opponentTiles[0].setPiece(null);
+            board.getBoard()[finish.getX()][finish.getY()].setPiece(board.getBoard()[start.getX()][start.getY()].getPiece());
+            board.getBoard()[start.getX()][start.getY()].setPiece(null);
         }
+        
+        this.choice = new RandomChoice(board);
         
         return choice.chooseMove();
     }

@@ -55,6 +55,9 @@ public class TileTest {
     @Test
     public void isNullPieceReturnedCorrectly() {
         assertTrue(this.tile.getPiece() == null);
+        assertTrue(this.tile.free());
+        this.tile.setPiece(new Queen(Side.WHITE));
+        assertTrue(!this.tile.free());
     }
     
     @Test

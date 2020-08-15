@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RandomChoice {
-    private final Board board = new Board();
+    private final Board board;
     private HashMap<Tile, ArrayList<Tile>> moves;
     private final TileNameConverter converter = new TileNameConverter();
     
-    public RandomChoice() {
-        this.board.setupBoard();
-        this.board.setupPieces();
+    public RandomChoice(Board board) {
+        this.board = board;
     }
     
     public String chooseMove() {
         this.moves = this.board.getPossibleMoves(Side.BLACK);
+        
         String move = "";
         
         for (Tile tile : this.moves.keySet()) { 
@@ -29,12 +29,12 @@ public class RandomChoice {
                 move += converter.convertToString(start.getX(), start.getY());
                 move += converter.convertToString(finish.getX(), finish.getY());
 
-                if (finish.getPiece() != null) {
-                    finish.getPiece().remove();
+                if (board.getBoard()[finish.getX()][finish.getY()].getPiece() != null) {
+                    board.getBoard()[finish.getX()][finish.getY()].getPiece().remove();
                 }
 
-                finish.setPiece(start.getPiece());
-                start.setPiece(null);
+                board.getBoard()[finish.getX()][finish.getY()].setPiece(start.getPiece());
+                board.getBoard()[start.getX()][start.getY()].setPiece(null);
                 
                 break;
             }
