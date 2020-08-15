@@ -54,6 +54,30 @@ public class TileTest {
         assertTrue(q.getLocation().equals(tile));
     }
     
+    @Test
+    public void isPieceMovedCorrectly() {
+        Tile start = new Tile(1, 1);
+        Tile finish = new Tile(1, 2);
+        
+        Queen blackQueen = new Queen(Side.BLACK);
+        Queen whiteQueen = new Queen(Side.WHITE);
+        
+        start.setPiece(blackQueen);
+        finish.setPiece(whiteQueen);
+        
+        if (finish.getPiece() != null) {
+            finish.getPiece().remove();
+        }
+
+        finish.setPiece(start.getPiece());
+        start.setPiece(null);
+        
+        assertTrue(start.getPiece() == null);
+        assertTrue(finish.getPiece().equals(blackQueen));
+        assertTrue(!whiteQueen.onBoard());
+        assertTrue(blackQueen.getLocation().equals(finish));
+    }
+    
     @After
     public void tearDown() {
     
