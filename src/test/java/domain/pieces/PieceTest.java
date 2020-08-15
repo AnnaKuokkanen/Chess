@@ -54,7 +54,7 @@ public class PieceTest {
     
     @Test
     public void doesPieceMoveCorrectly() {
-        piece.move(2, 1);
+        piece.setLocation(2, 1);
         assertTrue(piece.getLocation().equals(new Tile(2, 1)));
     }
     
