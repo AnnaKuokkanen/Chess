@@ -1,7 +1,5 @@
 package domain.board;
 
-import chess.bot.MyBot;
-import chess.engine.GameState;
 import chess.model.Side;
 import domain.pieces.PieceName;
 import java.util.ArrayList;
