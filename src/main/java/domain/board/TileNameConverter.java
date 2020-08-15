@@ -45,10 +45,10 @@ public class TileNameConverter {
         
         for (int i = 0; i < 8; i++) {
             if (String.valueOf(moves[0]).equals(letters[i])) {
-                tiles[0] = new Tile(i, Character.getNumericValue(moves[1]) - 1);
+                tiles[0] = new Tile(i, 8 - Character.getNumericValue(moves[1]));
             }
             if (String.valueOf(moves[2]).equals(letters[i])) {
-                tiles[1] = new Tile(i, Character.getNumericValue(moves[3]) - 1);
+                tiles[1] = new Tile(i, 8 - Character.getNumericValue(moves[3]));
             }
         } 
         

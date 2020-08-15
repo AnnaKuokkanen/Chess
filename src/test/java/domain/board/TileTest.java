@@ -31,14 +31,25 @@ public class TileTest {
     
     @Test
     public void areMovesConvertedToTilesCorrectly() {
-        String move = "b4b7";
-        Tile[] tiles = converter.convertToTile(move);
-        assertEquals(1, tiles[0].getX());
-        assertEquals(3, tiles[0].getY());
-        assertEquals(new Tile(1, 3), tiles[0]);
-        assertEquals(1, tiles[1].getX());
-        assertEquals(6, tiles[1].getY());
-        assertEquals(new Tile(1, 6), tiles[1]);
+        String move1 = "b4b7";
+        String move2 = "g1h8";
+        
+        Tile[] tiles1 = converter.convertToTile(move1);
+        Tile[] tiles2 = converter.convertToTile(move2);
+        
+        assertEquals(1, tiles1[0].getX());
+        assertEquals(4, tiles1[0].getY());
+        assertEquals(new Tile(1, 4), tiles1[0]);
+        assertEquals(1, tiles1[1].getX());
+        assertEquals(1, tiles1[1].getY());
+        assertEquals(new Tile(1, 1), tiles1[1]);
+        
+        assertEquals(6, tiles2[0].getX());
+        assertEquals(7, tiles2[0].getY());
+        assertEquals(new Tile(6, 7), tiles2[0]);
+        assertEquals(7, tiles2[1].getX());
+        assertEquals(0, tiles2[1].getY());
+        assertEquals(new Tile(7, 0), tiles2[1]);
     }
     
     @Test
