@@ -12,4 +12,6 @@ olleen nappulan laudalta.
 Kun olen ratkaissut tämän ongelman, täytyy vielä toteuttaa kuninkaan tilanteen tarkistaminen, jotta botti ei tee vääriä 
 siirtoja, kun kuningas on uhattuna.
 
+Edit (15.8): Ongelma on ratkennut ja olen kirjoittanut siitä seuraavan viikon raporttiin.  
+
 Käytettyjä tunteja: 15
