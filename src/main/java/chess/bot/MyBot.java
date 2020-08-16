@@ -25,13 +25,18 @@ public class MyBot implements ChessBot {
             Tile[] opponentTiles = converter.convertToTile(opponentMove);
             Tile start = opponentTiles[0];
             Tile finish = opponentTiles[1];
+            
+            int startX = start.getX();
+            int startY = start.getY();
+            int finishX = finish.getX();
+            int finishY = finish.getY();
 
-            if (board.getBoard()[finish.getX()][finish.getY()].getPiece() != null) {
-                board.getBoard()[finish.getX()][finish.getY()].getPiece().remove();
+            if (board.getBoard()[finishX][finishY].getPiece() != null) {
+                board.getBoard()[finishX][finishY].getPiece().remove();
             }
             
-            board.getBoard()[finish.getX()][finish.getY()].setPiece(board.getBoard()[start.getX()][start.getY()].getPiece());
-            board.getBoard()[start.getX()][start.getY()].setPiece(null);
+            board.getBoard()[finishX][finishY].setPiece(board.getBoard()[startX][startY].getPiece());
+            board.getBoard()[startX][startY].setPiece(null);
         }
         
         this.choice = new RandomChoice(board);
