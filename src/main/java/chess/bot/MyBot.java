@@ -1,7 +1,7 @@
 package chess.bot;
 
 import chess.engine.GameState;
-import datastructureproject.RandomChoice;
+import datastructureproject.algorithm.RandomChoice;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;

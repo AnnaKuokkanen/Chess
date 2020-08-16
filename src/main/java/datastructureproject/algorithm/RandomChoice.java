@@ -1,4 +1,4 @@
-package datastructureproject;
+package datastructureproject.algorithm;
 
 import chess.model.Side;
 import domain.board.Board;
