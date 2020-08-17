@@ -9,4 +9,7 @@ Tällä hetkellä ongelma on korjattu. Ainoat väärät siirrot, joita botti tek
 ei estetä liikkumasta uhatuille ruuduille: tämä toiminnallisuus täytyy toteuttaa seuraavaksi. Muuten peli on siinä 
 vaiheessa, että algoritmin luominen on mahdollista. 
 
-Käytettyjä tunteja: 6
+17.8: omia tietorakenteita on aloitettu (testit puuttuvat). Lisäksi loin uuden tavan valita siirtoja: botti tarkistaa, 
+voiko se poistaa jonkun vastustajan nappuloista ja jos voi, se poistaa korkea-arvoisimman.
+
+Käytettyjä tunteja: 8
