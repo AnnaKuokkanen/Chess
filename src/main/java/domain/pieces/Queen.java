@@ -43,6 +43,7 @@ public class Queen extends Piece {
         return moves;
     }
     
+    @Override
     public int getValue() {
         int value = 90;
         if (side == side.BLACK) {

@@ -67,6 +67,7 @@ public class Knight extends Piece {
         return tile.getPiece().getSide() != this.side;
     }
     
+    @Override
     public int getValue() {
         int value = 30;
         if (side == side.BLACK) {

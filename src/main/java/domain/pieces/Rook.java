@@ -38,6 +38,7 @@ public class Rook extends Piece {
         return moves;
     }
     
+    @Override
     public int getValue() {
         int value = 50;
         if (side == side.BLACK) {

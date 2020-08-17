@@ -83,4 +83,22 @@ public class Board {
         }
         return moves;
     }
+    
+    /**
+     * this method counts the sum of
+     * values of all pieces on board
+     * @return int sum
+     */
+    public int getBoardValue() {
+        int sum = 0;
+        
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (tiles[i][j].getPiece() != null) {
+                    sum += tiles[i][j].getPiece().getValue();
+                } 
+            }
+        }
+        return sum; 
+    }
 }

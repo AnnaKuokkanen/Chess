@@ -43,6 +43,8 @@ public abstract class Piece {
     
     public abstract ArrayList<Tile> getPossibleMoves(Board board);
     
+    public abstract int getValue();
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) {

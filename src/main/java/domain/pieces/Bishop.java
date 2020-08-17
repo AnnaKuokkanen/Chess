@@ -38,6 +38,7 @@ public class Bishop extends Piece {
         return moves;
     }
     
+    @Override
     public int getValue() {
         int value = 30;
         if (side == side.BLACK) {

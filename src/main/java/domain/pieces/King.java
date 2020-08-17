@@ -67,6 +67,7 @@ public class King extends Piece {
         return tile.getPiece().getSide() != this.side;
     }
     
+    @Override
     public int getValue() {
         int value = 900;
         if (side == Side.BLACK) {

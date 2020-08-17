@@ -64,6 +64,7 @@ public class Pawn extends Piece {
         return tile.getPiece().getSide() != this.side;
     }
     
+    @Override
     public int getValue() {
         int value = 10;
         if (side == side.BLACK) {
