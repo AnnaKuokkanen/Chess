@@ -1,6 +1,7 @@
 package chess.bot;
 
 import chess.engine.GameState;
+import datastructureproject.algorithm.MiniMax;
 import datastructureproject.algorithm.RandomChoice;
 import domain.board.Board;
 import domain.board.Tile;
@@ -8,7 +9,8 @@ import domain.board.TileNameConverter;
 
 public class MyBot implements ChessBot {
     
-    private RandomChoice choice;
+    //private RandomChoice choice;
+    private MiniMax choice;
     TileNameConverter converter = new TileNameConverter();
     private final Board board = new Board();
     
@@ -39,7 +41,8 @@ public class MyBot implements ChessBot {
             board.getBoard()[startX][startY].setPiece(null);
         }
         
-        this.choice = new RandomChoice(board);
+        //this.choice = new RandomChoice(board);
+        this.choice = new MiniMax(board);
         
         return choice.chooseMove();
     }
