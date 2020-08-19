@@ -44,6 +44,7 @@ public class MyBot implements ChessBot {
         //this.choice = new RandomChoice(board);
         this.choice = new MiniMax(board);
         
-        return choice.chooseMove();
+        //return choice.chooseMove();
+        return choice.useMiniMax();
     }
 }
