@@ -41,6 +41,16 @@ public abstract class Piece {
         return this.type;
     }
     
+    /**
+     * method that checks if piece on some
+     * tile is the same side as this piece
+     * @param tile is the tile we are checking
+     * @return boolean value of comparison 
+     */
+    public boolean differentSide(Tile tile) {
+        return tile.getPiece().getSide() != this.side;
+    }
+    
     public abstract ArrayList<Tile> getPossibleMoves(Board board);
     
     public abstract int getValue();

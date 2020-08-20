@@ -57,16 +57,6 @@ public class King extends Piece {
         return moves;
     }
     
-    /**
-     * method that checks if piece on some
-     * tile is the same side as this piece
-     * @param tile is the tile we are checking
-     * @return boolean value of comparison 
-     */
-    public boolean differentSide(Tile tile) {
-        return tile.getPiece().getSide() != this.side;
-    }
-    
     @Override
     public int getValue() {
         int value = 900;
