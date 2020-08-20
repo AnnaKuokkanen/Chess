@@ -24,4 +24,8 @@ public class ArrayList {
         array[pointer] = o; 
         pointer++;
     }
+    
+    public int size() {
+        return pointer;
+    }
 }
