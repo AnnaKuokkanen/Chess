@@ -3,7 +3,8 @@ package domain.pieces;
 import chess.model.Side;
 import domain.board.*;
 import domain.rules.Rules;
-import java.util.ArrayList;
+//import java.util.ArrayList;
+import datastructureproject.datastructure.ArrayList;
 
 public class Rook extends Piece {
     private boolean onBoard;
@@ -23,8 +24,8 @@ public class Rook extends Piece {
      * @return list of tiles where rook can legally move
      */
     @Override
-    public ArrayList<Tile> getPossibleMoves(Board board) {
-        ArrayList<Tile> moves = new ArrayList<>();
+    public ArrayList getPossibleMoves(Board board) {
+        ArrayList moves = new ArrayList();
         Tile[][] tiles = board.getBoard();
         
         int x = this.getLocation().getX();
@@ -32,8 +33,8 @@ public class Rook extends Piece {
         
         Rules rules = new Rules(x, y, tiles);
         
-        for (Tile tile : rules.moveHorizontallyAndVertically()) {
-            moves.add(tile);
+        for (int i = 0; i < rules.moveHorizontallyAndVertically().size(); i++) {
+            moves.add((Tile) rules.moveHorizontallyAndVertically().get(i));
         }
         return moves;
     }

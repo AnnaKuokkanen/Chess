@@ -1,15 +1,16 @@
 package datastructureproject.algorithm;
 
 import chess.model.Side;
+import datastructureproject.datastructure.ArrayList;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RandomChoice {
     private final Board board;
-    private HashMap<Tile, ArrayList<Tile>> moves;
+    private HashMap<Tile, ArrayList> moves;
     private final TileNameConverter converter = new TileNameConverter();
     
     public RandomChoice(Board board) {
@@ -24,7 +25,7 @@ public class RandomChoice {
         for (Tile tile : this.moves.keySet()) { 
             if (this.moves.get(tile).size() > 0) {
                 Tile start = tile;
-                Tile finish = moves.get(start).get(0);
+                Tile finish = (Tile) moves.get(start).get(0);
 
                 move += converter.convertToString(start.getX(), start.getY());
                 move += converter.convertToString(finish.getX(), finish.getY());

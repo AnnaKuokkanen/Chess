@@ -1,8 +1,9 @@
 package domain.pieces;
 
 import chess.model.Side;
+import datastructureproject.datastructure.ArrayList;
 import domain.board.*;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -29,12 +30,12 @@ public class BishopTest {
     public void doesBishopMoveWhenTilesAreFree() {
         this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[4][2].setPiece(whiteBishop);
         
-        for (Tile tile : whiteBishop.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteBishop.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteBishop.getPossibleMoves(board).get(i));
         }
         assertTrue(moves.size() == 11);
         assertTrue(moves.contains(new Tile(2, 0)));
@@ -54,7 +55,7 @@ public class BishopTest {
     public void doesBishopMoveWhenTilesOccupiedByOpponents() {
         this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[4][2].setPiece(whiteBishop);
         this.board.getBoard()[3][1].setPiece(new Pawn(Side.BLACK));
@@ -62,8 +63,8 @@ public class BishopTest {
         this.board.getBoard()[3][3].setPiece(new Pawn(Side.BLACK));
         this.board.getBoard()[5][3].setPiece(new Pawn(Side.BLACK));
         
-        for (Tile tile : whiteBishop.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteBishop.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteBishop.getPossibleMoves(board).get(i));
         }
         assertTrue(moves.size() == 4);
         assertTrue(moves.contains(new Tile(3, 1)));
@@ -76,7 +77,7 @@ public class BishopTest {
     public void doesBishopStayIfTilesAreOccupiedBySameSidePieces() {
         this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[4][2].setPiece(whiteBishop);
         this.board.getBoard()[3][1].setPiece(new Pawn(Side.WHITE));
@@ -84,8 +85,8 @@ public class BishopTest {
         this.board.getBoard()[3][3].setPiece(new Pawn(Side.WHITE));
         this.board.getBoard()[5][3].setPiece(new Pawn(Side.WHITE));
         
-        for (Tile tile : whiteBishop.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteBishop.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteBishop.getPossibleMoves(board).get(i));
         }
         assertTrue(moves.isEmpty());
     }

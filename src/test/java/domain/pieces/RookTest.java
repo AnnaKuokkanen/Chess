@@ -1,8 +1,9 @@
 package domain.pieces;
 
 import chess.model.Side;
+import datastructureproject.datastructure.ArrayList;
 import domain.board.*;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -29,13 +30,13 @@ public class RookTest {
     public void doesRookMoveWhenTilesAreFree() {
         this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[1][1].setPiece(blackRook);
         
-        for (Tile tile : blackRook.getPossibleMoves(board)) {
-            moves.add(tile);
-        } 
+        for (int i = 0; i < blackRook.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)blackRook.getPossibleMoves(board).get(i));
+        }
         assertTrue(moves.size() == 14);
         assertTrue(moves.contains(new Tile(0, 1)));
         assertTrue(moves.contains(new Tile(2, 1)));
@@ -58,7 +59,7 @@ public class RookTest {
     public void doesRookMoveWhenTilesOccupiedByOpponents() {
         this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[1][1].setPiece(blackRook);
         this.board.getBoard()[0][1].setPiece(new Pawn(Side.WHITE));
@@ -66,8 +67,8 @@ public class RookTest {
         this.board.getBoard()[2][1].setPiece(new Pawn(Side.WHITE));
         this.board.getBoard()[1][2].setPiece(new Pawn(Side.WHITE));
         
-        for (Tile tile : blackRook.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < blackRook.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)blackRook.getPossibleMoves(board).get(i));
         }
         
         assertTrue(moves.size() == 4);
@@ -81,7 +82,7 @@ public class RookTest {
     public void doesRookStayIfTilesAreOccupiedBySameSidePieces() {
         this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[1][1].setPiece(blackRook);
         this.board.getBoard()[0][1].setPiece(new Pawn(Side.BLACK));
@@ -89,9 +90,9 @@ public class RookTest {
         this.board.getBoard()[2][1].setPiece(new Pawn(Side.BLACK));
         this.board.getBoard()[1][2].setPiece(new Pawn(Side.BLACK));
         
-        for (Tile tile : blackRook.getPossibleMoves(board)) {
-            moves.add(tile);
-        } 
+        for (int i = 0; i < blackRook.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)blackRook.getPossibleMoves(board).get(i));
+        }
         assertTrue(moves.isEmpty());
     }
 }

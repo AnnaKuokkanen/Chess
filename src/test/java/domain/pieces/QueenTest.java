@@ -1,8 +1,9 @@
 package domain.pieces;
 
 import chess.model.Side;
+import datastructureproject.datastructure.ArrayList;
 import domain.board.*;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -29,12 +30,12 @@ public class QueenTest {
     public void doesQueenMoveWhenTilesAreFree() {
          this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[4][2].setPiece(whiteQueen);
         
-        for (Tile tile : whiteQueen.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteQueen.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteQueen.getPossibleMoves(board).get(i));
         }
         assertTrue(moves.size() == 25);
     }
@@ -43,7 +44,7 @@ public class QueenTest {
     public void doesQueenMoveWhenTilesOccupiedByOpponents() {
          this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[4][2].setPiece(whiteQueen);
         
@@ -56,8 +57,8 @@ public class QueenTest {
         this.board.getBoard()[4][3].setPiece(new Pawn(Side.BLACK));
         this.board.getBoard()[5][3].setPiece(new Pawn(Side.BLACK));
         
-        for (Tile tile : whiteQueen.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteQueen.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteQueen.getPossibleMoves(board).get(i));
         }
         assertTrue(moves.size() == 8);
         assertTrue(moves.contains(new Tile(3, 1)));
@@ -74,7 +75,7 @@ public class QueenTest {
     public void doesQueenStayIfTilesAreOccupiedBySameSidePieces() {
          this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[4][2].setPiece(whiteQueen);
         
@@ -87,8 +88,8 @@ public class QueenTest {
         this.board.getBoard()[4][3].setPiece(new Pawn(Side.WHITE));
         this.board.getBoard()[5][3].setPiece(new Pawn(Side.WHITE));
         
-        for (Tile tile : whiteQueen.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteQueen.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteQueen.getPossibleMoves(board).get(i));
         }
         assertTrue(moves.isEmpty());
     }

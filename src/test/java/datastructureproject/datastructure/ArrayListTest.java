@@ -19,17 +19,29 @@ public class ArrayListTest {
     @Test
     public void itemIsAddedCorrectlyWhenThereIsSpace() {
         assertEquals(0, list.size());
-        list.add(new Pawn(Side.BLACK));
+        list.add(new Tile(3, 5));
         assertEquals(1, list.size());
     }
     
     @Test
     public void itemIsAddedCorrectlyWhenListIsFull() {
         for (int i = 0; i < 102; i++) {
-            list.add(i);
+            list.add(new Tile(0, 0));
         }
         assertEquals(102, list.size());
-        assertEquals(101, list.get(list.size() -1));
+        assertEquals(new Tile(0, 0), list.get(list.size() - 1));
+        
+        for (int i = 0; i < 102; i++) {
+            list.add(new Tile(1, 1));
+        }
+        assertEquals(204, list.size());
+        assertEquals(new Tile(1, 1), list.get(list.size() - 1));
+        
+        for (int i = 0; i < 102; i++) {
+            list.add(new Tile(2, 2));
+        }
+        assertEquals(306, list.size());
+        assertEquals(new Tile(2, 2), list.get(list.size() - 1));
     }
     
     @Test
@@ -43,7 +55,7 @@ public class ArrayListTest {
     @Test
     public void sizeIsCorrect() {
         assertEquals(0, list.size());
-        list.add(new Pawn(Side.WHITE));
+        list.add(new Tile(5, 5));
         assertEquals(1, list.size());
     }
 }

@@ -1,8 +1,9 @@
 package domain.pieces;
 
 import chess.model.Side;
+import datastructureproject.datastructure.ArrayList;
 import domain.board.*;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -29,12 +30,12 @@ public class KnightTest {
     public void doesKnightMoveWhenTilesAreFree() {
         this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[4][2].setPiece(whiteKnight);
         
-        for (Tile tile : whiteKnight.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteKnight.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteKnight.getPossibleMoves(board).get(i));
         }
         assertTrue(moves.size() == 8);
         assertTrue(moves.contains(new Tile(3, 0)));
@@ -51,7 +52,7 @@ public class KnightTest {
     public void doesKnightMoveWhenTilesOccupiedByOpponents() {
         this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[4][2].setPiece(whiteKnight);
         this.board.getBoard()[3][0].setPiece(new Pawn(Side.BLACK));
@@ -63,8 +64,8 @@ public class KnightTest {
         this.board.getBoard()[3][4].setPiece(new Pawn(Side.BLACK));
         this.board.getBoard()[5][4].setPiece(new Pawn(Side.BLACK));
         
-        for (Tile tile : whiteKnight.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteKnight.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteKnight.getPossibleMoves(board).get(i));
         }
         assertTrue(moves.size() == 8);
         assertTrue(moves.contains(new Tile(3, 0)));
@@ -81,7 +82,7 @@ public class KnightTest {
     public void doesKnightStayIfTilesAreOccupiedBySameSidePieces() {
         this.board = new Board();
         this.board.setupBoard();
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         this.board.getBoard()[4][2].setPiece(whiteKnight);
         this.board.getBoard()[3][0].setPiece(new Pawn(Side.WHITE));
@@ -93,8 +94,8 @@ public class KnightTest {
         this.board.getBoard()[3][4].setPiece(new Pawn(Side.WHITE));
         this.board.getBoard()[5][4].setPiece(new Pawn(Side.WHITE));
         
-        for (Tile tile : whiteKnight.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteKnight.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteKnight.getPossibleMoves(board).get(i));
         }
         assertTrue(moves.isEmpty());
     }

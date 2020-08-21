@@ -2,7 +2,9 @@ package domain.pieces;
 
 import domain.board.*;
 import chess.model.*;
-import java.util.*;
+//import java.util.*;
+import datastructureproject.datastructure.ArrayList;
+import java.util.Objects;
 
 public abstract class Piece {
     private boolean onBoard;
@@ -51,7 +53,7 @@ public abstract class Piece {
         return tile.getPiece().getSide() != this.side;
     }
     
-    public abstract ArrayList<Tile> getPossibleMoves(Board board);
+    public abstract ArrayList getPossibleMoves(Board board);
     
     public abstract int getValue();
     

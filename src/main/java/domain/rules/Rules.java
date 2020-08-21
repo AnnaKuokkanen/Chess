@@ -1,26 +1,28 @@
 package domain.rules;
 
+import datastructureproject.datastructure.ArrayList;
 import domain.board.Tile;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class Rules {
     private int x;
     private int y;
     private Tile[][] tiles;
-    private ArrayList<Tile> moves;
+    private ArrayList moves;
     
     public Rules(int x, int y, Tile[][] tiles) {
         this.x = x;
         this.y = y;
         this.tiles = tiles;
-        this.moves = new ArrayList<>();
+        this.moves = new ArrayList();
     }
 
-    public void setMoves(ArrayList<Tile> moves) {
+    public void setMoves(ArrayList moves) {
         this.moves = moves;
     }
 
-    public ArrayList<Tile> moveHorizontallyAndVertically() {
+    public ArrayList moveHorizontallyAndVertically() {
+        setMoves(new ArrayList());
         int i = 1;
         while (x + i < 8) {
             if (tiles[x + i][y].getPiece() != null) {
@@ -84,7 +86,8 @@ public class Rules {
         return moves;
     }
    
-    public ArrayList<Tile> moveDiagonally() {
+    public ArrayList moveDiagonally() {
+        setMoves(new ArrayList());
         int i = 1;
         while (x + i < 8 && y + i < 8) {
             if (tiles[x + i][y + i].getPiece() != null) {

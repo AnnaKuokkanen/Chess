@@ -1,16 +1,17 @@
 package datastructureproject.algorithm;
 
 import chess.model.Side;
+import datastructureproject.datastructure.ArrayList;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
 import domain.pieces.Piece;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MiniMax { 
     private final Board board;
-    private HashMap<Tile, ArrayList<Tile>> moves;
+    private HashMap<Tile, ArrayList> moves;
     private final TileNameConverter converter = new TileNameConverter();
     
     public MiniMax(Board board) {
@@ -36,7 +37,8 @@ public class MiniMax {
         Tile bestFinishTile = null;
         
         for (Tile start : this.moves.keySet()) { 
-            for (Tile finish : this.moves.get(start)) {
+            for (int i = 0; i < this.moves.get(start).size(); i++) {
+                Tile finish = (Tile)this.moves.get(start).get(i);
                 if (finish.getPiece() != null) {
                     currentSum -= finish.getPiece().getValue();
                 }
@@ -45,7 +47,7 @@ public class MiniMax {
                     bestStartTile = start;
                     bestFinishTile = finish;
                 }
-            } 
+            }
         }
         
         move += converter.convertToString(bestStartTile.getX(), bestStartTile.getY());
@@ -75,14 +77,15 @@ public class MiniMax {
         Tile bestFinishTile = null;
         
         for (Tile start : this.moves.keySet()) { 
-            for (Tile finish : this.moves.get(start)) {
+            for (int i = 0; i < this.moves.get(start).size(); i++) {
+                Tile finish = (Tile)this.moves.get(start).get(i);
                 int nextMove = search(start, finish, 4, Side.BLACK);
                 if (nextMove < greatestRisk) {
                     bestStartTile = start;
                     bestFinishTile = finish;
                     greatestRisk = nextMove;
                 }
-            } 
+            }
         }
         
         move += converter.convertToString(bestStartTile.getX(), bestStartTile.getY());
@@ -120,12 +123,12 @@ public class MiniMax {
             finish.setPiece(startPiece);
             start.setPiece(null);
             
-            HashMap<Tile, ArrayList<Tile>> allMoves = board.getPossibleMoves(side.WHITE);
+            HashMap<Tile, ArrayList> allMoves = board.getPossibleMoves(side.WHITE);
             int currentValue = board.getBoardValue();
             
             for (Tile newStart : allMoves.keySet()) {
-                for (Tile newFinish : allMoves.get(newStart)) {
-                    currentValue = Math.max(currentValue, search(newStart, newFinish, depth - 1, Side.WHITE));
+                for (int i = 0; i < allMoves.get(newStart).size(); i++) {
+                    currentValue = Math.max(currentValue, search(newStart, (Tile)allMoves.get(newStart).get(i), depth - 1, Side.WHITE));
                 }
             }
             start.setPiece(startPiece);
@@ -144,12 +147,12 @@ public class MiniMax {
             finish.setPiece(startPiece);
             start.setPiece(null);
             
-            HashMap<Tile, ArrayList<Tile>> allMoves = board.getPossibleMoves(side.BLACK);
+            HashMap<Tile, ArrayList> allMoves = board.getPossibleMoves(side.BLACK);
             int currentValue = board.getBoardValue();
             
             for (Tile newStart : allMoves.keySet()) {
-                for (Tile newFinish : allMoves.get(newStart)) {
-                    currentValue = Math.max(currentValue, search(newStart, newFinish, depth - 1, Side.BLACK));
+                for (int i = 0; i < allMoves.get(newStart).size(); i++) {
+                    currentValue = Math.max(currentValue, search(newStart, (Tile)allMoves.get(newStart).get(i), depth - 1, Side.BLACK));
                 }
             }
             start.setPiece(startPiece);

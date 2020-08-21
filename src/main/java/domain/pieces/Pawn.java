@@ -2,7 +2,8 @@ package domain.pieces;
 
 import chess.model.Side;
 import domain.board.*;
-import java.util.ArrayList;
+//import java.util.ArrayList;
+import datastructureproject.datastructure.ArrayList;
 
 public class Pawn extends Piece {
     private boolean onBoard;
@@ -22,8 +23,8 @@ public class Pawn extends Piece {
      * @return list of tiles where pawn can legally move
      */
     @Override
-    public ArrayList<Tile> getPossibleMoves(Board board) {
-        ArrayList<Tile> moves = new ArrayList<>();
+    public ArrayList getPossibleMoves(Board board) {
+        ArrayList moves = new ArrayList();
         Tile[][] tiles = board.getBoard();
         
         int x = this.getLocation().getX();

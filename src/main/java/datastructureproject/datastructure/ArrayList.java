@@ -13,19 +13,46 @@ public class ArrayList {
         return array[i];
     }
     
-    public void add(Object o) {
-        Object[] helperArray = new Object[array.length * 2];
-        if (pointer == array.length - 1) {
-            for (int i = 0; i < array.length; i++) {
-                helperArray[i] = array[i];
-            }
+    /**
+     * This method inserts an object into list's end.
+     * System.arraycopy has to be used to avoid 
+     * java heap space error
+     * @param o is the Object that is being inserted into the list
+     */
+    public void add(Object o) {  
+        if (pointer == array.length) {
+            
+//            This is how copying would be done manually
+            
+//            Object[] helperArray = new Object[array.length * 2];
+//            for (int i = 0; i < pointer; i++) {
+//                helperArray[i] = array[i];
+//            }
+//            array = helperArray;
+            int newLength = pointer * 2;
+            Object[] helperArray = new Object[newLength];
+            System.arraycopy(array, 0, helperArray, 0, pointer - 1);
             array = helperArray;
         }
+        
         array[pointer] = o; 
         pointer++;
     }
     
     public int size() {
         return pointer;
+    }
+    
+    public boolean contains(Object o) {
+        for (int i = 0; i < pointer; i++) {
+            if (array[i].equals(o)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean isEmpty() {
+        return (pointer == 0); 
     }
 }

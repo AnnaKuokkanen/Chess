@@ -1,8 +1,9 @@
 package domain.pieces;
 
 import chess.model.Side;
+import datastructureproject.datastructure.ArrayList;
 import domain.board.*;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -31,7 +32,7 @@ public class KingTest {
         this.board = new Board();
         this.board.setupBoard();
         
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         board.getBoard()[1][1].setPiece(whiteKing);
         
@@ -44,8 +45,8 @@ public class KingTest {
         board.getBoard()[2][1].setPiece(new Pawn(Side.WHITE));
         board.getBoard()[2][2].setPiece(new Pawn(Side.WHITE));
         
-        for (Tile tile : whiteKing.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteKing.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteKing.getPossibleMoves(board).get(i));
         }
         
         assertTrue(moves.isEmpty());    
@@ -56,7 +57,7 @@ public class KingTest {
         this.board = new Board();
         this.board.setupBoard();
         
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         board.getBoard()[1][1].setPiece(whiteKing);
         
@@ -69,8 +70,8 @@ public class KingTest {
         board.getBoard()[2][1].setPiece(new Pawn(Side.BLACK));
         board.getBoard()[2][2].setPiece(new Pawn(Side.BLACK));
         
-        for (Tile tile : whiteKing.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteKing.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteKing.getPossibleMoves(board).get(i));
         }
         
         assertTrue(moves.size() == 8);
@@ -89,12 +90,12 @@ public class KingTest {
         this.board = new Board();
         this.board.setupBoard();
         
-        ArrayList<Tile> moves = new ArrayList<>();
+        ArrayList moves = new ArrayList();
         
         board.getBoard()[1][1].setPiece(whiteKing);
         
-        for (Tile tile : whiteKing.getPossibleMoves(board)) {
-            moves.add(tile);
+        for (int i = 0; i < whiteKing.getPossibleMoves(board).size(); i++) {
+            moves.add((Tile)whiteKing.getPossibleMoves(board).get(i));
         }
         
         assertTrue(moves.size() == 8);

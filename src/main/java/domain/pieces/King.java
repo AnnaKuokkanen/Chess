@@ -2,7 +2,8 @@ package domain.pieces;
 
 import chess.model.Side;
 import domain.board.*;
-import java.util.*;
+//import java.util.*;
+import datastructureproject.datastructure.ArrayList;
 
 public class King extends Piece {
     private boolean onBoard;
@@ -22,8 +23,8 @@ public class King extends Piece {
      * @return list of tiles where king can legally move
      */
     @Override
-    public ArrayList<Tile> getPossibleMoves(Board board) {
-        ArrayList<Tile> moves = new ArrayList<>();
+    public ArrayList getPossibleMoves(Board board) {
+        ArrayList moves = new ArrayList();
         Tile[][] tiles = board.getBoard();
         
         int x = this.getLocation().getX();

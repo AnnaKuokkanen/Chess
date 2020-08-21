@@ -1,8 +1,9 @@
 package domain.board;
 
 import chess.model.Side;
+import datastructureproject.datastructure.ArrayList;
 import domain.pieces.PieceName;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashMap;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
@@ -71,8 +72,8 @@ public class BoardTest {
     
     @Test
     public void areRightMovesReturnedForAllPiecesOnBoard() {
-        HashMap<Tile, ArrayList<Tile>> blackMoves = this.board.getPossibleMoves(Side.BLACK);
-        HashMap<Tile, ArrayList<Tile>> whiteMoves = this.board.getPossibleMoves(Side.WHITE);
+        HashMap<Tile, ArrayList> blackMoves = this.board.getPossibleMoves(Side.BLACK);
+        HashMap<Tile, ArrayList> whiteMoves = this.board.getPossibleMoves(Side.WHITE);
         for(int i = 0; i < 8; i++) {
             assertTrue(blackMoves.get(new Tile(i, 1)).size() == 1);
             assertTrue(whiteMoves.get(new Tile(i, 6)).size() == 1);
@@ -85,11 +86,11 @@ public class BoardTest {
     
     @Test
     public void areValidMovesReturned() {
-        HashMap<Tile, ArrayList<Tile>> blackMoves = this.board.getPossibleMoves(Side.BLACK);
+        HashMap<Tile, ArrayList> blackMoves = this.board.getPossibleMoves(Side.BLACK);
         
         TileNameConverter converter = new TileNameConverter();
         Tile start = this.board.getBoard()[0][1];
-        Tile finish = blackMoves.get(start).get(0);
+        Tile finish = (Tile)blackMoves.get(start).get(0);
         
         String move = converter.convertToString(start.getX(), start.getY());
         move += converter.convertToString(finish.getX(), finish.getY());

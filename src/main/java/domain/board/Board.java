@@ -1,8 +1,9 @@
 package domain.board;
 
 import chess.model.Side;
+import datastructureproject.datastructure.ArrayList;
 import domain.pieces.*;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Board {
@@ -10,7 +11,7 @@ public class Board {
     private final Tile[][] tiles;
     private final Side black = Side.BLACK;
     private final Side white = Side.WHITE;
-    private HashMap<Tile, ArrayList<Tile>> moves;
+    private HashMap<Tile, ArrayList> moves;
     
     public Board() {
         this.tiles = new Tile[8][8];
@@ -65,16 +66,16 @@ public class Board {
     /**
      * @return all possible moves in current game situation parsed to String
      */
-    public HashMap<Tile, ArrayList<Tile>> getPossibleMoves(Side side) {
+    public HashMap<Tile, ArrayList> getPossibleMoves(Side side) {
         this.moves = new HashMap<>();
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                this.moves.put(tiles[i][j], new ArrayList<>());
+                this.moves.put(tiles[i][j], new ArrayList());
                 if (!this.tiles[i][j].free()) {
                     if (tiles[i][j].getPiece().getSide() == side) { 
-                        ArrayList<Tile> list = this.moves.get(tiles[i][j]);
-                        for (Tile tile : tiles[i][j].getPiece().getPossibleMoves(this)) {
-                            list.add(tile);
+                        ArrayList list = this.moves.get(tiles[i][j]);
+                        for (int k = 0; k < tiles[i][j].getPiece().getPossibleMoves(this).size(); k++) {
+                            list.add((Tile)tiles[i][j].getPiece().getPossibleMoves(this).get(k));
                         }
                         moves.replace(tiles[i][j], list);
                     }
