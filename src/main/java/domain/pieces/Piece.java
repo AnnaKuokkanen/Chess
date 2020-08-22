@@ -1,9 +1,8 @@
 package domain.pieces;
 
-import domain.board.*;
 import chess.model.*;
-//import java.util.*;
 import datastructureproject.datastructure.ArrayList;
+import domain.board.*;
 import java.util.Objects;
 
 public abstract class Piece {
@@ -56,6 +55,8 @@ public abstract class Piece {
     public abstract ArrayList getPossibleMoves(Board board);
     
     public abstract int getValue();
+    
+    public abstract boolean isKingChecked();
     
     @Override
     public boolean equals(Object o) {
