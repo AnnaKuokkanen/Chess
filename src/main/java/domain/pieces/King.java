@@ -2,19 +2,20 @@ package domain.pieces;
 
 import chess.model.Side;
 import domain.board.*;
-//import java.util.*;
 import datastructureproject.datastructure.ArrayList;
 
 public class King extends Piece {
     private boolean onBoard;
     private Tile location;
     private Side side;
+    private boolean check;
     
     public King(Side side) {
         super(side, PieceName.KING);
         this.side = side;
         this.location = super.getLocation();
         this.onBoard = super.onBoard();
+        this.check = false;
     }
     
     /**
@@ -65,5 +66,13 @@ public class King extends Piece {
             value = value * (-1);
         }
         return value;
+    }
+    
+    public boolean check() {
+        return this.check;
+    }
+    
+    public void setCheck(boolean check) {
+        this.check = check;
     }
 }
