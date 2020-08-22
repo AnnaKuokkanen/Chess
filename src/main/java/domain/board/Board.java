@@ -3,7 +3,6 @@ package domain.board;
 import chess.model.Side;
 import datastructureproject.datastructure.ArrayList;
 import domain.pieces.*;
-//import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Board {
@@ -64,6 +63,7 @@ public class Board {
     }
     
     /**
+     * @param side is the side for which moves are generated
      * @return all possible moves in current game situation parsed to String
      */
     public HashMap<Tile, ArrayList> getPossibleMoves(Side side) {
