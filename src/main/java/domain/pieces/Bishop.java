@@ -34,7 +34,13 @@ public class Bishop extends Piece {
         Rules rules = new Rules(x, y, tiles);
         
         for (int i = 0; i < rules.moveDiagonally().size(); i++) {
-            moves.add((Tile) rules.moveDiagonally().get(i));
+            Tile tile = (Tile) rules.moveDiagonally().get(i);
+            Piece piece = tile.getPiece();
+            moves.add(tile);
+            if (piece != null && piece.getType() == PieceName.KING && differentSide(tile)) {
+                King king = (King) piece;
+                king.setCheck(true);
+            }
         }
         return moves;
     }
@@ -42,7 +48,7 @@ public class Bishop extends Piece {
     @Override
     public int getValue() {
         int value = 30;
-        if (side == side.BLACK) {
+        if (side == Side.BLACK) {
             value = value * (-1);
         }
         return value;

@@ -2,7 +2,6 @@ package domain.pieces;
 import chess.model.Side;
 import domain.board.*;
 import domain.rules.Rules;
-import java.util.*;
 import datastructureproject.datastructure.ArrayList;
 
 public class Queen extends Piece {
@@ -32,29 +31,34 @@ public class Queen extends Piece {
         
         Rules rules = new Rules(x, y, tiles);
         
-//        for (Tile tile : rules.moveDiagonally()) {
-//            moves.add(tile);
-//        }
         for (int i = 0; i < rules.moveDiagonally().size(); i++) {
-            moves.add((Tile) rules.moveDiagonally().get(i));
+            Tile tile = (Tile) rules.moveDiagonally().get(i);
+            Piece piece = tile.getPiece();
+            moves.add(tile);
+            if (piece != null && piece.getType() == PieceName.KING && differentSide(tile)) {
+                King king = (King) piece;
+                king.setCheck(true);
+            }
         }
         ArrayList list = new ArrayList();
         rules.setMoves(list);
         
-//        for (Tile tile : rules.moveHorizontallyAndVertically()) {
-//            moves.add(tile);
-//        }
         for (int i = 0; i < rules.moveHorizontallyAndVertically().size(); i++) {
-            moves.add((Tile) rules.moveHorizontallyAndVertically().get(i));
+            Tile tile = (Tile) rules.moveHorizontallyAndVertically().get(i);
+            Piece piece = tile.getPiece();
+            moves.add(tile);
+            if (piece != null && piece.getType() == PieceName.KING && differentSide(tile)) {
+                King king = (King) piece;
+                king.setCheck(true);
+            }
         }
-        
         return moves;
     }
     
     @Override
     public int getValue() {
         int value = 90;
-        if (side == side.BLACK) {
+        if (side == Side.BLACK) {
             value = value * (-1);
         }
         return value;

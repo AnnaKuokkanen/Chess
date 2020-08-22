@@ -56,8 +56,6 @@ public abstract class Piece {
     
     public abstract int getValue();
     
-    public abstract boolean isKingChecked();
-    
     @Override
     public boolean equals(Object o) {
         if (this == o) {

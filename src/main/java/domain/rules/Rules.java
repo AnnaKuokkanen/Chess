@@ -2,7 +2,6 @@ package domain.rules;
 
 import datastructureproject.datastructure.ArrayList;
 import domain.board.Tile;
-//import java.util.ArrayList;
 
 public class Rules {
     private int x;

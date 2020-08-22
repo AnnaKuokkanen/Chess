@@ -55,23 +55,22 @@ public class Knight extends Piece {
             moves.add(tiles[x - 1][y - 2]);
         }
         
+        for (int i = 0; i < moves.size(); i++) {
+            Tile tile = (Tile) moves.get(i);
+            Piece piece = tile.getPiece();
+            if (piece != null && piece.getType() == PieceName.KING && differentSide(tile)) {
+                King king = (King) piece;
+                king.setCheck(true);
+            }
+        }
+        
         return moves;
-    }
-    
-    /**
-     * method that checks if piece on some
-     * tile is the same side as this piece
-     * @param tile is the tile we are checking
-     * @return boolean value of comparison 
-     */
-    public boolean differentSide(Tile tile) {
-        return tile.getPiece().getSide() != this.side;
     }
     
     @Override
     public int getValue() {
         int value = 30;
-        if (side == side.BLACK) {
+        if (side == Side.BLACK) {
             value = value * (-1);
         }
         return value;
