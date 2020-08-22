@@ -9,7 +9,9 @@ Tällä hetkellä ongelma on korjattu. Ainoat väärät siirrot, joita botti tek
 ei estetä liikkumasta uhatuille ruuduille: tämä toiminnallisuus täytyy toteuttaa seuraavaksi. Muuten peli on siinä 
 vaiheessa, että algoritmin luominen on mahdollista. 
 
-17.8: omia tietorakenteita on aloitettu (testit puuttuvat). Lisäksi loin uuden tavan valita siirtoja: botti tarkistaa, 
-voiko se poistaa jonkun vastustajan nappuloista ja jos voi, se poistaa korkea-arvoisimman.
+ArrayList on korvattu omalla tietorakenteella ja siihen on tehty testit. Ainoa jäljelläoleva javan tietorakenne on HashMap.
 
-Käytettyjä tunteja: 8
+Minimax ja alpha-beta-karsinta on toteutettu. Tällä hetkellä työn alla on kuninkaan shakkitilanteen tarkistaminen ja siirtojen
+muokkaaminen sen mukaan.
+
+Käytettyjä tunteja: 15
