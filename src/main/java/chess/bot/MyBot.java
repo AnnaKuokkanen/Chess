@@ -2,16 +2,15 @@ package chess.bot;
 
 import chess.engine.GameState;
 import datastructureproject.algorithm.AlphaBetaPruning;
-import datastructureproject.algorithm.MiniMax;
-import datastructureproject.algorithm.RandomChoice;
+import datastructureproject.algorithm.FirstChoice;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
 
 public class MyBot implements ChessBot {
-    
-    private MiniMax minimax;
+
     private AlphaBetaPruning alphabeta;
+    private FirstChoice random;
     TileNameConverter converter = new TileNameConverter();
     private final Board board = new Board();
     
@@ -42,10 +41,10 @@ public class MyBot implements ChessBot {
             board.getBoard()[startX][startY].setPiece(null);
         }
         
-        this.minimax = new MiniMax(board);
         this.alphabeta = new AlphaBetaPruning(board);
-        
-        //return minimax.useMiniMax();
+
         return alphabeta.useAlphaBetaPruner();
+//        this.random = new FirstChoice(board);
+//        return random.chooseMove();
     }
 }
