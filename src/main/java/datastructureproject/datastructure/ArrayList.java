@@ -23,15 +23,15 @@ public class ArrayList {
             
 //            This is how copying would be done manually
             
-//            Object[] helperArray = new Object[array.length * 2];
-//            for (int i = 0; i < pointer; i++) {
-//                helperArray[i] = array[i];
-//            }
-//            array = helperArray;
-            int newLength = pointer * 2;
-            Object[] helperArray = new Object[newLength];
-            System.arraycopy(array, 0, helperArray, 0, pointer - 1);
+            Object[] helperArray = new Object[array.length * 2];
+            for (int i = 0; i < pointer; i++) {
+                helperArray[i] = array[i];
+            }
             array = helperArray;
+            //int newLength = pointer * 2;
+            //Object[] helperArray = new Object[newLength];
+            //System.arraycopy(array, 0, helperArray, 0, pointer - 1);
+            //array = helperArray;
         }
         
         array[pointer] = o; 
