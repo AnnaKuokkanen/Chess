@@ -5,15 +5,14 @@ import datastructureproject.datastructure.ArrayList;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
-//import java.util.ArrayList;
 import java.util.HashMap;
 
-public class RandomChoice {
+public class FirstChoice {
     private final Board board;
     private HashMap<Tile, ArrayList> moves;
     private final TileNameConverter converter = new TileNameConverter();
     
-    public RandomChoice(Board board) {
+    public FirstChoice(Board board) {
         this.board = board;
     }
     
