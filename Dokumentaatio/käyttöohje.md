@@ -17,7 +17,6 @@ git clone https://github.com/AnnaKuokkanen/Shakki.git
 
 3. Lataa XBoardin viimeisin versio ja pura se haluamassasi hakemistossa komennolla
 ```
-
 $ tar xvzf xboard-4.9.0.tar.gz
 ```
 
@@ -34,7 +33,7 @@ $ xboard
   
 Sitten valitse "commit changes" ja "OK".
 
-7. Valitse jälleen Engine ja sen alla Load New 1st Engine
+7. Valitse jälleen Engine ja sen alla Load New 1st Engine.
 
 8. Valitse listalta omasi ja paina "OK". 
 
