@@ -15,7 +15,6 @@ public class ArrayList {
     
     /**
      * This method inserts an object into list's end.
-     * System.arraycopy is used to speed up the process
      * @param o is the Object that is being inserted into the list
      */
     public void add(Object o) {  
