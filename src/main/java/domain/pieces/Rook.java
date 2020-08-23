@@ -37,11 +37,8 @@ public class Rook extends Piece {
             Tile tile = (Tile) rules.moveHorizontallyAndVertically().get(i);
             Piece piece = tile.getPiece();
             moves.add(tile);
-            if (piece != null && piece.getType() == PieceName.KING && differentSide(tile)) {
-                King king = (King) piece;
-                king.setCheck(true);
-            }
         }
+        
         return moves;
     }
     

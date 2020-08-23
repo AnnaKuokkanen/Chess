@@ -35,10 +35,6 @@ public class Queen extends Piece {
             Tile tile = (Tile) rules.moveDiagonally().get(i);
             Piece piece = tile.getPiece();
             moves.add(tile);
-            if (piece != null && piece.getType() == PieceName.KING && differentSide(tile)) {
-                King king = (King) piece;
-                king.setCheck(true);
-            }
         }
         ArrayList list = new ArrayList();
         rules.setMoves(list);
@@ -47,10 +43,6 @@ public class Queen extends Piece {
             Tile tile = (Tile) rules.moveHorizontallyAndVertically().get(i);
             Piece piece = tile.getPiece();
             moves.add(tile);
-            if (piece != null && piece.getType() == PieceName.KING && differentSide(tile)) {
-                King king = (King) piece;
-                king.setCheck(true);
-            }
         }
         return moves;
     }

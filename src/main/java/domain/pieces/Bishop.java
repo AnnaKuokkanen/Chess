@@ -3,7 +3,6 @@ package domain.pieces;
 import chess.model.Side;
 import domain.board.*;
 import domain.rules.Rules;
-//import java.util.ArrayList;
 import datastructureproject.datastructure.ArrayList;
 
 public class Bishop extends Piece {
@@ -37,10 +36,6 @@ public class Bishop extends Piece {
             Tile tile = (Tile) rules.moveDiagonally().get(i);
             Piece piece = tile.getPiece();
             moves.add(tile);
-            if (piece != null && piece.getType() == PieceName.KING && differentSide(tile)) {
-                King king = (King) piece;
-                king.setCheck(true);
-            }
         }
         return moves;
     }

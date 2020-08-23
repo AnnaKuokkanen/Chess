@@ -52,15 +52,6 @@ public class Pawn extends Piece {
             }
         }
         
-        for (int i = 0; i < moves.size(); i++) {
-            Tile tile = (Tile) moves.get(i);
-            Piece piece = tile.getPiece();
-            if (piece != null && piece.getType() == PieceName.KING && differentSide(tile)) {
-                King king = (King) piece;
-                king.setCheck(true);
-            }
-        }
-        
         return moves;
     }
 

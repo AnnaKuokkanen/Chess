@@ -68,7 +68,7 @@ public class King extends Piece {
         return value;
     }
     
-    public boolean isKingChecked() {
+    public boolean isChecked() {
         return this.check;
     }
     

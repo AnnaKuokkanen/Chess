@@ -3,6 +3,7 @@ package domain.board;
 import chess.model.Side;
 import datastructureproject.datastructure.ArrayList;
 import domain.pieces.*;
+import domain.rules.KingCheckSituation;
 import java.util.HashMap;
 
 public class Board {
@@ -68,21 +69,55 @@ public class Board {
      */
     public HashMap<Tile, ArrayList> getPossibleMoves(Side side) {
         this.moves = new HashMap<>();
+        int x = 0; 
+        int y = 0; 
+        
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
+                if (!tiles[i][j].free() && tiles[i][j].getPiece().getSide() == side && tiles[i][j].getPiece().getType() == PieceName.KING) {
+                    x = i;
+                    y = j;
+                } 
+            }
+        }
+        
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                
                 this.moves.put(tiles[i][j], new ArrayList());
-                if (!this.tiles[i][j].free()) {
-                    if (tiles[i][j].getPiece().getSide() == side) { 
-                        ArrayList list = this.moves.get(tiles[i][j]);
-                        for (int k = 0; k < tiles[i][j].getPiece().getPossibleMoves(this).size(); k++) {
-                            list.add((Tile)tiles[i][j].getPiece().getPossibleMoves(this).get(k));
+                
+                if (!this.tiles[i][j].free() && tiles[i][j].getPiece().getSide() == side) {
+                    ArrayList list = this.moves.get(tiles[i][j]);
+                    ArrayList possibleMoves = tiles[i][j].getPiece().getPossibleMoves(this);
+                    for (int k = 0; k < possibleMoves.size(); k++) {
+                        
+                        Tile start = tiles[i][j];
+                        Tile finish = (Tile) possibleMoves.get(k);
+                        Piece startPiece = start.getPiece();
+                        Piece finishPiece = finish.getPiece();
+                        
+                        if (!finish.free()) {
+                            tiles[finish.getX()][finish.getY()].getPiece().remove();
                         }
-                        moves.replace(tiles[i][j], list);
+                        tiles[finish.getX()][finish.getY()].setPiece(startPiece);
+                        tiles[start.getX()][start.getY()].setPiece(null);
+                        if (!kingChecked(x, y, side)) {
+                            list.add(finish);
+                        } 
+                        tiles[finish.getX()][finish.getY()].getPiece().remove();
+                        tiles[finish.getX()][finish.getY()].setPiece(finishPiece);
+                        tiles[start.getX()][start.getY()].setPiece(startPiece);
                     }
+                    moves.replace(tiles[i][j], list);
                 }
             }
         }
         return moves;
+    }
+    
+    public boolean kingChecked(int x, int y, Side side) {
+        KingCheckSituation check = new KingCheckSituation(this, x, y, side);
+        return check.isChecked();
     }
     
     /**
