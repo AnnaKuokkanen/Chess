@@ -5,6 +5,8 @@ Tämä projekti käyttää Helsingin yliopston ohjelmistotuotantoprojektina tote
 
 [Määrittelydokumentti](https://github.com/AnnaKuokkanen/Shakki/blob/master/Dokumentaatio/m%C3%A4%C3%A4rittelydokumentti.md)
 
+[Käyttöohje](https://github.com/AnnaKuokkanen/Shakki/blob/master/Dokumentaatio/k%C3%A4ytt%C3%B6ohje.md)
+
 [1. viikon raportti](https://github.com/AnnaKuokkanen/Shakki/blob/master/Dokumentaatio/viikkoraportti1.md)
 
 [2. viikon raportti](https://github.com/AnnaKuokkanen/Shakki/blob/master/Dokumentaatio/viikkoraportti2.md)
