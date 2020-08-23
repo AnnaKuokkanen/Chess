@@ -2,8 +2,7 @@ package domain.board;
 
 import chess.model.Side;
 import datastructureproject.datastructure.ArrayList;
-import domain.pieces.PieceName;
-//import java.util.ArrayList;
+import domain.pieces.*;
 import java.util.HashMap;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
@@ -90,13 +89,34 @@ public class BoardTest {
         
         TileNameConverter converter = new TileNameConverter();
         Tile start = this.board.getBoard()[0][1];
-        Tile finish = (Tile)blackMoves.get(start).get(0);
+        Tile finish = (Tile) blackMoves.get(start).get(0);
         
         String move = converter.convertToString(start.getX(), start.getY());
         move += converter.convertToString(finish.getX(), finish.getY());
         
         assertEquals("a7a6", move);
     }
+    
+    @Test 
+    public void isRightValueReturned() {
+        assertEquals(0, board.getBoardValue());
+    }
+    
+    @Test
+    public void areLegalMovesReturnedWhenKingIsCheckedByQueen() {
+        Board testBoard = new Board();
+        board.setupBoard();
+        
+        board.getBoard()[0][0].setPiece(new King(Side.BLACK));
+        board.getBoard()[2][2].setPiece(new Queen(Side.WHITE));
+        
+        Tile start = new Tile(0, 0);
+        
+        HashMap<Tile, ArrayList> blackMoves = this.board.getPossibleMoves(Side.BLACK);
+        
+        assertEquals(1, blackMoves.get(start).size());
+    }
+    
     
     @After
     public void tearDown() {

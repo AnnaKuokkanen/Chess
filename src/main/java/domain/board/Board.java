@@ -90,7 +90,6 @@ public class Board {
                     ArrayList list = this.moves.get(tiles[i][j]);
                     ArrayList possibleMoves = tiles[i][j].getPiece().getPossibleMoves(this);
                     for (int k = 0; k < possibleMoves.size(); k++) {
-                        
                         Tile start = tiles[i][j];
                         Tile finish = (Tile) possibleMoves.get(k);
                         Piece startPiece = start.getPiece();

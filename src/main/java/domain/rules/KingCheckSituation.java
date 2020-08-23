@@ -148,7 +148,7 @@ public class KingCheckSituation {
     public boolean checkPawn() {     
         PieceName name = PieceName.PAWN;
         
-        if (x - 1 <= 0 && y + 1 < 8 && !tiles[x - 1][y + 1].free()) {
+        if (x - 1 >= 0 && y + 1 < 8 && !tiles[x - 1][y + 1].free()) {
             if (differentSideAndCorrectPiece(x - 1, y + 1, name)) {
                 return true;
             }
