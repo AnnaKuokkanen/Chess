@@ -69,17 +69,19 @@ public class Board {
      */
     public HashMap<Tile, ArrayList> getPossibleMoves(Side side) {
         this.moves = new HashMap<>();
-        int x = 0; 
-        int y = 0; 
+        int kingX = 0; 
+        int kingY = 0; 
         
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (!tiles[i][j].free() && tiles[i][j].getPiece().getSide() == side && tiles[i][j].getPiece().getType() == PieceName.KING) {
-                    x = i;
-                    y = j;
+                    kingX = i;
+                    kingY = j;
                 } 
             }
         }
+        int helperX = kingX;
+        int helperY = kingY;
         
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -89,23 +91,31 @@ public class Board {
                 if (!this.tiles[i][j].free() && tiles[i][j].getPiece().getSide() == side) {
                     ArrayList list = this.moves.get(tiles[i][j]);
                     ArrayList possibleMoves = tiles[i][j].getPiece().getPossibleMoves(this);
+
                     for (int k = 0; k < possibleMoves.size(); k++) {
+                        
                         Tile start = tiles[i][j];
                         Tile finish = (Tile) possibleMoves.get(k);
                         Piece startPiece = start.getPiece();
                         Piece finishPiece = finish.getPiece();
+                        if (start.getPiece().getType() == PieceName.KING) {
+                            kingX = finish.getX();
+                            kingY = finish.getY();
+                        } 
                         
                         if (!finish.free()) {
                             tiles[finish.getX()][finish.getY()].getPiece().remove();
                         }
                         tiles[finish.getX()][finish.getY()].setPiece(startPiece);
                         tiles[start.getX()][start.getY()].setPiece(null);
-                        if (!kingChecked(x, y, side)) {
+                        if (!kingChecked(kingX, kingY, side)) {
                             list.add(finish);
                         } 
                         tiles[finish.getX()][finish.getY()].getPiece().remove();
                         tiles[finish.getX()][finish.getY()].setPiece(finishPiece);
                         tiles[start.getX()][start.getY()].setPiece(startPiece);
+                        kingX = helperX;
+                        kingY = helperY;
                     }
                     moves.replace(tiles[i][j], list);
                 }

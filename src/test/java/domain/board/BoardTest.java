@@ -105,18 +105,54 @@ public class BoardTest {
     @Test
     public void areLegalMovesReturnedWhenKingIsCheckedByQueen() {
         Board testBoard = new Board();
-        board.setupBoard();
+        testBoard.setupBoard();
         
-        board.getBoard()[0][0].setPiece(new King(Side.BLACK));
-        board.getBoard()[2][2].setPiece(new Queen(Side.WHITE));
+        testBoard.getBoard()[0][0].setPiece(new King(Side.BLACK));
+        testBoard.getBoard()[2][2].setPiece(new Queen(Side.WHITE));
         
-        Tile start = new Tile(0, 0);
+        HashMap<Tile, ArrayList> blackMoves = testBoard.getPossibleMoves(Side.BLACK);
         
-        HashMap<Tile, ArrayList> blackMoves = this.board.getPossibleMoves(Side.BLACK);
+        assertEquals(2, blackMoves.get(new Tile(0, 0)).size());
         
-        assertEquals(1, blackMoves.get(start).size());
+        assertTrue(blackMoves.get(new Tile(0, 0)).contains(new Tile(1, 0)));
+        assertTrue(blackMoves.get(new Tile(0, 0)).contains(new Tile(0, 1)));
     }
     
+    @Test
+    public void areLegalMovesReturnedWhenKingIsCheckedByKnight() {
+        Board testBoard = new Board();
+        testBoard.setupBoard();
+        
+        testBoard.getBoard()[0][0].setPiece(new King(Side.BLACK));
+        testBoard.getBoard()[2][2].setPiece(new Knight(Side.WHITE));
+
+        HashMap<Tile, ArrayList> blackMoves = testBoard.getPossibleMoves(Side.BLACK);
+        
+        assertEquals(1, blackMoves.get(new Tile(0, 0)).size());
+        
+        assertTrue(blackMoves.get(new Tile(0, 0)).contains(new Tile(1, 1)));
+    }
+    
+    @Test
+    public void areLegalMovesReturnedWhenKingIsCheckedByPawn() {
+        Board testBoard = new Board();
+        testBoard.setupBoard();
+        
+        testBoard.getBoard()[0][0].setPiece(new King(Side.BLACK));
+        testBoard.getBoard()[2][2].setPiece(new Pawn(Side.WHITE));
+        
+        HashMap<Tile, ArrayList> blackMoves = testBoard.getPossibleMoves(Side.BLACK);
+        
+        assertEquals(2, blackMoves.get(new Tile(0, 0)).size());
+        
+        assertTrue(blackMoves.get(new Tile(0, 0)).contains(new Tile(1, 0)));
+        assertTrue(blackMoves.get(new Tile(0, 0)).contains(new Tile(0, 1)));
+    }
+    
+    @Test 
+    public void arePiecesNotMovedWhenItResultsInCheck() {
+    
+    }
     
     @After
     public void tearDown() {
