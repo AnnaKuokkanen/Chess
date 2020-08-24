@@ -18,3 +18,5 @@ joka seuraa pelin tilannetta ja valitsee siihen perustuen seuraavan siirron.
 [4. viikon raportti](https://github.com/AnnaKuokkanen/Shakki/blob/master/Dokumentaatio/viikkoraportti4.md)
 
 [5. viikon raportti](https://github.com/AnnaKuokkanen/Shakki/blob/master/Dokumentaatio/viikkoraportti5.md)
+
+[6. viikon raportti](https://github.com/AnnaKuokkanen/Shakki/blob/master/Dokumentaatio/viikkoraportti6.md)
