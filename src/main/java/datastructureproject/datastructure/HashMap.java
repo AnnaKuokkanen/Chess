@@ -1,7 +1,6 @@
 package datastructureproject.datastructure;
 
 import domain.board.Tile;
-import domain.pieces.Piece;
 
 public class HashMap {
     private Object[][] array;
@@ -12,12 +11,19 @@ public class HashMap {
         this.pointer = new int[10];
     }
     
-    public Object[] get(Object o) {
-        int hash = hashFunction(o);
-        return array[hash];
+    public ArrayList get(Tile t) {
+        int hash = hashFunction(t);
+        for (int i = 0; i < array[hash].length; i++) {
+            Pair pair = (Pair) array[hash][i];
+            if (pair.getTile().equals(t)) {
+                return pair.getList();
+            }
+        }
+        return new ArrayList();
     }
- 
-    public void put(Object key, Object object) {
+    
+    public void put(Tile key, ArrayList list) {
+        Pair pair = new Pair(key, list);
         int index = hashFunction(key);
         if (pointer[index] == array[index].length) {
             Object[] helperArray = array[index];
@@ -26,19 +32,33 @@ public class HashMap {
                 array[index][i] = helperArray[i];
             }
         }
-        array[index][pointer[index]] = object;
+        array[index][pointer[index]] = pair;
         pointer[index]++;
     }
     
+    public int size(Object o) {
+        int hash = hashFunction(o);
+        return pointer[hash];
+    }
+    
     public int hashFunction(Object o) {
-        if (o instanceof Piece) {
-            Piece piece = (Piece) o;
-            return piece.getValue() / 10;
-        }
         if (o instanceof Tile) {
             Tile tile = (Tile) o;
             return tile.getX() + tile.getY();
         }
         return 0;
+    }
+    
+    public ArrayList keySet() {
+        ArrayList list = new ArrayList();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if ((Pair) array[i][j] != null) {
+                    Pair pair = (Pair) array[i][j];
+                    list.add(pair.getTile());
+                }
+            }
+        }
+        return list;
     }
 }
