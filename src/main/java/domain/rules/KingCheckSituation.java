@@ -38,7 +38,7 @@ public class KingCheckSituation {
         if (checkDiagonal()) {
             return true;
         }
-        return false;
+        return checkKing();
     }
     
     /**
@@ -176,6 +176,57 @@ public class KingCheckSituation {
         }
         if (x + 1 < 8 && y + 1 < 8 && !tiles[x + 1][y + 1].free()) {
             if (differentSideAndCorrectPiece(x + 1, y + 1, name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * Check if opposite side king is checking.
+     * 
+     * @return true if they are 
+     */
+    public boolean checkKing() {
+        PieceName name = PieceName.KING;
+        
+        if (x + 1 < 8 && !tiles[x + 1][y].free()) {
+            if (differentSideAndCorrectPiece(x + 1, y, name)) {
+                return true;
+            }
+        }
+        if (x - 1 >= 0 && !tiles[x - 1][y].free()) {
+            if (differentSideAndCorrectPiece(x - 1, y, name)) {
+                return true;
+            }
+        }
+        if (y + 1 < 8 && !tiles[x][y + 1].free()) {
+            if (differentSideAndCorrectPiece(x, y + 1, name)) {
+                return true;
+            }
+        }
+        if (y - 1 >= 0 && !tiles[x][y - 1].free()) {
+            if (differentSideAndCorrectPiece(x, y - 1, name)) {
+                return true;
+            }
+        }
+        if (x - 1 >= 0 && y + 1 < 8 && !tiles[x - 1][y + 1].free()) {
+            if (differentSideAndCorrectPiece(x - 1, y + 1, name)) {
+                return true;
+            }
+        }
+        if (x + 1 < 8 && y + 1 < 8 && !tiles[x + 1][y + 1].free()) {
+            if (differentSideAndCorrectPiece(x + 1, y + 1, name)) {
+                return true;
+            }
+        }
+        if (x - 1 >= 0 && y - 1 >= 0 && !tiles[x - 1][y - 1].free()) {
+            if (differentSideAndCorrectPiece(x - 1, y - 1, name)) {
+                return true;
+            }
+        }
+        if (x + 1 < 8 && y - 1 >= 0 && !tiles[x + 1][y - 1].free()) {
+            if (differentSideAndCorrectPiece(x + 1, y - 1, name)) {
                 return true;
             }
         }
