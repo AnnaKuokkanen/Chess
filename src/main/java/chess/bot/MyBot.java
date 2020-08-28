@@ -50,10 +50,8 @@ public class MyBot implements ChessBot {
             board.getBoard()[startX][startY].setPiece(null);
         }
         
-//        this.alphabeta = new AlphaBetaPruning(board);
-//
-//        return alphabeta.useAlphaBetaPruner();
-        this.first = new FirstChoice(board);
-        return first.chooseMove();
+        this.alphabeta = new AlphaBetaPruning(board);
+
+        return alphabeta.useAlphaBetaPruner();
     }
 }
