@@ -1,13 +1,11 @@
 package datastructureproject.algorithm;
 
 import chess.model.Side;
-import datastructureproject.datastructure.ArrayList;
 import datastructureproject.datastructure.HashMap;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
 import domain.pieces.Piece;
-//import java.util.HashMap;
 
 public class MiniMax { 
     private final Board board;
@@ -39,7 +37,7 @@ public class MiniMax {
         for (int i = 0; i < this.moves.keySet().size(); i++) { 
             Tile start = (Tile) this.moves.keySet().get(i);
             for (int j = 0; j < this.moves.get(start).size(); j++) {
-                Tile finish = (Tile)this.moves.get(start).get(j);
+                Tile finish = (Tile) this.moves.get(start).get(j);
                 if (finish.getPiece() != null) {
                     currentSum -= finish.getPiece().getValue();
                 }
@@ -132,7 +130,7 @@ public class MiniMax {
             for (int i = 0; i < allMoves.keySet().size(); i++) {
                 Tile newStart = (Tile) allMoves.keySet().get(i);
                 for (int j = 0; j < allMoves.get(newStart).size(); j++) {
-                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(j), depth - 1, Side.WHITE);
+                    int newValue = search(newStart, (Tile) allMoves.get(newStart).get(j), depth - 1, Side.WHITE);
                     currentValue = currentValue < newValue ? currentValue : newValue;
                 }
             }
@@ -148,7 +146,7 @@ public class MiniMax {
             for (int i = 0; i < allMoves.keySet().size(); i++) {
                 Tile newStart = (Tile) allMoves.keySet().get(i);
                 for (int j = 0; j < allMoves.get(newStart).size(); j++) {
-                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(j), depth - 1, Side.BLACK);
+                    int newValue = search(newStart, (Tile) allMoves.get(newStart).get(j), depth - 1, Side.BLACK);
                     currentValue = currentValue > newValue ? currentValue : newValue;
                 }
             }

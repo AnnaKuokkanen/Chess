@@ -17,7 +17,7 @@ public class KingCheckSituation {
         this.y = y;
         this.side = side;
     }   
-    
+    //Other king is not checked yet!!!
     public boolean isChecked() {   
         if (checkHorizontalAndVertical()) {
             return true;

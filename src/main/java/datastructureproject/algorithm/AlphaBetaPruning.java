@@ -1,13 +1,11 @@
 package datastructureproject.algorithm;
 
 import chess.model.Side;
-import datastructureproject.datastructure.ArrayList;
 import datastructureproject.datastructure.HashMap;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
 import domain.pieces.Piece;
-//import java.util.HashMap;
 
 public class AlphaBetaPruning {
     private final Board board;
@@ -84,7 +82,7 @@ public class AlphaBetaPruning {
             for (int i = 0; i < allMoves.keySet().size(); i++) {
                 Tile newStart = (Tile) allMoves.keySet().get(i);
                 for (int j = 0; j < allMoves.get(newStart).size(); j++) {
-                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(j), depth - 1, alpha, beta, Side.WHITE);
+                    int newValue = search(newStart, (Tile) allMoves.get(newStart).get(j), depth - 1, alpha, beta, Side.WHITE);
                     currentValue = currentValue < newValue ? currentValue : newValue;
                     beta = beta < currentValue ? beta : currentValue;
                     if (beta <= alpha) {
@@ -104,7 +102,7 @@ public class AlphaBetaPruning {
             for (int i = 0; i < allMoves.keySet().size(); i++) {
                 Tile newStart = (Tile) allMoves.keySet().get(i);
                 for (int j = 0; j < allMoves.get(newStart).size(); j++) {
-                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(j), depth - 1, alpha, beta, Side.BLACK);
+                    int newValue = search(newStart, (Tile) allMoves.get(newStart).get(j), depth - 1, alpha, beta, Side.BLACK);
                     currentValue = currentValue > newValue ? currentValue : newValue;
                     alpha = alpha > currentValue ? alpha : currentValue;
                     if (alpha >= beta) {

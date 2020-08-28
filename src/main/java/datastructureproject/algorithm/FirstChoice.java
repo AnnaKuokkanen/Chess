@@ -1,12 +1,10 @@
 package datastructureproject.algorithm;
 
 import chess.model.Side;
-import datastructureproject.datastructure.ArrayList;
 import datastructureproject.datastructure.HashMap;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
-//import java.util.HashMap;
 
 public class FirstChoice {
     private final Board board;
