@@ -17,8 +17,7 @@ public class Pawn extends Piece {
         this.onBoard = super.onBoard();
     }
     /**
-     * pawn can move straight forward or capture diagonally
-     * on first move pawn can move two tiles forward
+     * Pawn can move straight forward or capture diagonally.
      * @param board for current game situation
      * @return list of tiles where pawn can legally move
      */

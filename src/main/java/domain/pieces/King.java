@@ -19,7 +19,7 @@ public class King extends Piece {
     }
     
     /**
-     * king can move and capture on tile up, down, right or left
+     * King can move and capture on tile up, down, right or left.
      * @param board for current game situation
      * @return list of tiles where king can legally move
      */

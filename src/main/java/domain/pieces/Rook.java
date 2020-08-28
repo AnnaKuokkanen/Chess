@@ -3,7 +3,6 @@ package domain.pieces;
 import chess.model.Side;
 import domain.board.*;
 import domain.rules.Rules;
-//import java.util.ArrayList;
 import datastructureproject.datastructure.ArrayList;
 
 public class Rook extends Piece {
@@ -19,7 +18,7 @@ public class Rook extends Piece {
     }
     
     /**
-     * rook can move and capture vertically and horizontally but cannot jump over same side pieces
+     * Rook can move and capture vertically and horizontally but cannot jump over same side pieces.
      * @param board for current game situation
      * @return list of tiles where rook can legally move
      */

@@ -17,7 +17,7 @@ public class Queen extends Piece {
     }
     
     /**
-     * queen can move and capture diagonally and horizontally but cannot jump over same side pieces
+     * Queen can move and capture diagonally, vertically and horizontally but cannot jump over same side pieces.
      * @param board for current game situation
      * @return list of tiles where queen can legally move
      */

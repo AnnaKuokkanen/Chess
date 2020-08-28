@@ -5,6 +5,9 @@ import datastructureproject.datastructure.ArrayList;
 import domain.board.*;
 import java.util.Objects;
 
+/**
+ * Abstract class that provides methods common to all piecetypes.
+ */
 public abstract class Piece {
     private boolean onBoard;
     private Tile location;
@@ -43,8 +46,9 @@ public abstract class Piece {
     }
     
     /**
-     * method that checks if piece on some
-     * tile is the same side as this piece
+     * Method that checks if piece on some
+     * tile is the same side as this piece.
+     * 
      * @param tile is the tile we are checking
      * @return boolean value of comparison 
      */

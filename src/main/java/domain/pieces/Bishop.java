@@ -18,7 +18,7 @@ public class Bishop extends Piece {
     }
     
     /**
-     * bishop can move and capture diagonally but cannot jump over same side pieces
+     * Bishop can move and capture diagonally but cannot jump over same side pieces.
      * @param board for current game situation
      * @return list of tiles where bishop can legally move
      */

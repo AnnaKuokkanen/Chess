@@ -18,7 +18,7 @@ public class Knight extends Piece {
     } 
     
     /**
-     * knight can move and capture two tiles up/down/right/left and one tile u/d/r/l
+     * Knight can move and capture two tiles up/down/right/left and one tile u/d/r/l.
      * @param board for current game situation
      * @return list of tiles where knight can legally move
      */
