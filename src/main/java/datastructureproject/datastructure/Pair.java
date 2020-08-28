@@ -2,6 +2,10 @@ package datastructureproject.datastructure;
 
 import domain.board.Tile;
 
+/**
+ * This is a helper method for HashMap.
+ * It simply contains two values: a tile and a list.
+ */
 public class Pair {
     private Tile tile;
     private ArrayList list;
