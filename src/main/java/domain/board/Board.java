@@ -5,7 +5,6 @@ import datastructureproject.datastructure.ArrayList;
 import datastructureproject.datastructure.HashMap;
 import domain.pieces.*;
 import domain.rules.KingCheckSituation;
-//import java.util.HashMap;
 
 public class Board {
     
@@ -19,7 +18,7 @@ public class Board {
     }
     
     /**
-     * method that sets up board consisting of tiles
+     * Method that sets up board consisting of tiles.
      */
     public void setupBoard() {
         for (int i = 0; i < 8; i++) {
@@ -28,8 +27,9 @@ public class Board {
             }
         }
     }
+    
     /**
-     * method that assigns pieces to their starting positions
+     * Method that assigns pieces to their starting positions.
      */
     public void setupPieces() {
         tiles[0][0].setPiece(new Rook(black));
@@ -66,7 +66,7 @@ public class Board {
     
     /**
      * @param side is the side for which moves are generated
-     * @return all possible moves in current game situation parsed to String
+     * @return all possible moves in current game situation stored in a HashMap
      */
     public HashMap getPossibleMoves(Side side) {
         this.moves = new HashMap();
@@ -75,7 +75,9 @@ public class Board {
         
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (!tiles[i][j].free() && tiles[i][j].getPiece().getSide() == side && tiles[i][j].getPiece().getType() == PieceName.KING) {
+                if (!tiles[i][j].free() 
+                        && tiles[i][j].getPiece().getSide() == side 
+                        && tiles[i][j].getPiece().getType() == PieceName.KING) {
                     kingX = i;
                     kingY = j;
                 } 
@@ -125,15 +127,23 @@ public class Board {
         return moves;
     }
     
+    /**
+     * Check whether king is checked or not.
+     * 
+     * @param x is king's column
+     * @param y is king's row
+     * @param side depicts side the king is on
+     * @return true if king is checked
+     */
     public boolean kingChecked(int x, int y, Side side) {
         KingCheckSituation check = new KingCheckSituation(this, x, y, side);
         return check.isChecked();
     }
     
     /**
-     * this method counts the sum of
-     * values of all pieces on board
-     * @return int sum
+     * This method counts the sum of
+     * values of all pieces on board.
+     * @return int sum of all pieces
      */
     public int getBoardValue() {
         int sum = 0;

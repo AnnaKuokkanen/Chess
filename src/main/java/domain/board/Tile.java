@@ -2,6 +2,10 @@ package domain.board;
 
 import domain.pieces.Piece;
 
+/**
+ * This class contains basic attributes for a single tile on 
+ * the playing board such as location and piece it holds.
+ */
 public class Tile {
     
     private int x;
