@@ -7,6 +7,13 @@ import domain.board.Tile;
 import domain.board.TileNameConverter;
 import domain.pieces.Piece;
 
+/**
+ * Class that implements Minimax algorithm. 
+ * Algorithm checks all possible moves travelling down the tree of possible moves
+ * trying to minimize value of all pieces when it's black's turn and maximizing
+ * on white's turn.
+ * In the end bot will make a move that guarantees the smallest loss. 
+ */
 public class MiniMax { 
     private final Board board;
     private HashMap moves;
@@ -15,56 +22,11 @@ public class MiniMax {
     public MiniMax(Board board) {
         this.board = board;
     }
-    
-    /**
-     * This is the first version of AI
-     * Algorithm knows the sum of all pieces on board 
-     * and checks if it can remove some piece to minimize this value
-     * This algorithm will take an opponent piece whenever possible
-     * 
-     * @return next move in textual form
-     */
-    public String chooseMove() {
-        this.moves = this.board.getPossibleMoves(Side.BLACK);
-        
-        String move = "";
-        
-        int currentSum = board.getBoardValue();
-        int bestMove = Integer.MAX_VALUE;
-        Tile bestStartTile = null;
-        Tile bestFinishTile = null;
-        
-        for (int i = 0; i < this.moves.keySet().size(); i++) { 
-            Tile start = (Tile) this.moves.keySet().get(i);
-            for (int j = 0; j < this.moves.get(start).size(); j++) {
-                Tile finish = (Tile) this.moves.get(start).get(j);
-                if (finish.getPiece() != null) {
-                    currentSum -= finish.getPiece().getValue();
-                }
-                if (currentSum < bestMove) {
-                    bestMove = currentSum;
-                    bestStartTile = start;
-                    bestFinishTile = finish;
-                }
-            }
-        }
-        
-        move += converter.convertToString(bestStartTile.getX(), bestStartTile.getY());
-        move += converter.convertToString(bestFinishTile.getX(), bestFinishTile.getY());
-        
-        if (board.getBoard()[bestFinishTile.getX()][bestFinishTile.getY()].getPiece() != null) {
-            board.getBoard()[bestFinishTile.getX()][bestFinishTile.getY()].getPiece().remove();
-        }
 
-        board.getBoard()[bestFinishTile.getX()][bestFinishTile.getY()].setPiece(bestStartTile.getPiece());
-        board.getBoard()[bestStartTile.getX()][bestStartTile.getY()].setPiece(null);
-        
-        return move;
-    }
-    
     /**
-     * @return textual representation of move
-     * that guarantees the smallest risk
+     * @return textual representation of a move 
+     * (for example "e2e4") that is least risky.
+     * This method also updates board after move is determined.
      */
     public String useMiniMax() {
         this.moves = this.board.getPossibleMoves(Side.BLACK);

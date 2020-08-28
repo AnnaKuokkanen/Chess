@@ -6,6 +6,12 @@ import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
 
+/**
+ * Class that has method for choosing the first legal move that is found.
+ * Search starts at upper left corner and progresses across board until legal 
+ * move is found.
+ * This class does not really play well but can be used for quick testing.
+ */
 public class FirstChoice {
     private final Board board;
     private HashMap moves;
@@ -15,6 +21,11 @@ public class FirstChoice {
         this.board = board;
     }
     
+    /**
+     * Method that searches for legal moves.
+     * @return move in textual form, for example "e2e4".
+     * This method also updates board when move is chosen.
+     */
     public String chooseMove() {
         this.moves = this.board.getPossibleMoves(Side.BLACK);
         

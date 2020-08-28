@@ -7,6 +7,13 @@ import domain.board.Tile;
 import domain.board.TileNameConverter;
 import domain.pieces.Piece;
 
+/**
+ * Class that implements Alpha-Beta Pruning.
+ * It delivers same results as Minimax but is quicker.
+ * Some possible moves are not examined because they cannot 
+ * improve current situation. Whether a move should be examined 
+ * is determined by comparing it to values of one of the two integers, alpha and beta.
+ */
 public class AlphaBetaPruning {
     private final Board board;
     private HashMap moves;
@@ -16,6 +23,11 @@ public class AlphaBetaPruning {
         this.board = board;
     }
     
+    /**
+     * @return textual representation of a move 
+     * (for example "e2e4") that is least risky.
+     * This method also updates board after move is determined.
+     */
     public String useAlphaBetaPruner() {
         this.moves = this.board.getPossibleMoves(Side.BLACK);
         
@@ -59,7 +71,7 @@ public class AlphaBetaPruning {
      * @param depth depicts the depth of the tree
      * @param side is the side for which moves are calculated
      * @param alpha measures the smallest value that should be pruned by black
-     * @param beta measures the biggest value that should pe pruned by white
+     * @param beta measures the biggest value that should be pruned by white
      * @return biggest risk for the move we were examining
      */
     public int search(Tile start, Tile finish, int depth, int alpha, int beta, Side side) {
