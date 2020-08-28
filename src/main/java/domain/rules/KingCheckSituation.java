@@ -4,6 +4,10 @@ import chess.model.Side;
 import domain.board.*;
 import domain.pieces.PieceName;
 
+/**
+ * Class that allows checking if king is checked.
+ * Checking done by other king is not yet added
+ */
 public class KingCheckSituation {
     
     private final int x; 
@@ -17,7 +21,10 @@ public class KingCheckSituation {
         this.y = y;
         this.side = side;
     }   
-    //Other king is not checked yet!!!
+    
+    /**
+     * @return true immediately if some piece is found checking the king
+     */
     public boolean isChecked() {   
         if (checkHorizontalAndVertical()) {
             return true;
@@ -34,6 +41,10 @@ public class KingCheckSituation {
         return false;
     }
     
+    /**
+     * Checking all tiles diagonally from the king for opposite side queen or bishop.
+     * @return true if one is found
+     */
     public boolean checkDiagonal() {
         PieceName name1 = PieceName.QUEEN;
         PieceName name2 = PieceName.BISHOP;
@@ -90,6 +101,11 @@ public class KingCheckSituation {
         return false;
     }
     
+    /**
+     * Check all tiles horizontally and vertically from the king for opposite side queen or rook.
+     * 
+     * @return true if one is found
+     */
     public boolean checkHorizontalAndVertical() {
         PieceName name1 = PieceName.QUEEN;
         PieceName name2 = PieceName.ROOK;
@@ -145,6 +161,11 @@ public class KingCheckSituation {
         return false;
     }
     
+    /**
+     * Check if opposite side pawns are checking.
+     * 
+     * @return true if they are 
+     */
     public boolean checkPawn() {     
         PieceName name = PieceName.PAWN;
         
@@ -161,6 +182,11 @@ public class KingCheckSituation {
         return false;
     }
     
+    /**
+     * Check eight positions where opposite side knights can be checking.
+     * 
+     * @return true if at least one is found
+     */
     public boolean checkKnight() {
         PieceName name = PieceName.KNIGHT;
         
@@ -207,6 +233,16 @@ public class KingCheckSituation {
         return false;
     }
     
+    /**
+     * Method that checks if some tile contains particular piece type and 
+     * the piece is of opposite side.
+     * 
+     * @param x depicts x coordinate of tile
+     * @param y depicts y coordinate of tile
+     * @param name depicts the name of piece we are looking for
+     * 
+     * @return true if such piece is found
+     */
     public boolean differentSideAndCorrectPiece(int x, int y, PieceName name) {
         boolean differentSide = tiles[x][y].getPiece().getSide() != this.side;
         boolean isPiece = tiles[x][y].getPiece().getType() == name;

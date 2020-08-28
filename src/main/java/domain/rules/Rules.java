@@ -3,6 +3,9 @@ package domain.rules;
 import datastructureproject.datastructure.ArrayList;
 import domain.board.Tile;
 
+/**
+ * Class that provides methods for checking legal moves for Rook, Queen and Bishop.
+ */
 public class Rules {
     private int x;
     private int y;
@@ -19,7 +22,12 @@ public class Rules {
     public void setMoves(ArrayList moves) {
         this.moves = moves;
     }
-
+    
+    /**
+     * Returns legal horizontal and vertical moves for Queen and Rook.
+     * 
+     * @return list of legal moves
+     */
     public ArrayList moveHorizontallyAndVertically() {
         setMoves(new ArrayList());
         int i = 1;
@@ -85,6 +93,11 @@ public class Rules {
         return moves;
     }
    
+    /**
+     * Returns legal diagonal moves for Queen and Bishop.
+     * 
+     * @return list of legal moves
+     */
     public ArrayList moveDiagonally() {
         setMoves(new ArrayList());
         int i = 1;
