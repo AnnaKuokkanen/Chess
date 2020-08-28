@@ -18,4 +18,8 @@ public class Pair {
     public ArrayList getList() {
         return this.list;
     }
+    
+    public void setList(ArrayList list) {
+        this.list = list;
+    }
 }

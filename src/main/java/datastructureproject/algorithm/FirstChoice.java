@@ -2,14 +2,15 @@ package datastructureproject.algorithm;
 
 import chess.model.Side;
 import datastructureproject.datastructure.ArrayList;
+import datastructureproject.datastructure.HashMap;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
-import java.util.HashMap;
+//import java.util.HashMap;
 
 public class FirstChoice {
     private final Board board;
-    private HashMap<Tile, ArrayList> moves;
+    private HashMap moves;
     private final TileNameConverter converter = new TileNameConverter();
     
     public FirstChoice(Board board) {
@@ -21,7 +22,8 @@ public class FirstChoice {
         
         String move = "";
         
-        for (Tile tile : this.moves.keySet()) { 
+        for (int i = 0; i < this.moves.keySet().size(); i++) { 
+            Tile tile = (Tile) this.moves.keySet().get(i);
             if (this.moves.get(tile).size() > 0) {
                 Tile start = tile;
                 Tile finish = (Tile) moves.get(start).get(0);

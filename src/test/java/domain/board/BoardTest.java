@@ -2,8 +2,9 @@ package domain.board;
 
 import chess.model.Side;
 import datastructureproject.datastructure.ArrayList;
+import datastructureproject.datastructure.HashMap;
 import domain.pieces.*;
-import java.util.HashMap;
+//import java.util.HashMap;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -71,8 +72,8 @@ public class BoardTest {
     
     @Test
     public void areRightMovesReturnedForAllPiecesOnBoard() {
-        HashMap<Tile, ArrayList> blackMoves = this.board.getPossibleMoves(Side.BLACK);
-        HashMap<Tile, ArrayList> whiteMoves = this.board.getPossibleMoves(Side.WHITE);
+        HashMap blackMoves = this.board.getPossibleMoves(Side.BLACK);
+        HashMap whiteMoves = this.board.getPossibleMoves(Side.WHITE);
         for(int i = 0; i < 8; i++) {
             assertTrue(blackMoves.get(new Tile(i, 1)).size() == 1);
             assertTrue(whiteMoves.get(new Tile(i, 6)).size() == 1);
@@ -85,7 +86,7 @@ public class BoardTest {
     
     @Test
     public void areValidMovesReturned() {
-        HashMap<Tile, ArrayList> blackMoves = this.board.getPossibleMoves(Side.BLACK);
+        HashMap blackMoves = this.board.getPossibleMoves(Side.BLACK);
         
         TileNameConverter converter = new TileNameConverter();
         Tile start = this.board.getBoard()[0][1];
@@ -110,7 +111,7 @@ public class BoardTest {
         testBoard.getBoard()[0][0].setPiece(new King(Side.BLACK));
         testBoard.getBoard()[2][2].setPiece(new Queen(Side.WHITE));
         
-        HashMap<Tile, ArrayList> blackMoves = testBoard.getPossibleMoves(Side.BLACK);
+        HashMap blackMoves = testBoard.getPossibleMoves(Side.BLACK);
         
         assertEquals(2, blackMoves.get(new Tile(0, 0)).size());
         
@@ -126,7 +127,7 @@ public class BoardTest {
         testBoard.getBoard()[0][0].setPiece(new King(Side.BLACK));
         testBoard.getBoard()[2][2].setPiece(new Knight(Side.WHITE));
 
-        HashMap<Tile, ArrayList> blackMoves = testBoard.getPossibleMoves(Side.BLACK);
+        HashMap blackMoves = testBoard.getPossibleMoves(Side.BLACK);
         
         assertEquals(1, blackMoves.get(new Tile(0, 0)).size());
         
@@ -141,7 +142,7 @@ public class BoardTest {
         testBoard.getBoard()[0][0].setPiece(new King(Side.BLACK));
         testBoard.getBoard()[2][2].setPiece(new Pawn(Side.WHITE));
         
-        HashMap<Tile, ArrayList> blackMoves = testBoard.getPossibleMoves(Side.BLACK);
+        HashMap blackMoves = testBoard.getPossibleMoves(Side.BLACK);
         
         assertEquals(2, blackMoves.get(new Tile(0, 0)).size());
         

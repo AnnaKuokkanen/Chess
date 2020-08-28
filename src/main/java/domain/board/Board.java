@@ -2,16 +2,17 @@ package domain.board;
 
 import chess.model.Side;
 import datastructureproject.datastructure.ArrayList;
+import datastructureproject.datastructure.HashMap;
 import domain.pieces.*;
 import domain.rules.KingCheckSituation;
-import java.util.HashMap;
+//import java.util.HashMap;
 
 public class Board {
     
     private final Tile[][] tiles;
     private final Side black = Side.BLACK;
     private final Side white = Side.WHITE;
-    private HashMap<Tile, ArrayList> moves;
+    private HashMap moves;
     
     public Board() {
         this.tiles = new Tile[8][8];
@@ -67,8 +68,8 @@ public class Board {
      * @param side is the side for which moves are generated
      * @return all possible moves in current game situation parsed to String
      */
-    public HashMap<Tile, ArrayList> getPossibleMoves(Side side) {
-        this.moves = new HashMap<>();
+    public HashMap getPossibleMoves(Side side) {
+        this.moves = new HashMap();
         int kingX = 0; 
         int kingY = 0; 
         

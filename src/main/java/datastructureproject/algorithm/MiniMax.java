@@ -2,15 +2,16 @@ package datastructureproject.algorithm;
 
 import chess.model.Side;
 import datastructureproject.datastructure.ArrayList;
+import datastructureproject.datastructure.HashMap;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
 import domain.pieces.Piece;
-import java.util.HashMap;
+//import java.util.HashMap;
 
 public class MiniMax { 
     private final Board board;
-    private HashMap<Tile, ArrayList> moves;
+    private HashMap moves;
     private final TileNameConverter converter = new TileNameConverter();
     
     public MiniMax(Board board) {
@@ -35,9 +36,10 @@ public class MiniMax {
         Tile bestStartTile = null;
         Tile bestFinishTile = null;
         
-        for (Tile start : this.moves.keySet()) { 
-            for (int i = 0; i < this.moves.get(start).size(); i++) {
-                Tile finish = (Tile)this.moves.get(start).get(i);
+        for (int i = 0; i < this.moves.keySet().size(); i++) { 
+            Tile start = (Tile) this.moves.keySet().get(i);
+            for (int j = 0; j < this.moves.get(start).size(); j++) {
+                Tile finish = (Tile)this.moves.get(start).get(j);
                 if (finish.getPiece() != null) {
                     currentSum -= finish.getPiece().getValue();
                 }
@@ -75,9 +77,10 @@ public class MiniMax {
         Tile bestStartTile = null;
         Tile bestFinishTile = null;
         
-        for (Tile start : this.moves.keySet()) { 
-            for (int i = 0; i < this.moves.get(start).size(); i++) {
-                Tile finish = (Tile)this.moves.get(start).get(i);
+        for (int i = 0; i < this.moves.keySet().size(); i++) { 
+            Tile start = (Tile) this.moves.keySet().get(i);
+            for (int j = 0; j < this.moves.get(start).size(); j++) {
+                Tile finish = (Tile) this.moves.get(start).get(j);
                 int nextMove = search(start, finish, 2, Side.WHITE);
                 if (nextMove < greatestRisk) {
                     bestStartTile = start;
@@ -123,12 +126,13 @@ public class MiniMax {
         start.setPiece(null);
         
         if (side == Side.BLACK) {
-            HashMap<Tile, ArrayList> allMoves = board.getPossibleMoves(side.BLACK);
+            HashMap allMoves = board.getPossibleMoves(side.BLACK);
             int currentValue = Integer.MAX_VALUE;
             
-            for (Tile newStart : allMoves.keySet()) {
-                for (int i = 0; i < allMoves.get(newStart).size(); i++) {
-                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(i), depth - 1, Side.WHITE);
+            for (int i = 0; i < allMoves.keySet().size(); i++) {
+                Tile newStart = (Tile) allMoves.keySet().get(i);
+                for (int j = 0; j < allMoves.get(newStart).size(); j++) {
+                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(j), depth - 1, Side.WHITE);
                     currentValue = currentValue < newValue ? currentValue : newValue;
                 }
             }
@@ -138,12 +142,13 @@ public class MiniMax {
             
             return currentValue;
         } else {
-            HashMap<Tile, ArrayList> allMoves = board.getPossibleMoves(side.WHITE);
+            HashMap allMoves = board.getPossibleMoves(side.WHITE);
             int currentValue = Integer.MIN_VALUE;
             
-            for (Tile newStart : allMoves.keySet()) {
-                for (int i = 0; i < allMoves.get(newStart).size(); i++) {
-                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(i), depth - 1, Side.BLACK);
+            for (int i = 0; i < allMoves.keySet().size(); i++) {
+                Tile newStart = (Tile) allMoves.keySet().get(i);
+                for (int j = 0; j < allMoves.get(newStart).size(); j++) {
+                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(j), depth - 1, Side.BLACK);
                     currentValue = currentValue > newValue ? currentValue : newValue;
                 }
             }

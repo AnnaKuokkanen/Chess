@@ -7,15 +7,15 @@ public class HashMap {
     private int[] pointer;
     
     public HashMap() {
-        this.array = new Object[10][10];
-        this.pointer = new int[10];
+        this.array = new Object[15][10];
+        this.pointer = new int[15];
     }
     
     public ArrayList get(Tile t) {
         int hash = hashFunction(t);
         for (int i = 0; i < array[hash].length; i++) {
             Pair pair = (Pair) array[hash][i];
-            if (pair.getTile().equals(t)) {
+            if (pair != null && pair.getTile().equals(t)) {
                 return pair.getList();
             }
         }
@@ -34,6 +34,16 @@ public class HashMap {
         }
         array[index][pointer[index]] = pair;
         pointer[index]++;
+    }
+    
+    public void replace(Tile key, ArrayList newList) {
+        int index = hashFunction(key);
+        for (int i = 0; i < array[index].length; i++) {
+            Pair pair = (Pair) array[index][i];
+            if (pair != null && pair.getTile().equals(key)) {
+                pair.setList(newList);
+            }
+        }
     }
     
     public int size(Object o) {

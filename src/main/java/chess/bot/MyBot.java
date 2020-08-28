@@ -10,7 +10,7 @@ import domain.board.TileNameConverter;
 public class MyBot implements ChessBot {
 
     private AlphaBetaPruning alphabeta;
-    private FirstChoice random;
+    private FirstChoice first;
     TileNameConverter converter = new TileNameConverter();
     private final Board board = new Board();
     
@@ -44,7 +44,7 @@ public class MyBot implements ChessBot {
         this.alphabeta = new AlphaBetaPruning(board);
 
         return alphabeta.useAlphaBetaPruner();
-//        this.random = new FirstChoice(board);
-//        return random.chooseMove();
+//        this.first = new FirstChoice(board);
+//        return first.chooseMove();
     }
 }

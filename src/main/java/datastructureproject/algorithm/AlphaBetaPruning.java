@@ -2,15 +2,16 @@ package datastructureproject.algorithm;
 
 import chess.model.Side;
 import datastructureproject.datastructure.ArrayList;
+import datastructureproject.datastructure.HashMap;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
 import domain.pieces.Piece;
-import java.util.HashMap;
+//import java.util.HashMap;
 
 public class AlphaBetaPruning {
     private final Board board;
-    private HashMap<Tile, ArrayList> moves;
+    private HashMap moves;
     private final TileNameConverter converter = new TileNameConverter();
     
     public AlphaBetaPruning(Board board) {
@@ -26,10 +27,11 @@ public class AlphaBetaPruning {
         Tile bestStartTile = null;
         Tile bestFinishTile = null;
         
-        for (Tile start : this.moves.keySet()) { 
-            for (int i = 0; i < this.moves.get(start).size(); i++) {
-                Tile finish = (Tile)this.moves.get(start).get(i);
-                int nextMove = search(start, finish, 4, Integer.MIN_VALUE, Integer.MAX_VALUE, Side.WHITE);
+        for (int i = 0; i < this.moves.keySet().size(); i++) { 
+            Tile start = (Tile) this.moves.keySet().get(i);
+            for (int j = 0; j < this.moves.get(start).size(); j++) {
+                Tile finish = (Tile) this.moves.get(start).get(j);
+                int nextMove = search(start, finish, 3, Integer.MIN_VALUE, Integer.MAX_VALUE, Side.WHITE);
                 if (nextMove < greatestRisk) {
                     bestStartTile = start;
                     bestFinishTile = finish;
@@ -58,6 +60,8 @@ public class AlphaBetaPruning {
      * @param finish is Tile where move ends
      * @param depth depicts the depth of the tree
      * @param side is the side for which moves are calculated
+     * @param alpha measures the smallest value that should be pruned by black
+     * @param beta measures the biggest value that should pe pruned by white
      * @return biggest risk for the move we were examining
      */
     public int search(Tile start, Tile finish, int depth, int alpha, int beta, Side side) {
@@ -74,12 +78,13 @@ public class AlphaBetaPruning {
         start.setPiece(null);
         
         if (side == Side.BLACK) {
-            HashMap<Tile, ArrayList> allMoves = board.getPossibleMoves(side.BLACK);
+            HashMap allMoves = board.getPossibleMoves(side.BLACK);
             int currentValue = Integer.MAX_VALUE;
             
-            for (Tile newStart : allMoves.keySet()) {
-                for (int i = 0; i < allMoves.get(newStart).size(); i++) {
-                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(i), depth - 1, alpha, beta, Side.WHITE);
+            for (int i = 0; i < allMoves.keySet().size(); i++) {
+                Tile newStart = (Tile) allMoves.keySet().get(i);
+                for (int j = 0; j < allMoves.get(newStart).size(); j++) {
+                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(j), depth - 1, alpha, beta, Side.WHITE);
                     currentValue = currentValue < newValue ? currentValue : newValue;
                     beta = beta < currentValue ? beta : currentValue;
                     if (beta <= alpha) {
@@ -93,15 +98,16 @@ public class AlphaBetaPruning {
             
             return currentValue;
         } else {
-            HashMap<Tile, ArrayList> allMoves = board.getPossibleMoves(side.WHITE);
+            HashMap allMoves = board.getPossibleMoves(side.WHITE);
             int currentValue = Integer.MIN_VALUE;
             
-            for (Tile newStart : allMoves.keySet()) {
-                for (int i = 0; i < allMoves.get(newStart).size(); i++) {
-                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(i), depth - 1, alpha, beta, Side.BLACK);
+            for (int i = 0; i < allMoves.keySet().size(); i++) {
+                Tile newStart = (Tile) allMoves.keySet().get(i);
+                for (int j = 0; j < allMoves.get(newStart).size(); j++) {
+                    int newValue = search(newStart, (Tile)allMoves.get(newStart).get(j), depth - 1, alpha, beta, Side.BLACK);
                     currentValue = currentValue > newValue ? currentValue : newValue;
                     alpha = alpha > currentValue ? alpha : currentValue;
-                    if (alpha >= beta ) {
+                    if (alpha >= beta) {
                         break;
                     } 
                 }

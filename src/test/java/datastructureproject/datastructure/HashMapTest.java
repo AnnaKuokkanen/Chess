@@ -48,6 +48,19 @@ public class HashMapTest {
     }
     
     @Test
+    public void itemsReplacedCorrectly() {
+        ArrayList firstList = new ArrayList();
+        ArrayList secondList = new ArrayList();
+        firstList.add(new Tile(1, 1));
+        secondList.add(new Tile(2, 2));
+        
+        map.put(new Tile(0, 0), firstList);
+        assertEquals(firstList, map.get(new Tile(0, 0)));
+        map.replace(new Tile(0, 0), secondList);
+        assertEquals(secondList, map.get(new Tile(0, 0)));
+    }
+    
+    @Test
     public void keySetIsReturnedCorrectly() {
         map.put(new Tile(0, 0), new ArrayList());
         map.put(new Tile(1, 1), new ArrayList());
