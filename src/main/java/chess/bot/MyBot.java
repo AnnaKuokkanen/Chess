@@ -53,7 +53,5 @@ public class MyBot implements ChessBot {
         this.alphabeta = new AlphaBetaPruning(board);
 
         return alphabeta.useAlphaBetaPruner();
-//        this.first = new FirstChoice(board);
-//        return first.chooseMove();
     }
 }
