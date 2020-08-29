@@ -106,7 +106,9 @@ public class HashMap {
             for (int j = 0; j < array[i].length; j++) {
                 if ((Pair) array[i][j] != null) {
                     Pair pair = (Pair) array[i][j];
-                    list.add(pair.getTile());
+                    if (!pair.getList().isEmpty()) {
+                        list.add(pair.getTile());
+                    }
                 }
             }
         }
