@@ -52,13 +52,13 @@ public class AlphaBetaPruning {
                 int nextMove = search(start, finish, 3, Integer.MIN_VALUE, Integer.MAX_VALUE, other);
                 
                 if (side == Side.BLACK) {
-                    if (nextMove < greatestRisk) {
+                    if (nextMove <= greatestRisk) {
                         bestStartTile = start;
                         bestFinishTile = finish;
                         greatestRisk = nextMove;
                     }
                 } else {
-                    if (nextMove > greatestRisk) {
+                    if (nextMove >= greatestRisk) {
                         bestStartTile = start;
                         bestFinishTile = finish;
                         greatestRisk = nextMove;
@@ -92,7 +92,7 @@ public class AlphaBetaPruning {
      * @return biggest risk for the move we were examining
      */
     public int search(Tile start, Tile finish, int depth, int alpha, int beta, Side side) {
-        if (depth == 0) {
+        if (depth == 0 || start == null || finish == null) {
             return board.getBoardValue();
         }
         
