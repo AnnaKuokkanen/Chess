@@ -4,7 +4,6 @@ import chess.model.Side;
 import datastructureproject.datastructure.ArrayList;
 import datastructureproject.datastructure.HashMap;
 import domain.pieces.*;
-//import java.util.HashMap;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -120,6 +119,20 @@ public class BoardTest {
     }
     
     @Test
+    public void areLegalMovesReturnedWhenKingIsCheckedByRook() {
+        Board testBoard = new Board();
+        testBoard.setupBoard();
+        
+        testBoard.getBoard()[6][4].setPiece(new Rook(Side.BLACK));
+        testBoard.getBoard()[4][0].setPiece(new Rook(Side.BLACK));
+        testBoard.getBoard()[7][0].setPiece(new King(Side.WHITE));
+        
+        HashMap whiteMoves = testBoard.getPossibleMoves(Side.WHITE);
+        assertEquals(1, whiteMoves.get(new Tile(7, 0)).size());
+        assertEquals(new Tile(7, 1), whiteMoves.get(new Tile(7, 0)).get(0));
+    }
+    
+    @Test
     public void areLegalMovesReturnedWhenKingIsCheckedByKnight() {
         Board testBoard = new Board();
         testBoard.setupBoard();
@@ -150,9 +163,106 @@ public class BoardTest {
         assertTrue(blackMoves.get(new Tile(0, 0)).contains(new Tile(0, 1)));
     }
     
-    @Test 
-    public void arePiecesNotMovedWhenItResultsInCheck() {
+    @Test
+    public void canPiecesShieldKingWhenNoOtherOption() {
+        Board testBoard = new Board();
+        testBoard.setupBoard();
+        
+        testBoard.getBoard()[4][7].setPiece(new King(Side.WHITE));
+        testBoard.getBoard()[5][7].setPiece(new Bishop(Side.WHITE));
+        testBoard.getBoard()[4][6].setPiece(new Pawn(Side.WHITE));
+        testBoard.getBoard()[3][6].setPiece(new Pawn(Side.WHITE));
+        testBoard.getBoard()[3][7].setPiece(new Queen(Side.WHITE));
+        testBoard.getBoard()[6][3].setPiece(new Rook(Side.WHITE));
+        
+        testBoard.getBoard()[7][4].setPiece(new Queen(Side.BLACK));
+        
+        HashMap whiteMoves = testBoard.getPossibleMoves(Side.WHITE);
+        
+        assertEquals(1, whiteMoves.get(new Tile(6, 3)).size());
+        assertEquals(new Tile(6, 5), whiteMoves.get(new Tile(6, 3)).get(0));
+        assertEquals(1, whiteMoves.keySet().size());
+    }
     
+    @Test
+    public void doesKingRemoveOpponentWhenThereIsNoOtherOption() {
+        Board testBoard = new Board();
+        testBoard.setupBoard();
+        
+        testBoard.getBoard()[4][7].setPiece(new King(Side.WHITE));
+        testBoard.getBoard()[5][7].setPiece(new Bishop(Side.WHITE));
+        testBoard.getBoard()[4][6].setPiece(new Pawn(Side.WHITE));
+        testBoard.getBoard()[5][6].setPiece(new Pawn(Side.WHITE));
+        testBoard.getBoard()[3][6].setPiece(new Bishop(Side.WHITE));
+        
+        testBoard.getBoard()[4][2].setPiece(new Queen(Side.BLACK));
+        testBoard.getBoard()[3][5].setPiece(new Knight(Side.BLACK));
+        testBoard.getBoard()[3][7].setPiece(new Bishop(Side.BLACK));
+        
+        
+        HashMap whiteMoves = testBoard.getPossibleMoves(Side.WHITE);
+        
+        assertEquals(1, whiteMoves.get(new Tile(4, 7)).size());
+        assertEquals(new Tile(3, 7), whiteMoves.get(new Tile(4, 7)).get(0));
+        assertEquals(1, whiteMoves.keySet().size());
+    }
+    
+    @Test
+    public void testGameSituation() {
+        Board testboard = new Board();
+        testboard.setupBoard();
+        
+        testboard.getBoard()[0][0].setPiece(new Rook(Side.BLACK));
+        testboard.getBoard()[0][1].setPiece(new Pawn(Side.BLACK));
+        testboard.getBoard()[0][2].setPiece(new Pawn(Side.BLACK));
+        testboard.getBoard()[0][4].setPiece(new Queen(Side.BLACK));
+        testboard.getBoard()[1][4].setPiece(new Bishop(Side.BLACK));
+        testboard.getBoard()[1][5].setPiece(new Knight(Side.BLACK));
+        testboard.getBoard()[2][1].setPiece(new Pawn(Side.BLACK));
+        testboard.getBoard()[3][3].setPiece(new Pawn(Side.BLACK));
+        testboard.getBoard()[4][3].setPiece(new Pawn(Side.BLACK));
+        testboard.getBoard()[5][0].setPiece(new Rook(Side.BLACK));
+        testboard.getBoard()[5][1].setPiece(new Pawn(Side.BLACK));
+        testboard.getBoard()[6][0].setPiece(new King(Side.BLACK));
+        testboard.getBoard()[6][1].setPiece(new Pawn(Side.BLACK));
+        testboard.getBoard()[7][3].setPiece(new Pawn(Side.BLACK));
+        
+        testboard.getBoard()[1][6].setPiece(new Pawn(Side.WHITE));
+        testboard.getBoard()[2][7].setPiece(new Bishop(Side.WHITE));
+        testboard.getBoard()[3][5].setPiece(new Pawn(Side.WHITE));
+        testboard.getBoard()[4][6].setPiece(new Pawn(Side.WHITE));
+        testboard.getBoard()[4][7].setPiece(new King(Side.WHITE));
+        testboard.getBoard()[5][6].setPiece(new Pawn(Side.WHITE));
+        testboard.getBoard()[5][7].setPiece(new Bishop(Side.WHITE));
+        testboard.getBoard()[6][5].setPiece(new Knight(Side.WHITE));
+        testboard.getBoard()[6][6].setPiece(new Pawn(Side.WHITE));
+        testboard.getBoard()[6][7].setPiece(new Knight(Side.WHITE));
+        testboard.getBoard()[7][6].setPiece(new Pawn(Side.WHITE));
+        testboard.getBoard()[7][7].setPiece(new Rook(Side.WHITE));
+           
+        HashMap white = testboard.getPossibleMoves(Side.WHITE);
+       
+        assertEquals(new Tile(2, 7), white.keySet().get(0));
+        assertEquals(new Tile(3, 6), white.get(new Tile(2, 7)).get(0));
+        assertEquals(2, white.keySet().size());
+    }
+    
+    @Test
+    public void testGameSituation2() {
+        Board test = new Board();
+        test.setupBoard();
+        
+        test.getBoard()[3][6].setPiece(new Rook(Side.BLACK));
+        test.getBoard()[2][7].setPiece(new Queen(Side.BLACK));
+        test.getBoard()[4][6].setPiece(new King(Side.WHITE));
+        test.getBoard()[4][5].setPiece(new Pawn(Side.WHITE));
+        
+        HashMap white = test.getPossibleMoves(Side.WHITE);
+        
+        assertEquals(1, white.keySet().size());
+        Tile t = (Tile) white.get(new Tile(4, 6)).get(0);
+        assertEquals(1, white.get(new Tile(4, 6)).size());
+        assertEquals(new Tile(5, 5), t);
     }
     
     @After

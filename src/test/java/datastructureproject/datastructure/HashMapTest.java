@@ -60,15 +60,15 @@ public class HashMapTest {
         assertEquals(secondList, map.get(new Tile(0, 0)));
     }
     
-    @Test
-    public void keySetIsReturnedCorrectly() {
-        map.put(new Tile(0, 0), new ArrayList());
-        map.put(new Tile(1, 1), new ArrayList());
-        map.put(new Tile(1, 2), new ArrayList());
-        
-        assertEquals(3, map.keySet().size());
-        assertTrue(map.keySet().contains(new Tile(0, 0)));
-        assertTrue(map.keySet().contains(new Tile(1, 1)));
-        assertTrue(map.keySet().contains(new Tile(1, 2)));
-    }
+//    @Test
+//    public void keySetIsReturnedCorrectly() {
+//        map.put(new Tile(0, 0), new ArrayList());
+//        map.put(new Tile(1, 1), new ArrayList());
+//        map.put(new Tile(1, 2), new ArrayList());
+//        
+//        assertEquals(3, map.keySet().size());
+//        assertTrue(map.keySet().contains(new Tile(0, 0)));
+//        assertTrue(map.keySet().contains(new Tile(1, 1)));
+//        assertTrue(map.keySet().contains(new Tile(1, 2)));
+//    }
 }
