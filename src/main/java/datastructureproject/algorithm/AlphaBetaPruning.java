@@ -24,6 +24,7 @@ public class AlphaBetaPruning {
     }
     
     /**
+     * @param side is the side making the move
      * @return textual representation of a move 
      * (for example "e2e4") that is least risky.
      * This method also updates board after move is determined.
@@ -34,6 +35,12 @@ public class AlphaBetaPruning {
         String move = "";
         
         int greatestRisk = Integer.MAX_VALUE;
+        Side other = Side.WHITE;
+        
+        if (side == Side.WHITE) { 
+            greatestRisk = Integer.MIN_VALUE;
+            other = Side.BLACK;
+        } 
         Tile bestStartTile = null;
         Tile bestFinishTile = null;
         
@@ -41,11 +48,21 @@ public class AlphaBetaPruning {
             Tile start = (Tile) this.moves.keySet().get(i);
             for (int j = 0; j < this.moves.get(start).size(); j++) {
                 Tile finish = (Tile) this.moves.get(start).get(j);
-                int nextMove = search(start, finish, 4, Integer.MIN_VALUE, Integer.MAX_VALUE, Side.WHITE);
-                if (nextMove < greatestRisk) {
-                    bestStartTile = start;
-                    bestFinishTile = finish;
-                    greatestRisk = nextMove;
+                
+                int nextMove = search(start, finish, 3, Integer.MIN_VALUE, Integer.MAX_VALUE, other);
+                
+                if (side == Side.BLACK) {
+                    if (nextMove < greatestRisk) {
+                        bestStartTile = start;
+                        bestFinishTile = finish;
+                        greatestRisk = nextMove;
+                    }
+                } else {
+                    if (nextMove > greatestRisk) {
+                        bestStartTile = start;
+                        bestFinishTile = finish;
+                        greatestRisk = nextMove;
+                    }
                 }
             }
         }

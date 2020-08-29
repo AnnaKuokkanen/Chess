@@ -35,6 +35,13 @@ public class MiniMax {
         String move = "";
         
         int greatestRisk = Integer.MAX_VALUE;
+        Side other = Side.WHITE;
+        
+        if (side == Side.WHITE) {
+            greatestRisk = Integer.MIN_VALUE;
+            other = Side.BLACK;
+        }
+        
         Tile bestStartTile = null;
         Tile bestFinishTile = null;
         
@@ -42,8 +49,13 @@ public class MiniMax {
             Tile start = (Tile) this.moves.keySet().get(i);
             for (int j = 0; j < this.moves.get(start).size(); j++) {
                 Tile finish = (Tile) this.moves.get(start).get(j);
-                int nextMove = search(start, finish, 2, Side.WHITE);
-                if (nextMove < greatestRisk) {
+                int nextMove = search(start, finish, 2, other);
+                
+                if (side == Side.BLACK && nextMove < greatestRisk) {
+                    bestStartTile = start;
+                    bestFinishTile = finish;
+                    greatestRisk = nextMove;
+                } else if (side == Side.WHITE && nextMove > greatestRisk) {
                     bestStartTile = start;
                     bestFinishTile = finish;
                     greatestRisk = nextMove;

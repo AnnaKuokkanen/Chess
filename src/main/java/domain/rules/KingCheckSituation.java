@@ -169,14 +169,27 @@ public class KingCheckSituation {
     public boolean checkPawn() {     
         PieceName name = PieceName.PAWN;
         
-        if (x - 1 >= 0 && y + 1 < 8 && !tiles[x - 1][y + 1].free()) {
-            if (differentSideAndCorrectPiece(x - 1, y + 1, name)) {
-                return true;
+        if (side == Side.BLACK) {
+            if (x - 1 >= 0 && y + 1 < 8 && !tiles[x - 1][y + 1].free()) {
+                if (differentSideAndCorrectPiece(x - 1, y + 1, name)) {
+                    return true;
+                }
             }
-        }
-        if (x + 1 < 8 && y + 1 < 8 && !tiles[x + 1][y + 1].free()) {
-            if (differentSideAndCorrectPiece(x + 1, y + 1, name)) {
-                return true;
+            if (x + 1 < 8 && y + 1 < 8 && !tiles[x + 1][y + 1].free()) {
+                if (differentSideAndCorrectPiece(x + 1, y + 1, name)) {
+                    return true;
+                }
+            }
+        } else if (side == Side.WHITE) {
+            if (x - 1 >= 0 && y - 1 >= 0 && !tiles[x - 1][y - 1].free()) {
+                if (differentSideAndCorrectPiece(x - 1, y - 1, name)) {
+                    return true;
+                }
+            }
+            if (x + 1 < 8 && y - 1 >= 0 && !tiles[x + 1][y - 1].free()) {
+                if (differentSideAndCorrectPiece(x + 1, y - 1, name)) {
+                    return true;
+                }
             }
         }
         return false;
