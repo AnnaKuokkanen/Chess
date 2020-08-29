@@ -54,8 +54,7 @@ public class KingCheckSituation {
             if (!tiles[x + i][y + i].free()) {
                 if (differentSideAndCorrectPiece(x + i, y + i, name1) || differentSideAndCorrectPiece(x + i, y + i, name2)) {
                     return true;
-                }
-                if (tiles[x + i][y + i].getPiece().getSide() == side) {
+                } else {
                     break;
                 }
             }
@@ -66,8 +65,7 @@ public class KingCheckSituation {
             if (!tiles[x - i][y + i].free()) {
                 if (differentSideAndCorrectPiece(x - i, y + i, name1) || differentSideAndCorrectPiece(x - i, y + i, name2)) {
                     return true;
-                }
-                if (tiles[x - i][y + i].getPiece().getSide() == side) {
+                } else {
                     break;
                 }
             }
@@ -78,8 +76,7 @@ public class KingCheckSituation {
             if (!tiles[x + i][y - i].free()) {
                 if (differentSideAndCorrectPiece(x + i, y - i, name1) || differentSideAndCorrectPiece(x + i, y - i, name2)) {
                     return true;
-                }
-                if (tiles[x + i][y - i].getPiece().getSide() == side) {
+                } else {
                     break;
                 }
             }
@@ -90,8 +87,7 @@ public class KingCheckSituation {
             if (!tiles[x - i][y - i].free()) {
                 if (differentSideAndCorrectPiece(x - i, y - i, name1) || differentSideAndCorrectPiece(x - i, y - i, name2)) {
                     return true;
-                }
-                if (tiles[x - i][y - i].getPiece().getSide() == side) {
+                } else {
                     break;
                 }
             }
@@ -115,8 +111,7 @@ public class KingCheckSituation {
             if (!tiles[x + i][y].free()) {
                 if (differentSideAndCorrectPiece(x + i, y, name1) || differentSideAndCorrectPiece(x + i, y, name2)) {
                     return true;
-                }
-                if (tiles[x + i][y].getPiece().getSide() == side) {
+                } else {
                     break;
                 }
             }
@@ -127,8 +122,7 @@ public class KingCheckSituation {
             if (!tiles[x - i][y].free()) {
                 if (differentSideAndCorrectPiece(x - i, y, name1) || differentSideAndCorrectPiece(x - i, y, name2)) {
                     return true;
-                }
-                if (tiles[x - i][y].getPiece().getSide() == side) {
+                } else {
                     break;
                 }
             }
@@ -139,8 +133,7 @@ public class KingCheckSituation {
             if (!tiles[x][y + i].free()) {
                 if (differentSideAndCorrectPiece(x, y + i, name1) || differentSideAndCorrectPiece(x, y + i, name2)) {
                     return true;
-                }
-                if (tiles[x][y + i].getPiece().getSide() == side) {
+                } else {
                     break;
                 }
             }
@@ -151,8 +144,7 @@ public class KingCheckSituation {
             if (!tiles[x][y - i].free()) {
                 if (differentSideAndCorrectPiece(x, y - i, name1) || differentSideAndCorrectPiece(x, y - i, name2)) {
                     return true;
-                }
-                if (tiles[x][y - i].getPiece().getSide() == side) {
+                } else {
                     break;
                 }
             }
