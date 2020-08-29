@@ -37,6 +37,6 @@ tai kolme ruutua sivusuunnassa. Samalla torni hyppää kuninkaan yli. Oma bottin
 ottaa vain lähtöruudussa olleen nappulan ja siirtää sen kohderuutuun. Tornituksessa kuningas siis siirtyy, mutta tornin sijainti jää päivittymättä.
 
 Tähän sekä nappuloiden korotukseen voisi luoda ehtolauseet vastapuolen siirrot vastaanottavaan metodiin, niin botti ei ainakaan hämäänny tornituksesta
-ja nappuloidne korotuksista.
+ja nappuloiden korotuksista.
 
 Tunteja käytetty: 14
