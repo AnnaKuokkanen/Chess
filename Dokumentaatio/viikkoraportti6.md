@@ -7,7 +7,8 @@ tarkistamisessa, mutta tämä virhe on nyt korjattu.
 Huomasin, että botti jumittuu välillä shakkitilanteissa paikoilleen, vaikka sillä olisi siirtoja. Se ei yritä tehdä väärää 
 siirtoa, vaan jää paikoilleen tekemättä mitään. Kaikki nämä tilanteet ovat tulleet vastaan kun kuningas on ollut shakissa. 
 Mallinsin yhden pöytätilanteista testeissä ja botti kyllä sisälsi oikeat siirrot, mutta jostain syystä pelissä se ei tee mitään.
-Tämä täytyy selvittää seuraavaksi.
+Tämä täytyy selvittää seuraavaksi. Syynä vaikuttaa olevan algoritmi ja erityisesti tilanne, missä hakusyvyys on suurempi kuin 
+olemassaolevat siirrot.
 
 Tällä viikolla kirjoitin Javadocit kaikille sitä vaativille metodeille ja korvasin HashMap-tietorakenteen omalla tietorakenteella.
 Lisäksi muokkasin bottia niin, että se voi (periaatteessa) pelata itseään vastaan. Käytännössä se kuitenkin jumittuu usein paikoilleen, 
