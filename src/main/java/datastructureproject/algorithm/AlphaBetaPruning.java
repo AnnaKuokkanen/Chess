@@ -49,7 +49,7 @@ public class AlphaBetaPruning {
             for (int j = 0; j < this.moves.get(start).size(); j++) {
                 Tile finish = (Tile) this.moves.get(start).get(j);
                 
-                int nextMove = search(start, finish, 3, Integer.MIN_VALUE, Integer.MAX_VALUE, other);
+                int nextMove = search(start, finish, 4, Integer.MIN_VALUE, Integer.MAX_VALUE, other);
                 
                 if (side == Side.BLACK) {
                     if (nextMove <= greatestRisk) {
@@ -70,12 +70,7 @@ public class AlphaBetaPruning {
         move += converter.convertToString(bestStartTile.getX(), bestStartTile.getY());
         move += converter.convertToString(bestFinishTile.getX(), bestFinishTile.getY());
         
-        if (board.getBoard()[bestFinishTile.getX()][bestFinishTile.getY()].getPiece() != null) {
-            board.getBoard()[bestFinishTile.getX()][bestFinishTile.getY()].getPiece().remove();
-        }
-
-        board.getBoard()[bestFinishTile.getX()][bestFinishTile.getY()].setPiece(bestStartTile.getPiece());
-        board.getBoard()[bestStartTile.getX()][bestStartTile.getY()].setPiece(null);
+        board.movePiece(bestStartTile, bestFinishTile);
         
         return move;
     }
@@ -98,11 +93,12 @@ public class AlphaBetaPruning {
         
         Piece startPiece = start.getPiece();
         Piece finishPiece = finish.getPiece();
-        if (finishPiece != null) {
-            finish.getPiece().remove();
-        }
-        finish.setPiece(startPiece);
-        start.setPiece(null);
+//        if (finishPiece != null) {
+//            finish.getPiece().remove();
+//        }
+//        finish.setPiece(startPiece);
+//        start.setPiece(null);
+        board.movePiece(start, finish);
         
         if (side == Side.BLACK) {
             HashMap allMoves = board.getPossibleMoves(side.BLACK);

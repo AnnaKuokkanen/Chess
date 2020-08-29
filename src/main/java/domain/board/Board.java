@@ -106,17 +106,16 @@ public class Board {
                             kingY = finish.getY();
                         } 
                         
-                        if (!finish.free()) {
-                            tiles[finish.getX()][finish.getY()].getPiece().remove();
-                        }
-                        tiles[finish.getX()][finish.getY()].setPiece(startPiece);
-                        tiles[start.getX()][start.getY()].setPiece(null);
+                        movePiece(start, finish);
+                        
                         if (!kingChecked(kingX, kingY, side)) {
                             list.add(finish);
                         } 
+                        
                         tiles[finish.getX()][finish.getY()].getPiece().remove();
                         tiles[finish.getX()][finish.getY()].setPiece(finishPiece);
                         tiles[start.getX()][start.getY()].setPiece(startPiece);
+                        
                         kingX = helperX;
                         kingY = helperY;
                     }
@@ -156,5 +155,18 @@ public class Board {
             }
         }
         return sum; 
+    }
+    
+    /**
+     * Method that moves a piece from start to finish.
+     * @param start is tile where piece is in the beginning
+     * @param finish is tile where piece is moved
+     */
+    public void movePiece(Tile start, Tile finish) {
+        if (!finish.free()) {
+            tiles[finish.getX()][finish.getY()].getPiece().remove();
+        }
+        tiles[finish.getX()][finish.getY()].setPiece(start.getPiece());
+        tiles[start.getX()][start.getY()].setPiece(null);
     }
 }
