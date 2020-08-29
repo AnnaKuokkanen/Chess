@@ -28,8 +28,8 @@ public class AlphaBetaPruning {
      * (for example "e2e4") that is least risky.
      * This method also updates board after move is determined.
      */
-    public String useAlphaBetaPruner() {
-        this.moves = this.board.getPossibleMoves(Side.BLACK);
+    public String useAlphaBetaPruner(Side side) {
+        this.moves = this.board.getPossibleMoves(side);
         
         String move = "";
         

@@ -23,11 +23,12 @@ public class FirstChoice {
     
     /**
      * Method that searches for legal moves.
+     * @param side is the side that is currently making moves
      * @return move in textual form, for example "e2e4".
      * This method also updates board when move is chosen.
      */
-    public String chooseMove() {
-        this.moves = this.board.getPossibleMoves(Side.BLACK);
+    public String chooseMove(Side side) {
+        this.moves = this.board.getPossibleMoves(side);
         
         String move = "";
         

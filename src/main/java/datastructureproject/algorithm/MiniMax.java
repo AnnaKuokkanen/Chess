@@ -24,12 +24,13 @@ public class MiniMax {
     }
 
     /**
+     * @param side is the side making the move
      * @return textual representation of a move 
      * (for example "e2e4") that is least risky.
      * This method also updates board after move is determined.
      */
-    public String useMiniMax() {
-        this.moves = this.board.getPossibleMoves(Side.BLACK);
+    public String useMiniMax(Side side) {
+        this.moves = this.board.getPossibleMoves(side);
         
         String move = "";
         

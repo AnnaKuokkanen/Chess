@@ -1,8 +1,10 @@
 package chess.bot;
 
 import chess.engine.GameState;
+import chess.model.Side;
 import datastructureproject.algorithm.AlphaBetaPruning;
 import datastructureproject.algorithm.FirstChoice;
+import datastructureproject.algorithm.MiniMax;
 import domain.board.Board;
 import domain.board.Tile;
 import domain.board.TileNameConverter;
@@ -15,7 +17,8 @@ public class MyBot implements ChessBot {
 
     private AlphaBetaPruning alphabeta;
     private FirstChoice first;
-    TileNameConverter converter = new TileNameConverter();
+    private MiniMax minmax;
+    private TileNameConverter converter = new TileNameConverter();
     private final Board board = new Board();
     
     public MyBot() {
@@ -49,9 +52,27 @@ public class MyBot implements ChessBot {
             board.getBoard()[finishX][finishY].setPiece(board.getBoard()[startX][startY].getPiece());
             board.getBoard()[startX][startY].setPiece(null);
         }
-        
-        this.alphabeta = new AlphaBetaPruning(board);
 
-        return alphabeta.useAlphaBetaPruner();
+//        this.first = new FirstChoice(board);
+//        
+//        Side side = Side.WHITE;
+//        if (gamestate.getMoveCount() % 2 == 1) {
+//            side = Side.BLACK;
+//        }
+//        return first.chooseMove(side);
+
+//        this.minmax = new MiniMax(board);
+//        Side side = Side.WHITE;
+//        if (gamestate.getMoveCount() % 2 == 1) {
+//            side = Side.BLACK;
+//        }
+//        return minmax.useMiniMax(side);
+
+        this.alphabeta = new AlphaBetaPruning(board);
+        Side side = Side.WHITE;
+        if (gamestate.getMoveCount() % 2 == 1) {
+            side = Side.BLACK;
+        }
+        return alphabeta.useAlphaBetaPruner(side);
     }
 }
