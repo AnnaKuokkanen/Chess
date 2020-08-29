@@ -32,6 +32,11 @@ olla korjattu.
 
 Olen myös huomannut, että kun ajan omaa tekoälyäni muita xboardissa olevia valmiita tekoälyjä vastaan, oma tekoälyni tekee välillä laittomia 
 siirtoja. Kuitenkin kun mallinnan samat pelitilanteet testeissä, kaikki toimii. En ole keksinyt muuta selitystä kuin että oma bottini 
-ehkä menee sekaisin kun vastustaja tornittaa ja siirtoa kuvaava String-olio on jollain tapaa eri muodossa kuin normaalit siirrot. 
+ehkä menee sekaisin kun vastustaja tornittaa. Tornituksessa siirto on muodossa esim. "e1g1" valkoisilla. Tämä kuvaa kuninkaan liikettä kaksi 
+tai kolme ruutua sivusuunnassa. Samalla torni hyppää kuninkaan yli. Oma bottini ei kuitenkaan millään tavalla tarkista vastustajan siirtoja,
+ottaa vain lähtöruudussa olleen nappulan ja siirtää sen kohderuutuun. Tornituksessa kuningas siis siirtyy, mutta tornin sijainti jää päivittymättä.
+
+Tähän sekä nappuloiden korotukseen voisi luoda ehtolauseet vastapuolen siirrot vastaanottavaan metodiin, niin botti ei ainakaan hämäänny tornituksesta
+ja nappuloidne korotuksista.
 
 Tunteja käytetty: 14
