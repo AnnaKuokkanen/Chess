@@ -53,21 +53,6 @@ public class MyBot implements ChessBot {
             board.getBoard()[startX][startY].setPiece(null);
         }
 
-//        this.first = new FirstChoice(board);
-//        
-//        Side side = Side.WHITE;
-//        if (gamestate.getMoveCount() % 2 == 1) {
-//            side = Side.BLACK;
-//        }
-//        return first.chooseMove(side);
-
-//        this.minmax = new MiniMax(board);
-//        Side side = Side.WHITE;
-//        if (gamestate.getMoveCount() % 2 == 1) {
-//            side = Side.BLACK;
-//        }
-//        return minmax.useMiniMax(side);
-
         this.alphabeta = new AlphaBetaPruning(board);
         Side side = Side.WHITE;
         if (gamestate.getMoveCount() % 2 == 1) {
