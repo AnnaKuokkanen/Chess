@@ -93,11 +93,7 @@ public class AlphaBetaPruning {
         
         Piece startPiece = start.getPiece();
         Piece finishPiece = finish.getPiece();
-//        if (finishPiece != null) {
-//            finish.getPiece().remove();
-//        }
-//        finish.setPiece(startPiece);
-//        start.setPiece(null);
+
         board.movePiece(start, finish);
         
         if (side == Side.BLACK) {
