@@ -14,4 +14,12 @@ Tällä viikolla kirjoitin Javadocit kaikille sitä vaativille metodeille ja kor
 Lisäksi muokkasin bottia niin, että se voi (periaatteessa) pelata itseään vastaan. Käytännössä se kuitenkin jumittuu usein paikoilleen, 
 koska samoja siirtoja pääsee tekemään edestakaisin.
 
-Tunteja käytetty: 12
+Edit deadlinen jälkeen: Löysin algoritmista virheen, joka aiheutti NullPointerExceptionin, jos hakusyvyys oli suurempi kuin mahdollisten 
+siirtojen määrä: tällöin Tile start ja Tile finish jäivät nulliksi. Tämän virheen pitäisi olla nyt korjattu. 
+
+Lisäksi löysin virheen kuninkaan shakkitilanteen tarkistamisessa: kun vastapuolen nappuloita etsittiin vaaka- ja pystysuorassa sekä 
+vinosti, tiellä oleva vastapuolen nappula ei "suojannut" shakilta vaikka todellisuudessa näin on. Tällöin esim. jos valkoisen kuninkaan 
+ja mustan lähetin välissä ollut valkoinen ratsu suojasi botin mielestä kuningasta shakilta, mutta musta ratsu ei. Tämäkin ongelma pitäisi 
+olla korjattu
+
+Tunteja käytetty: 14
