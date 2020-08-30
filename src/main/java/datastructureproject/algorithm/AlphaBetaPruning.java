@@ -18,9 +18,11 @@ public class AlphaBetaPruning {
     private final Board board;
     private HashMap moves;
     private final TileNameConverter converter = new TileNameConverter();
+    private final int depth;
     
-    public AlphaBetaPruning(Board board) {
+    public AlphaBetaPruning(Board board, int depth) {
         this.board = board;
+        this.depth = depth;
     }
     
     /**
@@ -49,7 +51,7 @@ public class AlphaBetaPruning {
             for (int j = 0; j < this.moves.get(start).size(); j++) {
                 Tile finish = (Tile) this.moves.get(start).get(j);
                 
-                int nextMove = search(start, finish, 4, Integer.MIN_VALUE, Integer.MAX_VALUE, other);
+                int nextMove = search(start, finish, depth, Integer.MIN_VALUE, Integer.MAX_VALUE, other);
                 
                 if (side == Side.BLACK) {
                     if (nextMove <= greatestRisk) {

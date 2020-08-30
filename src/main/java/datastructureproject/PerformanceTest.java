@@ -9,12 +9,14 @@ import chess.engine.GameState;
  * 
  */
 public class PerformanceTest {
-    
-    private ChessBot bot = new MyBot();
+
+    private static MyBot bot;
     
     public static void main(String[] args) {
-        System.out.println("Hello world");
-        
         int[] depths = new int[] {1, 2, 3, 4};
+        
+        for (int i = 0; i < depths.length; i++) {
+            this.bot = new MyBot(depths[i]);
+        }
     }
 }
