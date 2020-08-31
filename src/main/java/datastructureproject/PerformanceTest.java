@@ -16,6 +16,7 @@ public class PerformanceTest {
     public static void main(String[] args) {
         int[] depths = new int[] {1, 2, 3, 4};
         int moves = 20;
+        long[][] times = new long[depths.length][moves];
         
         for (int i = 0; i < depths.length; i++) {
             bot = new MyBot(depths[i]);
@@ -32,7 +33,17 @@ public class PerformanceTest {
                 bot.nextMove(gamestate);
                 long finish = System.nanoTime();
                 System.out.println("Time passed: " + (finish - begin));
+                times[i][j] = finish - begin;
             }
+        }
+        
+        for (int i = 0; i < depths.length; i++) {
+            long sum = 0;
+            for (int j = 0; j < times.length; j++) {
+                sum += times[i][j];
+            }
+            long average = sum / times.length;
+            System.out.println("Average time for depth " + i + " is " + average);
         }
     }
 }
