@@ -13,7 +13,7 @@ public class MyBotTest {
     
     @Before
     public void setupBot() {
-        this.bot = new MyBot();
+        this.bot = new MyBot(2);
     }
     
 //    @Test

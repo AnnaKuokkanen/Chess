@@ -1,7 +1,6 @@
 package domain.board;
 
 import chess.model.Side;
-import datastructureproject.datastructure.ArrayList;
 import datastructureproject.datastructure.HashMap;
 import domain.pieces.*;
 import org.junit.After;
