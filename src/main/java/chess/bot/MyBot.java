@@ -14,7 +14,7 @@ import domain.board.TileNameConverter;
 public class MyBot implements ChessBot {
 
     private AlphaBetaPruning alphabeta;
-    private TileNameConverter converter = new TileNameConverter();
+    private final TileNameConverter converter = new TileNameConverter();
     private final Board board = new Board();
     private int depth;
     
@@ -38,17 +38,7 @@ public class MyBot implements ChessBot {
             Tile start = opponentTiles[0];
             Tile finish = opponentTiles[1];
             
-            int startX = start.getX();
-            int startY = start.getY();
-            int finishX = finish.getX();
-            int finishY = finish.getY();
-
-            if (board.getBoard()[finishX][finishY].getPiece() != null) {
-                board.getBoard()[finishX][finishY].getPiece().remove();
-            }
-            
-            board.getBoard()[finishX][finishY].setPiece(board.getBoard()[startX][startY].getPiece());
-            board.getBoard()[startX][startY].setPiece(null);
+            board.movePiece(start, finish);
         }
 
         this.alphabeta = new AlphaBetaPruning(board, depth);
