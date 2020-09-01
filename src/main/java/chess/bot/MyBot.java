@@ -19,7 +19,7 @@ public class MyBot implements ChessBot {
     private AlphaBetaPruning alphabeta;
     private final TileNameConverter converter = new TileNameConverter();
     private final Board board = new Board();
-    private int depth;
+    private final int depth;
     
     public MyBot(int depth) {
         this.board.setupBoard();
