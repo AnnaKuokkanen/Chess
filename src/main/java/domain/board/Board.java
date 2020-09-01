@@ -163,10 +163,10 @@ public class Board {
      * @param finish is tile where piece is moved
      */
     public void movePiece(Tile start, Tile finish) {
-        if (!finish.free()) {
+        if (!tiles[finish.getX()][finish.getY()].free()) {
             tiles[finish.getX()][finish.getY()].getPiece().remove();
         }
-        tiles[finish.getX()][finish.getY()].setPiece(start.getPiece());
+        tiles[finish.getX()][finish.getY()].setPiece(tiles[start.getX()][start.getY()].getPiece());
         tiles[start.getX()][start.getY()].setPiece(null);
     }
 }
