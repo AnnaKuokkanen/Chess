@@ -31,7 +31,7 @@ $ xboard
 
   "tira-chess" -fcp "java -jar /home/local/ ..oma polkusi.. /chess/build/libs/chess-all.jar"
   
-Sitten valitse "commit changes" ja "OK".
+Valitse sitten "commit changes" ja "OK".
 
 7. Valitse jälleen Engine ja sen alla Load New 1st Engine.
 
@@ -39,8 +39,7 @@ Sitten valitse "commit changes" ja "OK".
 
 9. Aloita pelaaminen valkoisilla ja botin pitäisi vastata omalla siirrollaan.
 
-
-### HUOM! 
-
-Mode-napin alla voi valita "Machine white", jolloin botin pitäisi pelata valkoisilla, mutta toistaiseksi bottiin ei 
-ole toteutettu tätä toiminnallisuutta, joten tämä ei toimi. 
+Valikosta voi valita myös Mode > Machine white, jolloin botti pelaa valkoisilla, sekä Mode > Two machines, jolloin botti
+pelaa itseään tai jotain muuta ohjelman tekoälyä vastaan. Ohjelma toimii näissä tapauksissa periaatteessa, mutta koska 
+botti arvioi pelitilannetta pelkästään laudalla olevien nappuloiden yhteisarvon perusteella, ohjelma jumittuu usein tekemään 
+samoja siirtoja itseään vastaan.
