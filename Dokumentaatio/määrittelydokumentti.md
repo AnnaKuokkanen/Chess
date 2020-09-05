@@ -5,7 +5,8 @@ Tarkoituksena on rakentaa sekä ihmistä että itseään vastaan shakkia pelaava
 ## Ratkaistavat ongelmat
 
 Ohjelman tulisi osata päättää paras siirto, kun tavoitteena on eliminoida vastapuolen kuninkaan mahdolliset siirrot ja
-estää vastapuolta tekemästä samoin.
+estää vastapuolta tekemästä samoin. Parhaalla siirrolla tarkoitetaan siirtoa, joka minimoi omat menetykset ja maksimoi 
+vastapuolen menetykset.
 
 ## Käytettävät algoritmit
 
@@ -34,8 +35,14 @@ täytyy päivitää pelitilanne vastustajan siirron jälkeen sekä oman siirtons
 
 ## Aika- ja tilavaativuudet
 
-Minimaxin aikavaativuus on O(b^m), missä b on solmun lasten määrä (branching factor) ja m on puun maksimisyvyys. 
-Minimaxin tilavaativuus on 
+Minimaxin aikavaativuus on O(b^m), missä b on solmun lasten määrä (branching factor) ja m on puun maksimikorkeus. 
+Minimaxin tilavaativuus on O(cd), missä c on laillisten siirtojen määrä tietyssä pisteessä, ja d on puun korkeus.
+
+Alfa-beta-karsinnan vaikutus hakuaikaan vaihtelee sen perusteella, missä järjestyksessä siirrot käydään. Jos siirrot käydään 
+parhaimmasta huonoimpaan, voidaan karsia paljon, koska jo käydyn solmun seuraava huonompi sisarus voidaan aina karsia. Jos taas 
+solmut käydään huonoimmasta parhaimpaan, ei voida karsia mitään, joten aikavaativuus on sama kuin Minimaxilla. 
+
+Alfa-beta-karsinnan aikavaativuus on (b^(m/2)) ja tilavaativuus on tällöin O((c/2)d).
 
 ## Lähteet 
 
@@ -46,3 +53,5 @@ Minimaxin tilavaativuus on
 [Minimax - Javatpoint](https://www.javatpoint.com/mini-max-algorithm-in-ai)
 
 [Alpha-Beta-pruning - Wikipedia](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning)
+
+[CIS Temple University](https://cis.temple.edu/~vasilis/Courses/CIS603/Lectures/l7.html#:~:text=The%20time%20complexity%20of%20minimax,the%20leaves%20of%20the%20tree.)
