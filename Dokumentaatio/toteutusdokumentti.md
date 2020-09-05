@@ -11,6 +11,47 @@ rajapinnan avulla antaa sen Appille, joka huolehtii siirron v채litt채misest채 k�
 
 ## Saavutetut aika- ja tilavaativuudet
 
+Algoritmin pseudokoodi:
+
+```
+public String useAlphaBetaPruner(Side side) {
+  bestMove is null
+  for each tile 
+    start = tile
+    for each tile2 in possibleMoves.get(start)
+      finish = tile 
+      nextMove = search(start, finish, depth, -inf, inf, otherSide)
+      
+      if nextMove is as good as previous 
+        generate random and change or keep old
+      if nextMove is better than previous
+        change
+        
+  make bestMove
+  return converted bestMove
+}
+
+public int search(start, finish, depth, alpha, beta, side) {
+  if depth = 0 or node is terminal node
+    reutrn board value
+  board.move(start, finish)
+  get possible moves '
+  currentValue = worst possible
+  for each tile 
+    newStart = tile
+    for each tile2 from possibleMoves.get(newStart)
+      newFinish = tile2
+      
+      newValue = search(newStart, newFinish, depth-1, alpha, beta, otherSide)
+      currentValue = better(newValue, currentValue)
+      if cannot improve 
+        break
+        
+  board situation back to previous
+  return currentValue
+}
+```
+
 ## Huomioita
 
 Algoritmiin on pyritty luomaan satunnaisuutta. Aina kun algoritmi kohtaa sirron, joka on yht채 hyv채 kuin 
