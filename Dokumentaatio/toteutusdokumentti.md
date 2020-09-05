@@ -35,7 +35,7 @@ public int search(start, finish, depth, alpha, beta, side) {
   if depth = 0 or node is terminal node
     reutrn board value
   board.move(start, finish)
-  get possible moves '
+  get possible moves 
   currentValue = worst possible
   for each tile 
     newStart = tile
@@ -51,6 +51,12 @@ public int search(start, finish, depth, alpha, beta, side) {
   return currentValue
 }
 ```
+
+Huonoin tilanne aikavaativuuden kannalta alfa-beta-karsinnassa on jos mitään ei voida karsia ja jokainen seuraava siirto voi parantaa edellistä, 
+joten koko puu käydään läpi. Tällöin aikavaativuus on sama kuin Minimaxilla, eli O(p^k), missä p on solmun keskiverto lasten määrä ja k on puun korkeus. 
+
+Paras tilanne on kuitenkin se, että käymme solmut läpi parhaimmasta huonoimpaan, jolloin voimme jättää puolet solmuista tutkimatta. Tällöin aikavaativuus 
+on O(p^(k/2)). 
 
 ## Huomioita
 
