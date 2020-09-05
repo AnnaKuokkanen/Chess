@@ -43,3 +43,10 @@ Valikosta voi valita myös Mode > Machine white, jolloin botti pelaa valkoisilla
 pelaa itseään tai jotain muuta ohjelman tekoälyä vastaan. Ohjelma toimii näissä tapauksissa periaatteessa, mutta koska 
 botti arvioi pelitilannetta pelkästään laudalla olevien nappuloiden yhteisarvon perusteella, ohjelma jumittuu usein tekemään 
 samoja siirtoja itseään vastaan.
+
+## Pelaaminen Lichessilla
+
+1. Kloonaa projekti
+
+2. Rekisteröidy [Lichessiin](https://lichess.org/signup)
+
