@@ -54,13 +54,37 @@ public class AlphaBetaPruning {
                 int nextMove = search(start, finish, depth, Integer.MIN_VALUE, Integer.MAX_VALUE, other);
                 
                 if (side == Side.BLACK) {
-                    if (nextMove <= greatestRisk) {
+                    if (nextMove == greatestRisk && bestStartTile != null && bestFinishTile != null) {
+                        int random = generateRandom();
+                        if (random < 5) {
+                            bestStartTile = start;
+                            bestFinishTile = finish;
+                        } 
+                    } 
+                    if (nextMove == greatestRisk && bestStartTile == null && bestFinishTile == null) {
+                        bestStartTile = start;
+                        bestFinishTile = finish;
+                        greatestRisk = nextMove;
+                    } 
+                    if (nextMove < greatestRisk) {
                         bestStartTile = start;
                         bestFinishTile = finish;
                         greatestRisk = nextMove;
                     }
                 } else {
-                    if (nextMove >= greatestRisk) {
+                    if (nextMove == greatestRisk && bestStartTile != null && bestFinishTile != null) {
+                        int random = generateRandom();
+                        if (random < 5) {
+                            bestStartTile = start;
+                            bestFinishTile = finish;
+                        } 
+                    } 
+                    if (nextMove == greatestRisk && bestStartTile == null && bestFinishTile == null) {
+                        bestStartTile = start;
+                        bestFinishTile = finish;
+                        greatestRisk = nextMove;
+                    }
+                    if (nextMove > greatestRisk) {
                         bestStartTile = start;
                         bestFinishTile = finish;
                         greatestRisk = nextMove;
@@ -140,4 +164,8 @@ public class AlphaBetaPruning {
             return currentValue;
         }
     } 
+    
+    public int generateRandom() {
+        return (int) System.nanoTime() % 10;
+    }
 }
