@@ -39,8 +39,7 @@ public class PerformanceTest {
                 sum += times[i][j];
             }
             long average = sum / times.length;
-            System.out.println("Average time for depth " + depths[i] + " is " + average 
-                                + " ns (" + (long) average / 1000000000 + " s)");
+            System.out.println("Average time for depth " + depths[i] + " is " + average + " ns");
         }
     }
 }
