@@ -3,7 +3,19 @@
 ## Arkkitehtuuri
 ![Arkkitehtuuri](arkkitehtuuri.png)
 
+Tällä hetkellä nappulat perivät abstraktin luokan Piece. Jokaisella nappulalla, joka on laudalla on sijainti, Tile. Lauta muodostuu 
+64 Tilesta. Board-luokka käy läpi jokaisen ruudun, tarkistaa, onko siinä nappulaa ja jos on, pyytää nappulan lailliset siirrot. 
+Sitten Board käyttää Rules-luokan metodia ja tarkistaa, mitkä metodit eivät johda shakkiin. Nämä ovat tietyn puolen lailliset siirrot, 
+jotka Board välittää algoritmille. Algoritmi valitsee näistä parhaan, kääntää sen tekstimuotoon ja välittää MyBotille, joka ChessBot- 
+rajapinnan avulla antaa sen Appille, joka huolehtii siirron välittämisestä käyttöliittymäohjelmalle. 
+
 ## Saavutetut aika- ja tilavaativuudet
+
+## Huomioita
+
+Algoritmiin on pyritty luomaan satunnaisuutta. Aina kun algoritmi kohtaa sirron, joka on yhtä hyvä kuin 
+nykyinen paras siirto, se generoi satunnaisen luvun väliltä 0-10, ja jos luku on pienempi kuin 5, se vaihtaa parhaan siirron 
+uuteen. Muussa tapauksessa se pitää vanhan siirron ennallaan. 
 
 ## Parannusehdotuksia
 
