@@ -46,7 +46,34 @@ samoja siirtoja itseään vastaan.
 
 ## Pelaaminen Lichessilla
 
+Tarvittaessa tarkemmat ohjeet löytyvät [Lichessin API:sta](https://lichess.org/api)
+
 1. Kloonaa projekti
 
 2. Rekisteröidy [Lichessiin](https://lichess.org/signup)
 
+3. Luo uusi [API access token](https://lichess.org/signup)
+
+4. Päivitä käyttäjäsi botiksi:
+
+```
+$ curl -d '' https://lichess.org/api/bot/account/upgrade -H "Authorization: Bearer INSERT YOUR TOKEN HERE"
+
+```
+5. On kaksi tapaa välittää käyttäjäsi botille:
+
+a) lisää käyttäjäsi komentoriviltä
+
+b) voit välittää Lichess tokenin LICHESS_TOKEN-ympäristömuuttujan avulla 
+
+6. Kirjautumisen jälkeen valitse "PLAY WITH THE COMPUTER" ja valitse puolesi. Kirjoita terminaalissa $ ./gradlew build,
+sitten joko 
+
+```
+$ ./gradlew run --args="--lichess"
+```
+(jos välität tokenin ympäristömuuttujana) tai 
+
+```
+$ ./gradlew run --args="--lichess --token=oma_token" 
+```
