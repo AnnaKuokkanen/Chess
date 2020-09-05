@@ -27,9 +27,13 @@ public class AlphaBetaPruning {
     
     /**
      * @param side is the side making the move
-     * @return textual representation of a move 
-     * (for example "e2e4") that is least risky.
+     * @return textual representation of a move, 
+     * for example "e2e4", that is least risky.
+     * If there are several moves that are equally good, algorithm
+     * generates a random number between 0 and ten and uses it to 
+     * determine whether to switch moves or not.
      * This method also updates board after move is determined.
+     * 
      */
     public String useAlphaBetaPruner(Side side) {
         this.moves = this.board.getPossibleMoves(side);
