@@ -6,6 +6,7 @@ import chess.model.Side;
 import domain.board.Board;
 import domain.pieces.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,7 +47,16 @@ public class AlphaBetaPruningTest {
     }
     
     @Test
-    public void testSecondGameSituation() {
+    public void doesAlgorithmLookForwardMoreThanOneMove() {
+        board.getBoard()[4][7].setPiece(new King(Side.WHITE));
+        board.getBoard()[4][0].setPiece(new Queen(Side.WHITE));
         
+        board.getBoard()[7][1].setPiece(new King(Side.BLACK));
+        board.getBoard()[2][3].setPiece(new Rook(Side.BLACK));
+        board.getBoard()[6][2].setPiece(new Pawn(Side.BLACK));
+        
+        AlphaBetaPruning ab = new AlphaBetaPruning(board, 3);
+        
+        assertEquals("e8e7", (ab.useAlphaBetaPruner(Side.WHITE)));
     }
 }
