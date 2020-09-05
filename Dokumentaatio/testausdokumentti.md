@@ -28,7 +28,8 @@ Suorituskykytestien visualisaatio:
 
 ![Suorituskyky](suorituskyky.png)
 
-Suorituskykytesti on luokassa PerformanceTest.java. Testi voidaan ajaa komentoriviltä komennolla $ ./gradlew run PerformanceTest.java
+Suorituskykytesti on luokassa PerformanceTest.java. Testi voidaan ajaa komentoriviltä komennolla $ ./gradlew run PerformanceTest.java.
+Tämä tosin antaa tulokset vain nykyiselle botin algoritmille, eli minimaille alfa-beta-karsinnalla.
 
 | syvyys | Minimax (ns) | Alpha-beta (ns) |
 ---------|--------------|-----------------|
