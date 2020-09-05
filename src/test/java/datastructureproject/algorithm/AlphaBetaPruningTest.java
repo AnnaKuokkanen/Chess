@@ -29,7 +29,7 @@ public class AlphaBetaPruningTest {
         
         AlphaBetaPruning ab = new AlphaBetaPruning(board, 2);
         
-        assertEquals("h8h5", ab.useAlphaBetaPruner(Side.WHITE));
+        assertEquals("h8e8", ab.useAlphaBetaPruner(Side.WHITE));
     }
     
     @Test
