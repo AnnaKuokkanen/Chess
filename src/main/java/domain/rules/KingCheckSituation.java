@@ -52,7 +52,8 @@ public class KingCheckSituation {
         int i = 1;
         while (x + i < 8 && y + i < 8) {
             if (!tiles[x + i][y + i].free()) {
-                if (differentSideAndCorrectPiece(x + i, y + i, name1) || differentSideAndCorrectPiece(x + i, y + i, name2)) {
+                if (differentSideAndCorrectPiece(x + i, y + i, name1) 
+                    || differentSideAndCorrectPiece(x + i, y + i, name2)) {
                     return true;
                 } else {
                     break;
@@ -63,7 +64,8 @@ public class KingCheckSituation {
         i = 1;
         while (x - i >= 0 && y + i < 8) {
             if (!tiles[x - i][y + i].free()) {
-                if (differentSideAndCorrectPiece(x - i, y + i, name1) || differentSideAndCorrectPiece(x - i, y + i, name2)) {
+                if (differentSideAndCorrectPiece(x - i, y + i, name1) 
+                    || differentSideAndCorrectPiece(x - i, y + i, name2)) {
                     return true;
                 } else {
                     break;
@@ -74,7 +76,8 @@ public class KingCheckSituation {
         i = 1;
         while (x + i < 8 && y - i >= 0) {
             if (!tiles[x + i][y - i].free()) {
-                if (differentSideAndCorrectPiece(x + i, y - i, name1) || differentSideAndCorrectPiece(x + i, y - i, name2)) {
+                if (differentSideAndCorrectPiece(x + i, y - i, name1) 
+                    || differentSideAndCorrectPiece(x + i, y - i, name2)) {
                     return true;
                 } else {
                     break;
@@ -85,7 +88,8 @@ public class KingCheckSituation {
         i = 1;
         while (x - i >= 0 && y - i >= 0) {
             if (!tiles[x - i][y - i].free()) {
-                if (differentSideAndCorrectPiece(x - i, y - i, name1) || differentSideAndCorrectPiece(x - i, y - i, name2)) {
+                if (differentSideAndCorrectPiece(x - i, y - i, name1) 
+                    || differentSideAndCorrectPiece(x - i, y - i, name2)) {
                     return true;
                 } else {
                     break;
