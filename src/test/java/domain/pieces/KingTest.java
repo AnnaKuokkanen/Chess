@@ -3,7 +3,6 @@ package domain.pieces;
 import chess.model.Side;
 import datastructureproject.datastructure.ArrayList;
 import domain.board.*;
-//import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -28,7 +27,7 @@ public class KingTest {
     }
     
     @Test
-    public void doesKingHaveRightMovesWhenThereAreSameSidePieces() {
+    public void doesKingStayIfTilesAreOccupiedBySameSidePieces() {
         this.board = new Board();
         this.board.setupBoard();
         
@@ -53,7 +52,7 @@ public class KingTest {
     }
     
     @Test
-    public void doesKingMoveWhenThereAreOppositePieces() {
+    public void doesKingMoveWhenTilesOccupiedByOpponents() {
         this.board = new Board();
         this.board.setupBoard();
         
@@ -86,7 +85,7 @@ public class KingTest {
     }
     
     @Test
-    public void doesKingMoveWhenThereIsFreeSpace() {
+    public void doesKingMoveWhenTilesAreFree() {
         this.board = new Board();
         this.board.setupBoard();
         

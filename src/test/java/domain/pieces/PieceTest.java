@@ -43,13 +43,24 @@ public class PieceTest {
         
         King king2 = new King(Side.BLACK);
         king2.setLocation(1, 1);
+        
         assertFalse(king2.equals(king));
         
         Pawn pawn = new Pawn(Side.BLACK);
         pawn.setLocation(0, 0);
+        
         Pawn pawn2  = new Pawn(Side.BLACK);
         pawn2.setLocation(2, 2);
+        
         assertFalse(pawn.equals(pawn2));
+        
+        Queen queen = new Queen(Side.WHITE);
+        queen.setLocation(3, 3);
+        
+        Queen queen2 = new Queen(Side.WHITE);
+        queen2.setLocation(3, 3);
+        
+        assertTrue(queen.equals(queen2));
     }
     
     @Test

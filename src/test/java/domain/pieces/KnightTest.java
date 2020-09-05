@@ -3,7 +3,6 @@ package domain.pieces;
 import chess.model.Side;
 import datastructureproject.datastructure.ArrayList;
 import domain.board.*;
-//import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;

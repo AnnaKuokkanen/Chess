@@ -79,7 +79,7 @@ public class RookTest {
     }
     
     @Test
-    public void doesRookStayIfTilesAreOccupiedBySameSidePieces() {
+    public void doesRookStayWhenTilesAreOccupiedBySameSidePieces() {
         this.board = new Board();
         this.board.setupBoard();
         ArrayList moves = new ArrayList();

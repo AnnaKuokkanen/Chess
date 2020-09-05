@@ -72,7 +72,7 @@ public class QueenTest {
     }
     
     @Test
-    public void doesQueenStayIfTilesAreOccupiedBySameSidePieces() {
+    public void doesQueenStayWhenTilesAreOccupiedBySameSidePieces() {
          this.board = new Board();
         this.board.setupBoard();
         ArrayList moves = new ArrayList();
