@@ -31,7 +31,7 @@ Suorituskykytestien visualisaatio:
 Suorituskykytesti on luokassa PerformanceTest.java. Testi voidaan ajaa komentoriviltä komennolla $ ./gradlew run PerformanceTest.java
 
 | syvyys | Minimax (ns) | Alpha-beta (ns) |
--------------------------------------------
+---------|--------------|-----------------|
 | 1 | 5844424 | 3716258 |
 | 2 | 12007603 | 10195893 |
 | 3 | 81951213 | 69698823 |
