@@ -58,7 +58,6 @@ Tarvittaessa tarkemmat ohjeet löytyvät [Lichessin API:sta](https://lichess.org
 
 ```
 $ curl -d '' https://lichess.org/api/bot/account/upgrade -H "Authorization: Bearer INSERT YOUR TOKEN HERE"
-
 ```
 5. On kaksi tapaa välittää käyttäjäsi botille:
 
