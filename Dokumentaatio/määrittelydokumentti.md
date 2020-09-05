@@ -42,7 +42,8 @@ Alfa-beta-karsinnan vaikutus hakuaikaan vaihtelee sen perusteella, missä järje
 parhaimmasta huonoimpaan, voidaan karsia paljon, koska jo käydyn solmun seuraava huonompi sisarus voidaan aina karsia. Jos taas 
 solmut käydään huonoimmasta parhaimpaan, ei voida karsia mitään.
 
-Alfa-beta-karsinnan aikavaativuus on (b^(m/2)) ja tilavaativuus on tällöin O((c/2)d).
+Alfa-beta-karsinnan aikavaativuus on parhaimmillaan (b^(m/2)) ja tilavaativuus on tällöin O((c/2)d). Huonoimmassa tapauksessa nämä 
+ovat samat kuin Minimaxilla.
 
 ## Lähteet 
 
