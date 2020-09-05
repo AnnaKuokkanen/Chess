@@ -1,7 +1,5 @@
 package domain.board;
 
-import chess.model.Side;
-
 /**
  * This class provides methods for converting moves 
  * from Tile pairs to String and from String format to 
