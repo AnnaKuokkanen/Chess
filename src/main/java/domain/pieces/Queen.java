@@ -1,4 +1,5 @@
 package domain.pieces;
+
 import chess.model.Side;
 import domain.board.*;
 import domain.rules.Rules;

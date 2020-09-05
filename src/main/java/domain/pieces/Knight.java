@@ -2,7 +2,6 @@ package domain.pieces;
 
 import chess.model.Side;
 import domain.board.*;
-//import java.util.ArrayList;
 import datastructureproject.datastructure.ArrayList;
 
 public class Knight extends Piece {
