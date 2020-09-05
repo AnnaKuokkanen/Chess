@@ -34,8 +34,7 @@ jacocoTestReport {
                                         'logging/*',
                                         '**/*TestBot*',
                                         'chess/connection*',
-                                        'datastructureproject/PerformanceTest*',
-                                        'datastructureproject.algorithm/FirstChoice*'])
+                                        'datastructureproject/PerformanceTest*'])
         }))
     } 
 }
